@@ -1,0 +1,3 @@
+This folder contains the current version of the ms only and the current figs (not in subfolders!!)
+- For manual version control, all ms and figure files go into old with version number increase by one every time
+- For git version control, this contains only the current ms file, with each submission be saved separately in the respective subfolder (old would be obsolete then)

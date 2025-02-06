@@ -1,0 +1,2 @@
+The figures will be renamed only for the submissions
+Pipeline for the creation of each of the figs
