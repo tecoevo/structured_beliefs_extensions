@@ -1,0 +1,139 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[titletoc]{appendix}
+\usepackage{graphicx}
+\usepackage{lineno}
+\usepackage{multirow}
+\usepackage[english]{babel}
+\usepackage{typearea} 
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage[colorinlistoftodos]{todonotes}
+\newcommand{\Fig}[1]{Figure~\ref{fig:#1}}
+
+\renewcommand{\baselinestretch}{1.5}
+\newcommand{\bbar}[1]{\overline{#1}}
+
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[font={small},labelfont={bf},justification=justified,margin=0.5cm]{caption}
+
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+
+\usepackage{color}
+	 \definecolor{darkred}{rgb}{0.9,0,0}
+%	 \definecolor{darkgreen}{rgb}{0,0.5,0}
+	 \definecolor{darkblue}{rgb}{0,0,0.75}
+%	 \definecolor{magenta}{rgb}{0,0,0.75}
+\newcommand{\hhone}{(H,H,1)}
+\newcommand{\hhtwo}{(H,H,2)}
+\newcommand{\hsone}{(H,S,1)}
+\newcommand{\hstwo}{(H,S,2)}
+\newcommand{\shone}{(S,H,1)}
+\newcommand{\shtwo}{(S,H,2)}
+\newcommand{\ssone}{(S,S,1)}
+\newcommand{\sstwo}{(S,S,2)}
+
+\newcommand{\hhstar}{(H,H,$\star$)}
+
+
+\usepackage{hyperref}
+\definecolor{darkgreen}{rgb}{0.1,0.6,0.3}
+\definecolor{darkred}{rgb}{0.6,0.3,0.1}
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,          % color of internal links (change box color with linkbordercolor)
+    citecolor=darkgreen,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor= black           % color of external links
+}
+
+
+% remove this before we submit...
+\definecolor{greenie}{rgb}{0.1,0.62,0.0}
+\definecolor{orange}{rgb}{0.9,0.3,0.0}
+\definecolor{deepblue}{rgb}{0.0,0.0,0.7}
+\newcommand{\marcus}[1]{{\color{orange}{#1}}}
+\newcommand{\chaitanya}[1]{{\color{greenie}{#1}}}
+\newcommand{\cha}[1]{\textcolor{darkgreen}{(#1)}}
+\newcommand{\joe}[1]{{\color{deepblue}{#1}}}
+
+\title{\vspace*{-22mm}\bf Title}
+%\author{Chaitanya S. Gokhale$^{1}$, Joseph Bulbulia$^{2,3}$, Marcus Frean$^{4}$\\
+%\normalsize $^1$Research Group for Theoretical Models of Eco-evolutionary Dynamics\\
+%\normalsize Department of Evolutionary Theory, \\
+%\normalsize Max-Planck Institute for Evolutionary Biology, 24306 Pl\"{o}n, Germany, \\
+%\normalsize $^2$School of Humanities, Faculty of Arts, University of Auckland, New Zealand \\
+%\normalsize $^3$Max Planck Institute for the Science of Human History, Jena, Germany \\
+%\normalsize $^4$School of Engineering and Computer Science, \\
+%\normalsize Victoria University of Wellington, New Zealand
+%}
+
+
+\date{}
+
+\begin{document}
+
+\linenumbers
+\maketitle
+
+\begin{abstract}
+% Suggest we set this up differently:
+Abstract stuff
+\end{abstract}
+
+
+\noindent
+Keywords: social evolution, culture, narratives, stag-hunt
+
+
+%\tableofcontents
+
+\section{Introduction}
+
+
+%\textbf{Collective cooperation and resource dynamics}.
+%
+
+\section{The stag hunt}
+
+
+\section{Discussion}
+
+
+\textbf{Code availability}.
+Appropriate  computer code describing the model is available at 
+\texttt{ REDACTED for review}.% {\url{https://github.com/tecoevo/beliefs}}.
+
+\section{Acknowledgements}
+\texttt{ REDACTED for review}.% {\url{https://github.com/tecoevo/beliefs}}.
+
+
+\bibliographystyle{naturemag}
+\bibliography{et.bib}
+
+\renewcommand{\theequation}{SI.\arabic{equation}}
+\setcounter{equation}{0}
+
+\renewcommand{\thefigure}{SI.\arabic{figure}}
+\setcounter{figure}{0}
+
+\section{Supplementary material}
+
+
+\subsection{Analysis of the simple system}
+
+\bibliography{et.bib}
+
+
+\end{document}
