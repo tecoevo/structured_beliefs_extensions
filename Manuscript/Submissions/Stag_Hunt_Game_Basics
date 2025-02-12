@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\begin{document}
+
+\title{Report on Stag Hunt Game Basics}
+\author{Sagnik Haldar}
+\date{12/02/25}
+\maketitle
+
+\section{Introduction} In game theory, the Stag Hunt is a well-known example that describes decision processes in situations with cooperation or competition. This work explores the dynamics of multiple rounds with multiple players' choices to gain insights into the frequency of cooperation as Stag strategies and individualism as Hare strategies, along with their corresponding payoffs. The code incorporates a stochastic component, which means that at each round, players select their actions randomly, and the rewards they obtain are a function of the entire group's actions.
+
+\section{Code Overview}
+The code consists of two main functions:
+\begin{itemize}
+    \item \textbf{play\_rounds()}: For a given number of players $N$, it simulates a round of the Stag Hunt game. Individuals select between a Stag and a Hare, while rewards depend on what actions others choose.
+    \item \textbf{simulate\_game(Rounds)}: Executes the game for a defined number of rounds, tracking the number of Stag and Hare hunters, as well as the average payoff per round.
+\end{itemize}
+
+
+The final output displays the results for each round, showing the number of players choosing each strategy and their corresponding average payoffs.
+
+\section{Methodology}
+\begin{itemize}
+\item \textbf{Player Choices}: Each player randomly selects either \textit{Stag} or \textit{Hare}.
+\item \textbf{Success Criteria}:
+\begin{itemize}
+\item If at least  players choose \textit{Stag}, they receive the \textbf{Stag success payoff} ($3$); otherwise, they receive the \textbf{Stag failure payoff} ($0$).
+\item Players choosing \textit{Hare} always receive a fixed payoff ($2$), regardless of others' decisions.
+\end{itemize}
+\item \textbf{Payoff Calculation}: Individual payoffs are stored and averaged for each round.
+\item \textbf{Data Tracking}: The simulation tracks:
+\begin{itemize}
+\item The number of Stag and Hare hunters per round.
+\item The average payoff across all players per round.
+\end{itemize}
+\end{itemize}
+
+\section{Observations and Analysis}
+\begin{itemize}
+\item The proportion of players choosing \textit{Stag} versus \textit{Hare} varies randomly across rounds.
+\item Fewer than $M$ players choose \textit{Stag}, they receive no payoff, making \textit{Hare} a safer choice in such rounds.
+\item The average payoff fluctuates depending on the frequency of successful Stag hunts.
+\item Since choices are random, cooperative behavior (hunting Stag) is favored for a very few rounds, highlighting the risk associated with relying on others for success.
+\end{itemize}
+
+\section{Key Findings from a Theoretical Perspective}
+\begin{itemize}
+\item \textbf{Coordination and Risk Dominance}: The game reflects a classic  problem of coordination, where mutual cooperation (choosing \textit{Stag}) leads to higher rewards but requires trust in others making the same decision. When cooperation fails, players who chose \textit{Stag} receive no payoff, reinforcing individualistic behavior.
+\item \textbf{Stability of Strategies}: The results indicate that cooperative (Stag) behavior emerges intermittently but is not stable across rounds. In multiple instances, fewer than players opted for \textit{Stag}, leading to suboptimal payoffs for those who did.
+\item \textbf{Equilibrium Considerations}: The game exhibits two states of equilibrium:
+\begin{enumerate}
+\item A cooperative equilibrium where all players choose \textit{Stag}, yielding the highest group payoff.
+\item A risk-dominant equilibrium where all players choose \textit{Hare}, avoiding potential losses associated with unsuccessful cooperation.
+\end{enumerate}
+\item \textbf{Payoff Trends}: The average payoff fluctuates between $1.20$ and $2.80$. Higher average payoffs ($2.60–2.80$) occur when a majority hunt Stag successfully. Lower payoffs ($1.20-1.60$) suggest failure in forming cooperative clusters, pushing players towards individualistic strategies.
+\end{itemize}
+
+\section{Conclusion}
+This simulation provides a basic yet insightful model of strategic decision-making in uncertain environments. It demonstrates the inherent risk and reward structure of cooperative strategies versus individualistic strategies. Future improvements could include:
+\begin{itemize}
+\item Implementing learning or strategy adaptation mechanisms.
+\item Varying player behavior based on past experiences.
+\item Introducing different probability distributions for decision-making.
+\end{itemize}
+
+This study serves as a foundation for further exploration into game-theoretic models and their applications in behavioral and evolutionary dynamics.
+
+\end{document}
