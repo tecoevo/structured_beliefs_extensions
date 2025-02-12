@@ -59,12 +59,8 @@ The final output displays the results for each round, showing the number of play
 \end{itemize}
 
 \section{Conclusion}
-This simulation provides a basic yet insightful model of strategic decision-making in uncertain environments. It demonstrates the inherent risk and reward structure of cooperative strategies versus individualistic strategies. Future improvements could include:
-\begin{itemize}
-\item Implementing learning or strategy adaptation mechanisms.
-\item Varying player behavior based on past experiences.
-\item Introducing different probability distributions for decision-making.
-\end{itemize}
+This simulation provides a basic yet insightful model of strategic decision-making in uncertain environments. It demonstrates the inherent risk and reward structure of cooperative strategies versus individualistic strategies.
+end{itemize} 
 
 This study serves as a foundation for further exploration into game-theoretic models and their applications in behavioral and evolutionary dynamics.
 
