@@ -27,7 +27,7 @@ The final output displays the results for each round, showing the number of play
 \item \textbf{Player Choices}: Each player randomly selects either \textit{Stag} or \textit{Hare}.
 \item \textbf{Success Criteria}:
 \begin{itemize}
-\item If at least  players choose \textit{Stag}, they receive the \textbf{Stag success payoff} ($3$); otherwise, they receive the \textbf{Stag failure payoff} ($0$).
+\item If at least $M$ players choose \textit{Stag}, they receive the \textbf{Stag success payoff} ($3$); otherwise, they receive the \textbf{Stag failure payoff} ($0$).
 \item Players choosing \textit{Hare} always receive a fixed payoff ($2$), regardless of others' decisions.
 \end{itemize}
 \item \textbf{Payoff Calculation}: Individual payoffs are stored and averaged for each round.
@@ -49,7 +49,7 @@ The final output displays the results for each round, showing the number of play
 \section{Key Findings from a Theoretical Perspective}
 \begin{itemize}
 \item \textbf{Coordination and Risk Dominance}: The game reflects a classic  problem of coordination, where mutual cooperation (choosing \textit{Stag}) leads to higher rewards but requires trust in others making the same decision. When cooperation fails, players who chose \textit{Stag} receive no payoff, reinforcing individualistic behavior.
-\item \textbf{Stability of Strategies}: The results indicate that cooperative (Stag) behavior emerges intermittently but is not stable across rounds. In multiple instances, fewer than players opted for \textit{Stag}, leading to suboptimal payoffs for those who did.
+\item \textbf{Stability of Strategies}: The results indicate that cooperative (Stag) behavior emerges intermittently but is not stable across rounds. In multiple instances, fewer than $M$ players opted for \textit{Stag}, leading to suboptimal payoffs for those who did.
 \item \textbf{Equilibrium Considerations}: The game exhibits two states of equilibrium:
 \begin{enumerate}
 \item A cooperative equilibrium where all players choose \textit{Stag}, yielding the highest group payoff.
@@ -60,7 +60,7 @@ The final output displays the results for each round, showing the number of play
 
 \section{Conclusion}
 This simulation provides a basic yet insightful model of strategic decision-making in uncertain environments. It demonstrates the inherent risk and reward structure of cooperative strategies versus individualistic strategies.
-end{itemize} 
+\end{itemize} 
 
 This study serves as a foundation for further exploration into game-theoretic models and their applications in behavioral and evolutionary dynamics.
 
