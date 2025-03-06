@@ -1,3 +1,4 @@
+
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{times}
@@ -16,6 +17,7 @@
 \usepackage{wrapfig}
 \usepackage{lscape}
 \usepackage{rotating}
+\usepackage[numbers]{natbib}
 \usepackage[colorinlistoftodos]{todonotes}
 \newcommand{\Fig}[1]{Figure~\ref{fig:#1}}
 
@@ -31,10 +33,10 @@
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
 
 \usepackage{color}
-	 \definecolor{darkred}{rgb}{0.9,0,0}
-%	 \definecolor{darkgreen}{rgb}{0,0.5,0}
-	 \definecolor{darkblue}{rgb}{0,0,0.75}
-%	 \definecolor{magenta}{rgb}{0,0,0.75}
+         \definecolor{darkred}{rgb}{0.9,0,0}
+%         \definecolor{darkgreen}{rgb}{0,0.5,0}
+         \definecolor{darkblue}{rgb}{0,0,0.75}
+%         \definecolor{magenta}{rgb}{0,0,0.75}
 \newcommand{\hhone}{(H,H,1)}
 \newcommand{\hhtwo}{(H,H,2)}
 \newcommand{\hsone}{(H,S,1)}
@@ -68,6 +70,7 @@
 \newcommand{\cha}[1]{\textcolor{darkgreen}{(#1)}}
 \newcommand{\joe}[1]{{\color{deepblue}{#1}}}
 
+
 \title{\vspace*{-22mm}\bf Title}
 %\author{Chaitanya S. Gokhale$^{1}$, Joseph Bulbulia$^{2,3}$, Marcus Frean$^{4}$\\
 %\normalsize $^1$Research Group for Theoretical Models of Eco-evolutionary Dynamics\\
@@ -83,6 +86,8 @@
 \date{}
 
 \begin{document}
+
+
 
 \linenumbers
 \maketitle
@@ -101,12 +106,13 @@ Keywords: social evolution, culture, narratives, stag-hunt
 
 \section{Introduction}
 gwbniwbwnijb
-\cite{skyrms:book:2003}
+
 
 %\textbf{Collective cooperation and resource dynamics}.
 %
 
 \section{The dynamics stag hunt}
+\subsection{Replicator Dynamics}
 
 Replicator dynamics is the core idea of evolutionary dynamics. Replicator dynamics determines how the frequency of different strategies in a population changes over time.
 We can analyze the equation used to determine replicator dynamics mathematically.
@@ -147,30 +153,18 @@ We will have three certain conditions,
 $x=0$ and $x=1$ will be the two end points of a single line simplex and the joining point for the frequency graph and the dynamics of this frequency depends on the values of $f_a$ and $f_b$. If $f_a>f_b$ then the curve will be over the $0$ if $f_a<f_b$ then the curve will be under $0$, and for the condition $f_a=f_b$, it will make a straight line between the $0$ and $1$.For a visual representation of this graph, we can plot this equation for different values of $f_a$ and $f_b$ using Python.
 \begin{figure}[h]
         \centering
-        \includegraphics[width=0.5\linewidth]{Figure_1.png}
+        \includegraphics[width=0.5\linewidth]{Figure_1 (1).png}
         \label{fig:Visualization of $x_a(1-x_a)(f_a-f_b)=0$}
     \end{figure}
 We can get different conditions from this equation and graph. 
-(1) Dominance: Where any of the two strategies will be dominant over another, means, for example if $f_a>f_b$ then strategy $a$ will be dominant over strategy $b$. It will be possible if the $a_1>b_1$ and $a_0>b_0$ where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player game.
+(1) Dominance: Where any of the two strategies will be dominant over another, means, for example, if $f_a>f_b$ that strategy $a$ will be dominant over strategy $b$. It will be possible if the $a_1>b_1$ and $a_0>b_0$ where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player game.
 (2) Co-existence: It happens when one of the two strategies is rare and has an advantage for that. For example, if strategy $a$ is rare, then $f_a>f_b$ if $a$ becomes abundant, it will lose its advantage, so the inequality will be  $f_a<f_b$ and there will be a saturation point while becoming abundant from rare when the equation will $f_a=f_b$. In this scenario, the player should play the rare strategy.
-(3) Bi-stability: A condition where all $a$ and $b$ will be stable means a strategy will get an advantage if it is abundant. For example, if strategy $a$ is abundant then the inequality will be $f_a>f_b$ and if it becomes rare then the inequality will be $f_a<f_b$ and there will be a saturation point when $f_a=f_b$. For this condition, the player should play the strategy that its opponent is playing.
-(4) Neutrality: Now we have one condition in which both strategies will have the same impact. It does not depend on the change on the strategy. The equation for this strategy will be $f_a=f_b$. We mentioned this neutrality condition as saturation point before.
+(3) Bi-stability: A condition where all $a$ and $b$ will be stable means a strategy will get an advantage if it is abundant. For example, if strategy $a$ is abundant then the inequality will be $f_a>f_b$ and if it becomes rare then the inequality will be $f_a<f_b$ and there will be a saturation point when $f_a=f_b$. For this condition, the player should play the strategy its opponent is playing.
+(4) Neutrality: Now we have one condition in which both strategies will have the same impact. It does not depend on the change on the strategy. The equation for this strategy will be $f_a=f_b$. We mentioned this neutrality condition as a saturation point before\cite{Gokhale2011}.
+
 \subsection{Stochastic Process and Finite Population}
 In the previous subsection, we used an infinite population for the deterministic approach. Now, we will proceed with a finite population. There are mainly two reasons to use a finite population: first, it is realistic, and second, it is a natural way to introduce randomness into the replicator dynamics.
-Now, we can consider the finite population of a specific game as $N$.Let's assume there are two strategies $a$ and $b$. Frequencies for $a$ and $b$ are $i$ and $(N-i)$. We can write the payoff matrix according to this specification,\cite{@PhdThesis{diss_mods_00006381,
-  author = 	{Gokhale, Chaitanya},
-  title = 	{Evolutionary dynamics on multi-dimensional fitness landscapes},
-  year = 	{2011},
-  publisher = 	{Christian-Albrechts-Universit{\"a}t zu Kiel},
-  address = 	{Kiel},
-  keywords = 	{evolutionary dynamics; evolutionary game theory},
-  abstract = 	{Evolution is the common theme linking everything in biology from individual alleles to languages. Darwin believed that those who were mathematically inclined had a different insight and he regretted not having it. He probably would feel gratified knowing that now evolution has gained a solid mathematical foundation. The general principles of evolution can be represented by precise mathematical equations. Simplicity is invoked by making use of the minimum factors that matter.
-But we cannot even imagine how many factors a single honeybee takes into account to vouch for a particular flower. How can we take this complexity into account if we aim at retrieving simple tractable explanations of biological principles? This thesis addresses this problem particularly in two scenarios: Static and dynamic fitness landscapes. A fitness landscape is a tool for visualising the the fitness of a population in a space in which each dimension is a trait affecting the fitness. The population is ever searching for fitness maxima on this landscape. This is the process of adaptation. In a static fitness landscape the fitness is fixed, determined by the trait combination. Here we present results pertaining to the time required for a population to move from one point to another on this landscape if the paths consists of broad valleys or narrow ridges. In dynamic fitness landscapes the fitness is a function of the population composition. Hence as the population moves over the landscape the landscape changes shape and the fitness maxima can be eternally moving. To analyse frequency dependence we employ evolutionary game theory. Traditional evolutionary game theory deals with two player games with two strategies. This thesis invokes higher dimensions and non-linearities by studying multiple players and strategies. Important results from the two player two strategy case are generalised to multiple players. Finally we employ this theoretical development to analyse a possible evolutionary application in genetic pest management.},
-  url = 	{https://macau.uni-kiel.de/receive/diss_mods_00006381},
-  file = 	{:https://macau.uni-kiel.de/servlets/MCRFileNodeServlet/dissertation_derivate_00003744/Gokhale_PhD_2011.pdf:PDF},
-  language = 	{en}
-}
-}
+Now, we can consider the finite population of a specific game as $N$.Let's assume there are two strategies $a$ and $b$. Frequencies for $a$ and $b$ are $i$ and $(N-i)$. We can write the payoff matrix according to this specification,
 \[
 \begin{array}{c|cc}
     & a & b \\
@@ -184,28 +178,12 @@ Now we can denote the average payoff of $a$ and $b$ strategies as $\pi_a$ and $\
 \[\pi_b=\frac {i}{N-1}b_1 + \frac{N-i-1}{N-1}b_0\]
 Now, a question can arise, why are we using $i-1$ instead of $i$? We have to understand that instead of an infinitely large population, we are using a real finite population and for that, we have to remove the particular individual who is observing or analysing this situation. So we use $i-1$.
 In the previous work, we used fitness directly related to payoff. But in the actual population, we introduce a tunable parameter similar to the fitness which controls the game.
-Nowak et al.\cite{@article{nowak2004emergence,
-  title={Emergence of cooperation and evolutionary stability in finite populations},
-  author={Nowak, Martin A and Sasaki, Akira and Taylor, Christine and Fudenberg, Drew},
-  journal={Nature},
-  volume={428},
-  number={6983},
-  pages={646--650},
-  year={2004},
-  publisher={Nature Publishing Group UK London}
+Nowak et al.\cite{Nowak2004}
 }}introduced this tunable parameter as selection intensity. Because for some situations or equations, we can know the particular relation between the fitness and payoff but for most of the cases, we don't know the particular relation, we can just create a hypothesis.
 \[f_i=1-w+w\pi_i\]
 where $w$ selection intensity and $\pi_i$ is the payoff. The value of $w$ is bound by  $0$ and $1$. If the value is $0$ then $f_i=1$, we can deduce from this equation that for every value of $i$, we will face neutrality, and if the value is $1$, we will have $f_i=\pi_i$, now it suggests that the game payoff controls the fitness.
 Now, we can move to the part of the evolutionary dynamics where, for the finite population, there's randomness involved in the population. So, we will go for the stochastic processes.
-For these stochastic processes, we will focus on the Moran process. It consists of two events: birth and death. For the birth, one subject is chosen randomly, and it produces it's identical copy, and for the death process again, one random subject is chosen from the population and eliminated. It means by introducing randomness with the birth-death process now this theory can change the population with each time step, and for $N$ steps it will control a generation \cite{@book{19631602449,
-author = {Moran,P. A. P.},
-title = {The statistical processes of evolutionary theory.},
-year = {1962},
-pages = {vii + 200 pp.},
-publisher = {Clarendon Press; Oxford University Press.},
-language ={Undetermined},
-item-type = {Book}
-}}.
+For these stochastic processes, we will focus on the Moran process. It consists of two events: birth and death. For the birth, one subject is chosen randomly, and it produces it's identical copy, and for the death process again, one random subject is chosen from the population and eliminated. It means by introducing randomness with the birth-death process now this theory can change the population with each time step, and for $N$ steps it will control a generation \cite{Moran1962}
 There are three mathematical equations that we can derive from this theory: (1) The number of $a$ individuals increases by 1; (2) the number of $a$ individuals decreases by 1; (3)The number of $a$ individuals remains neutral.\\
 For the (1) scenario, we can write:
 \[T_i^+=\frac{if_a}{if_a+(N-i)f_b}\frac{N-i}{N}\]
@@ -228,19 +206,21 @@ This is a discrete stochastic process which we can derive using absorbing phenom
 
 
 
+
+
 \section{Discussion}
 
 
 \textbf{Code availability}.
-Appropriate  computer code describing the model is available at 
+Appropriate computer code describing the model is available at 
 \texttt{ REDACTED for review}.% {\url{https://github.com/tecoevo/beliefs}}.
 
 \section{Acknowledgements}
 \texttt{ REDACTED for review}.% {\url{https://github.com/tecoevo/beliefs}}.
 
 
-\bibliographystyle{naturemag}
-\bibliography{et.bib}
+\bibliographystyle{nature}
+\bibliography{references}
 
 \renewcommand{\theequation}{SI.\arabic{equation}}
 \setcounter{equation}{0}
@@ -253,7 +233,7 @@ Appropriate  computer code describing the model is available at
 
 \subsection{Analysis of the simple system}
 
-\bibliography{et.bib}
+
 
 
 \end{document}
