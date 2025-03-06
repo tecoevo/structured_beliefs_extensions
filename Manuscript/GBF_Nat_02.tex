@@ -178,8 +178,7 @@ Now we can denote the average payoff of $a$ and $b$ strategies as $\pi_a$ and $\
 \[\pi_b=\frac {i}{N-1}b_1 + \frac{N-i-1}{N-1}b_0\]
 Now, a question can arise, why are we using $i-1$ instead of $i$? We have to understand that instead of an infinitely large population, we are using a real finite population and for that, we have to remove the particular individual who is observing or analysing this situation. So we use $i-1$.
 In the previous work, we used fitness directly related to payoff. But in the actual population, we introduce a tunable parameter similar to the fitness which controls the game.
-Nowak et al.\cite{Nowak2004}
-}}introduced this tunable parameter as selection intensity. Because for some situations or equations, we can know the particular relation between the fitness and payoff but for most of the cases, we don't know the particular relation, we can just create a hypothesis.
+Nowak et al.\cite{Nowak2004} introduced this tunable parameter as selection intensity. Because for some situations or equations, we can know the particular relation between the fitness and payoff but for most of the cases, we don't know the particular relation, we can just create a hypothesis.
 \[f_i=1-w+w\pi_i\]
 where $w$ selection intensity and $\pi_i$ is the payoff. The value of $w$ is bound by  $0$ and $1$. If the value is $0$ then $f_i=1$, we can deduce from this equation that for every value of $i$, we will face neutrality, and if the value is $1$, we will have $f_i=\pi_i$, now it suggests that the game payoff controls the fitness.
 Now, we can move to the part of the evolutionary dynamics where, for the finite population, there's randomness involved in the population. So, we will go for the stochastic processes.
