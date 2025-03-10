@@ -201,6 +201,35 @@ This is known as the fixation probability of $j$ numbered $a$ individuals.We can
 Since, fixation is an absorbing state, so if all of the population once becomes $a$, it can not be revert. We can try to write a probability balance equation.
 \[\rho(j)=T_i^+\rho_a(j+1)+(1-T_i^+-T_i^-)\rho_a(j)+T_i^-\rho_a(j-1)\]
 This is a discrete stochastic process which we can derive using absorbing phenomenon of Markov chain processes.
+Let's solve this equation.
+\[\rho_a(j)-\rho_a(j-1)=\frac{T_i^-}{T_i^+}(\rho_a(j+1)-\rho_a(j))\]
+\[T_i^++(\rho_a(j)-\rho_a(j-1)=T_i^-(\rho_a(j+1)-\rho_a(j)\]
+\[T_i^+\rho_a(j)-T_i^+\rho_a(j-1)=T_i^-\rho_a(j+1)-T_i^-\rho_a(j)\]
+\[\rho_a(j+1)=\frac{\rho_a(j)(T_i^+ + T_i^-)-T_i^+\rho_a(j+1)}{T_i^-}\]
+ Now, let's write the equation.\\
+ $Ratio_j=R_j=\frac{T_i^-}{T_i^+}= \frac{(N-j)f_b}{jf_a}$
+ Let's substitute the value of $R_j$
+ \[\rho_a(j+1)={\rho_a(j)(1+R_j)-R_j\rho_a(j-1)}\]
+ Let's solve this equation by putting some real values,\\
+ We get this underwritten equation by putting the value of $j=1$,
+ \[\rho_a(2)= \rho_a(1)(1+R_1)-R_1\rho_a(0)\]
+ Let's put $j=2$.
+ \[\rho_a(3)=\rho_a(2)(1+R_2)-R_2\rho_a(1)\]
+ Let's substitute the value of $\rho_a(2)$
+ \[\rho_a(3)=\rho_a(1)(1+R_1)(1+R_2)-\rho_a(1)\]
+ \[\rho_a(3)=\rho_a(1)((1+R_1)(1+R_2)-1)\]
+ Now we can write a general equation based on this.
+ \[\rho_a(j)=\left[1+\sum_{m=1}^{j-1}\prod_{i=1}{m}R_i \right] \rho_a(1)\]
+ Since we know that $j=N$, and fixation is guaranteed means $\rho_a(N)=1$
+ \[1=\left[1+\sum_{m=1}^{N-1}\prod_{i=1}^{m} R_i\right]\rho_a(1)\]
+ \[\rho_a(1)=\frac{1}{1+\sum_{m=1}^{N-1}\prod_{i=1}^{m}R_i}\]
+ We can use this above mentioned equation when we are proceeding with just $1$ player population.
+ So, we can write the final fixation probability equation as,
+ \[\rho(j)=\frac{1+\sum_{m=1}^{j-1}\prod_{i=1}^{m}R_i}{1+\sum_{m=1}^{N-1}\prod_{i=1}^{m}R_i}\]
+ If we consider a neutral drift, where $f_a=f_b$, then we can write the equation as, $\rho_a={j}/{N}$.
+ If we observe the neutral drift with a single individual, we can write $\rho_a=1/N$.
+
+
 
 
 
