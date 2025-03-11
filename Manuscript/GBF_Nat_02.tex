@@ -65,10 +65,7 @@
 \definecolor{greenie}{rgb}{0.1,0.62,0.0}
 \definecolor{orange}{rgb}{0.9,0.3,0.0}
 \definecolor{deepblue}{rgb}{0.0,0.0,0.7}
-\newcommand{\marcus}[1]{{\color{orange}{#1}}}
-\newcommand{\chaitanya}[1]{{\color{greenie}{#1}}}
 \newcommand{\cha}[1]{\textcolor{darkgreen}{(#1)}}
-\newcommand{\joe}[1]{{\color{deepblue}{#1}}}
 
 
 \title{\vspace*{-22mm}\bf Title}
@@ -99,10 +96,10 @@ Abstract stuff
 
 
 \noindent
-Keywords: social evolution, culture, narratives, stag-hunt
+Keywords: 
 
 
-%\tableofcontents
+\tableofcontents
 
 \section{Introduction}
 gwbniwbwnijb
@@ -111,8 +108,10 @@ gwbniwbwnijb
 %\textbf{Collective cooperation and resource dynamics}.
 %
 
-\section{The dynamics stag hunt}
+\section{Deterministic dynamics}
 \subsection{Replicator Dynamics}
+
+\subsubsection{Two player games with two strategies}
 
 Replicator dynamics is the core idea of evolutionary dynamics. Replicator dynamics determines how the frequency of different strategies in a population changes over time.
 We can analyze the equation used to determine replicator dynamics mathematically.
@@ -150,10 +149,14 @@ If we make the change of strategy $a$ over time constant, which means $dx_a/dt=0
 Now, if we try to find the certain under which $dx_a/dt$ will be $0$.
 We will have three certain conditions,
 \[x=0,x=1\] and \[f_a=f_b\]
-$x=0$ and $x=1$ will be the two end points of a single line simplex and the joining point for the frequency graph and the dynamics of this frequency depends on the values of $f_a$ and $f_b$. If $f_a>f_b$ then the curve will be over the $0$ if $f_a<f_b$ then the curve will be under $0$, and for the condition $f_a=f_b$, it will make a straight line between the $0$ and $1$.For a visual representation of this graph, we can plot this equation for different values of $f_a$ and $f_b$ using Python.
+$x=0$ and $x=1$ will be the two end points of a single line simplex and the joining point for the frequency graph and the dynamics of this frequency depends on the values of $f_a$ and $f_b$. If $f_a>f_b$ then the curve will be over the $0$ if $f_a<f_b$ then the curve will be under $0$, and for the condition $f_a=f_b$, it will make a straight line between the $0$ and $1$. 
+\cha{Write the expression for the third equilibrium}
+
+
+For a visual representation of this graph, we can plot this equation for different values of $f_a$ and $f_b$ using Python.
 \begin{figure}[h]
         \centering
-        \includegraphics[width=0.5\linewidth]{Figure_1 (1).png}
+        %\includegraphics[width=0.5\linewidth]{Figure_1 (1).png}
         \label{fig:Visualization of $x_a(1-x_a)(f_a-f_b)=0$}
     \end{figure}
 We can get different conditions from this equation and graph. 
@@ -162,7 +165,11 @@ We can get different conditions from this equation and graph.
 (3) Bi-stability: A condition where all $a$ and $b$ will be stable means a strategy will get an advantage if it is abundant. For example, if strategy $a$ is abundant then the inequality will be $f_a>f_b$ and if it becomes rare then the inequality will be $f_a<f_b$ and there will be a saturation point when $f_a=f_b$. For this condition, the player should play the strategy its opponent is playing.
 (4) Neutrality: Now we have one condition in which both strategies will have the same impact. It does not depend on the change on the strategy. The equation for this strategy will be $f_a=f_b$. We mentioned this neutrality condition as a saturation point before\cite{Gokhale2011}.
 
-\subsection{Stochastic Process and Finite Population}
+
+
+\subsubsection{Two player games with multiple strategies strategies}
+
+\section{Stochastic Process and Finite Population}
 In the previous subsection, we used an infinite population for the deterministic approach. Now, we will proceed with a finite population. There are mainly two reasons to use a finite population: first, it is realistic, and second, it is a natural way to introduce randomness into the replicator dynamics.
 Now, we can consider the finite population of a specific game as $N$.Let's assume there are two strategies $a$ and $b$. Frequencies for $a$ and $b$ are $i$ and $(N-i)$. We can write the payoff matrix according to this specification,
 \[
