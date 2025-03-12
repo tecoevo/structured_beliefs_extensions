@@ -149,14 +149,22 @@ If we make the change of strategy $a$ over time constant, which means $dx_a/dt=0
 Now, if we try to find the certain under which $dx_a/dt$ will be $0$.
 We will have three certain conditions,
 \[x=0,x=1\] and \[f_a=f_b\]
-$x=0$ and $x=1$ will be the two end points of a single line simplex and the joining point for the frequency graph and the dynamics of this frequency depends on the values of $f_a$ and $f_b$. If $f_a>f_b$ then the curve will be over the $0$ if $f_a<f_b$ then the curve will be under $0$, and for the condition $f_a=f_b$, it will make a straight line between the $0$ and $1$. 
-\cha{Write the expression for the third equilibrium}
+$x=0$ and $x=1$ will be the two end points of a single line simplex and the joining point for the frequency graph and the dynamics of this frequency depends on the values of $f_a$ and $f_b$. If $f_a>f_b$ then the curve will be over the $0$ if $f_a<f_b$ then the curve will be under $0$, and for the condition $f_a=f_b$, it will make a straight line between the $0$ and $1$\cite{Bishop1976}.We can calculate the particular frequency where the strategy $a$ becomes abundant from rare or rare from abundant.We can calculate the prticular turning point or saturation point frequency using this $f_a=f_b$ equation.\\
+Let's take this frequency as$x^*$.
+as we know $f_a=f_b$
+So we can write,
+\[xa_0+(1-x)a_1=xb_0+(1-x)b_1\]
+\[x(a_0-a_1)+a_1=x(b_0-b_1)+b_1\]
+\[x(a_0-a_1-b_0+b_1)=b_1-a_1\]
+\[x=\frac{b_1-a_1}{a_0-a_1-b_0+b_1}\]
+We can write the $x$ as the above mentioned frequency as $x^*$
+\[x^*=\frac{b_1-a_1}{a_0-a_1-b_0+b_1}\]
 
 
 For a visual representation of this graph, we can plot this equation for different values of $f_a$ and $f_b$ using Python.
 \begin{figure}[h]
         \centering
-        %\includegraphics[width=0.5\linewidth]{Figure_1 (1).png}
+        %\includegraphics[width=0.5\linewidth]{Figure_1.pdf}
         \label{fig:Visualization of $x_a(1-x_a)(f_a-f_b)=0$}
     \end{figure}
 We can get different conditions from this equation and graph. 
@@ -167,10 +175,41 @@ We can get different conditions from this equation and graph.
 
 
 
-\subsubsection{Two player games with multiple strategies strategies}
+\subsubsection{Two player games with multiple strategies}
+In the previous subsection, we analysed two player games with two strategies, now we are going to analyse two player games with multiple strategies.For better understanding of this particular problem, let's take a biological example, strains of \textit{Escherichia coli} are competing for resources available on the media. $K$ strain is the killer strain which produces toxin that will out-compete strain $S$. So, having toxin or not are the two strategies, we can write this using two strategy payoff matrix but there can be another possibility, where strain $R$ is resistant to the toxin but pay the cost for resistance. SO, the scenario now changed completely, now the payoff matrix will be $3 \times 3$. This study was carried out by\cite{Kerr2002}\cite{Czaran2002}
+Now, in a population there will be multiple strategies.So, we have to write the replicator dyanmics in $(n-1)$ dimensional simplex.For that we need $n\times n$ payoff matrix.
+\[
+\begin{array}{c@{}c}
+   & \begin{array}{cccc} 1 & 2 & \dots & n \end{array} \\ 
+   \begin{array}{c} 
+       1 \\ 
+       2 \\ 
+       \vdots \\ 
+       n 
+   \end{array} 
+   & 
+   \begin{pmatrix}
+       a_{1,1} & a_{1,2} & \dots & a_{1,n} \\
+       a_{2,1} & a_{2,2} & \dots & a_{2,n} \\
+       \vdots & \vdots & \ddots & \vdots \\
+       a_{n,1} & a_{n,2} & \dots & a_{n,n}
+   \end{pmatrix}
+\end{array}
+\]
+This is a two player game,here $a_{1,2}$ means player $A$ playing strategy $1$ agaisnt the strategy $2$ of palyer $B$ so we can write the equation using replicator dyanmics,
+\[dx_i/dt=x_i[f_i(x)-\bar{f}]\]
+We can derive the average fitness of a strategy $i$ from this equation,
+\[f_i(x)=a_{i,1}x_1+a_{i,2}x_2+.....+a_{i,n}x_n\]
+We can write this equation as,
+\[f_i(x)=\sum_{j=1}^{n}a_{i,j}x_j\]
+and the average fitness of a population is given by
+\[\bar{f}=x_1f_1+x_2f_2+.....+x_nf_n= \sum_{i=1}^{n}x_if_i \]
+
+
 
 \section{Stochastic Process and Finite Population}
-In the previous subsection, we used an infinite population for the deterministic approach. Now, we will proceed with a finite population. There are mainly two reasons to use a finite population: first, it is realistic, and second, it is a natural way to introduce randomness into the replicator dynamics.
+\subsection{Two players with two strategies}
+In the previous subsection, we used an infinite population for the deterministic approach\cite{Hofbauer2003}. Now, we will proceed with a finite population. There are mainly two reasons to use a finite population: first, it is realistic, and second, it is a natural way to introduce randomness into the replicator dynamics\cite{Altrock2010}.
 Now, we can consider the finite population of a specific game as $N$.Let's assume there are two strategies $a$ and $b$. Frequencies for $a$ and $b$ are $i$ and $(N-i)$. We can write the payoff matrix according to this specification,
 \[
 \begin{array}{c|cc}
@@ -202,12 +241,12 @@ From the (1) equation, we can say that $a$ numbered individuals can increase onl
 From the (2) equation, we can say that the number of $a$ decreases cause, an $a$ individual is chosen for death and an $b$ individual is chosen for birth.\\
 From the (3) equation, we can deduce that no one is chosen for the birth or death process, so there's a neutrality.\\
 Now, let us jump to the fixation probability.\\
-In genetics, we often ask a question related to invasion of a gene, how can the gene invade another gene, and how it affect the another gene's population?
+In genetics, we often ask a question related to the invasion of a gene, how can the gene invade another gene, and how it affect the another gene's population?
 After understanding the transition probability and moran processes, we can now form a question based on the previous mentioned topic. In population of $j$ numbered $a$ individuals and $(N-j)$ numbered $b$ individuals, what is the probability that the whole population will become of $a$ individuals?
 This is known as the fixation probability of $j$ numbered $a$ individuals.We can denote this fixation probability as $\rho(j)$.
 Since, fixation is an absorbing state, so if all of the population once becomes $a$, it can not be revert. We can try to write a probability balance equation.
 \[\rho(j)=T_i^+\rho_a(j+1)+(1-T_i^+-T_i^-)\rho_a(j)+T_i^-\rho_a(j-1)\]
-This is a discrete stochastic process which we can derive using absorbing phenomenon of Markov chain processes.
+We can derive This discrete stochastic process using the absorbing phenomenon of Markov chain processes.
 Let's solve this equation.
 \[\rho_a(j)-\rho_a(j-1)=\frac{T_i^-}{T_i^+}(\rho_a(j+1)-\rho_a(j))\]
 \[T_i^++(\rho_a(j)-\rho_a(j-1)=T_i^-(\rho_a(j+1)-\rho_a(j)\]
@@ -234,8 +273,7 @@ Let's solve this equation.
  So, we can write the final fixation probability equation as,
  \[\rho(j)=\frac{1+\sum_{m=1}^{j-1}\prod_{i=1}^{m}R_i}{1+\sum_{m=1}^{N-1}\prod_{i=1}^{m}R_i}\]
  If we consider a neutral drift, where $f_a=f_b$, then we can write the equation as, $\rho_a={j}/{N}$.
- If we observe the neutral drift with a single individual, we can write $\rho_a=1/N$.
-
+ If we observe the neutral drift with a single individual, we can write $\rho_a=1/N$\cite{Traulsen2006}
 
 
 
