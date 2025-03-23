@@ -207,8 +207,9 @@ and the average fitness of a population is given by
 
 
 
-\section{Stochastic Process and Finite Population}
-\subsection{Two players with two strategies}
+\section{Probabilistic Dynamics}
+\subsection{Stochastic Process and Finite Population}
+\subsubsection{Two players with two strategies}
 In the previous subsection, we used an infinite population for the deterministic approach\cite{Hofbauer2003}. Now, we will proceed with a finite population. There are mainly two reasons to use a finite population: first, it is realistic, and second, it is a natural way to introduce randomness into the replicator dynamics\cite{Altrock2010}.
 Now, we can consider the finite population of a specific game as $N$.Let's assume there are two strategies $a$ and $b$. Frequencies for $a$ and $b$ are $i$ and $(N-i)$. We can write the payoff matrix according to this specification,
 \[
@@ -269,7 +270,7 @@ Let's solve this equation.
  Since we know that $j=N$, and fixation is guaranteed means $\rho_a(N)=1$
  \[1=\left[1+\sum_{m=1}^{N-1}\prod_{i=1}^{m} R_i\right]\rho_a(1)\]
  \[\rho_a(1)=\frac{1}{1+\sum_{m=1}^{N-1}\prod_{i=1}^{m}R_i}\]
- We can use this above mentioned equation when we are proceeding with just $1$ player population.
+ We can use this above-mentioned equation when we are proceeding with just $1$ player population.
  So, we can write the final fixation probability equation as,
  \[\rho(j)=\frac{1+\sum_{m=1}^{j-1}\prod_{i=1}^{m}R_i}{1+\sum_{m=1}^{N-1}\prod_{i=1}^{m}R_i}\]
  If we consider a neutral drift, where $f_a=f_b$, then we can write the equation as, $\rho_a={j}/{N}$.
