@@ -274,7 +274,13 @@ Let's solve this equation.
  So, we can write the final fixation probability equation as,
  \[\rho(j)=\frac{1+\sum_{m=1}^{j-1}\prod_{i=1}^{m}R_i}{1+\sum_{m=1}^{N-1}\prod_{i=1}^{m}R_i}\]
  If we consider a neutral drift, where $f_a=f_b$, then we can write the equation as, $\rho_a={j}/{N}$.
- If we observe the neutral drift with a single individual, we can write $\rho_a=1/N$\cite{Traulsen2006}
+ If we observe the neutral drift with a single individual, we can write $\rho_a=1/N$\cite{Traulsen2006}\\
+
+ We can calculate the fixation probability for strategy $b$ as $\rho_b$. $1$ $b$ individual reaches fixation is equal to the $N-1$ $a$ individuals fails to reach fixation.
+\[\rho_b=1-\rho_a(N-1)\]
+\[=1-\frac{1 + \sum_{m=1}^{N-2} \prod_{i=1}^{m} R_i}{1 + \sum_{m=1}^{N-1} \prod_{i=1}^{m} R_i}\]
+\[=\frac{1}{1+\sum_{m=1}^{N-1}\prod_{i=1}^{m}R_i}(\prod_{i=1}^{N-1}R_i)\]
+\[=\rho_a(\prod_{i=1}^{N-1}R_i)\]
 
 
 
