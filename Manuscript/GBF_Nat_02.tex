@@ -173,7 +173,37 @@ We can get different conditions from this equation and graph.
 (3) Bi-stability: A condition where all $a$ and $b$ will be stable means a strategy will get an advantage if it is abundant. For example, if strategy $a$ is abundant then the inequality will be $f_a>f_b$ and if it becomes rare then the inequality will be $f_a<f_b$ and there will be a saturation point when $f_a=f_b$. For this condition, the player should play the strategy its opponent is playing.
 (4) Neutrality: Now we have one condition in which both strategies will have the same impact. It does not depend on the change on the strategy. The equation for this strategy will be $f_a=f_b$. We mentioned this neutrality condition as a saturation point before\cite{Gokhale2011}.
 
-\cha{This is great! Here, I would analyse the 4 ( rather 3) different games with specific entries of the payoffs, calculate the equilibria and plot them. E.g. show the results in figures for the prisoners dilemma, chicken game and the snowdrift game}
+\subsubsection{Prisoner's dilemma}
+The prisoner's dilemma is a fundamental game in the game theory which represents that two rational individuals might not cooperate, even if it benifits mutually.\\
+The game goes as two prisoners ($a$ player and $b$ player) are arrested by policeman and offered them some deals separately.\\
+There will be mainly three conditions,\\
+One, if both prisoners cooperate they will get equal and moderate amount of sentence.\\
+Two, if one prisoner defects, the defector will get no sentence but the cooperator gets high amount of sentence.\\
+Three, if both players defect, both will get a lower and equal sentence.\\
+Let's try to write the payoff matrix,
+\[
+\begin{array}{c|cc}
+    & \text{Cooperate (C)} & \text{Defect (D)} \\
+    \hline
+    \text{Cooperate (C)} & (R,R) = (3,3) & (S,T) = (0,5) \\
+    \text{Defect (D)} & (T,S) = (5,0) & (P,P) = (1,1)
+\end{array}
+\]
+The general and standard condition for prisoner' dilemma is T>R>S>P.\\
+As mentioned in the replicator dynamics section, there will be three points where the value of $dx/dt$ will be $0$. The three conditions are $x=0$ , it means only defectors and $x=1$, it means only cooperators, these two are boundary points.\\
+The internal equilibrium will fulfil the condition of $f_c=f_d$.Let's find the equilibrium point by putting the payoff values\\
+\[xR+(1-x)S= xT+(1-x)P\]
+\[x^*=\frac{P-S}{(R-S)+(P-T)}\]
+let's put the values of payoffs,
+\[x^*=\frac{1-0}{(3-0)+(1-5)}= -1\]
+Since, the boundary points are ${0,1}$, there can not exist any internal equilibrium valued $-1$. This implifies that the whole system will go into full defection $(x=0)$ over time.
+We can plot the graph using Python for the Prisoner's dilemma dynamics.\\
+\begin{figure}{h}
+    \centering
+      %\includegraphics[width=0.5\linewidth]{Prisoner's dilemma plot.pdf}
+    \caption{Prisoner's Dilemma Dynamics}
+    \label{fig: Total Defection in Prisoner' Dilemma}
+\end{figure}
 
 
 \subsubsection{Two player games with multiple strategies}
