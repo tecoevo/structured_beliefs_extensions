@@ -9,7 +9,7 @@ def replicator_dynamics(x, t):
     """
     f_C = R * x + S * (1 - x)  
     f_D = T * x + P * (1 - x)  
-    avg_payoff = x * E_C + (1 - x) * E_D
+    avg_payoff = x * f_C + (1 - x) * f_D
     dx_dt = x * (f_C - avg_payoff)
     return dx_dt
 t = np.linspace(0, 10, 100)
