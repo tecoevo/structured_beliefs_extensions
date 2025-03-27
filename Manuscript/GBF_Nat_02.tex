@@ -171,7 +171,8 @@ We can get different conditions from this equation and graph.
 (1) Dominance: Where any of the two strategies will be dominant over another, means, for example, if $f_a>f_b$ that strategy $a$ will be dominant over strategy $b$. It will be possible if the $a_1>b_1$ and $a_0>b_0$ where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player game.
 (2) Co-existence: It happens when one of the two strategies is rare and has an advantage for that. For example, if strategy $a$ is rare, then $f_a>f_b$ if $a$ becomes abundant, it will lose its advantage, so the inequality will be  $f_a<f_b$ and there will be a saturation point while becoming abundant from rare when the equation will $f_a=f_b$. In this scenario, the player should play the rare strategy.
 (3) Bi-stability: A condition where all $a$ and $b$ will be stable means a strategy will get an advantage if it is abundant. For example, if strategy $a$ is abundant then the inequality will be $f_a>f_b$ and if it becomes rare then the inequality will be $f_a<f_b$ and there will be a saturation point when $f_a=f_b$. For this condition, the player should play the strategy its opponent is playing.
-(4) Neutrality: Now we have one condition in which both strategies will have the same impact. It does not depend on the change on the strategy. The equation for this strategy will be $f_a=f_b$. We mentioned this neutrality condition as a saturation point before\cite{Gokhale2011}.
+(4) Neutrality: Now we have one condition in which both strategies will have the same impact. It does not depend on the change on the strategy. The equation for this strategy will be $f_a=f_b$. We mentioned this neutrality condition as a saturation point before\cite{Gokhale2011}.\\
+Now, based on the above explained process of replicator dynamics for two players with two strategies, we will explore some games and find their equilibrium point.\\
 
 \subsubsection{Prisoner's dilemma}
 The prisoner's dilemma is a fundamental game in the game theory which represents that two rational individuals might not cooperate, even if it benifits mutually.\\
@@ -202,7 +203,39 @@ We can plot the graph using Python for the Prisoner's dilemma dynamics.\\
     \centering
       %\includegraphics[width=0.5\linewidth]{Prisoner's dilemma plot.pdf}
     \caption{Prisoner's Dilemma Dynamics}
-    \label{fig: Total Defection in Prisoner' Dilemma}
+    \label{fig: Replicator Dynamics for Prisoner' Dilemma}
+\end{figure}
+
+\subsubsection{Chicken Game}
+In this game, two players( player $a$ and player $b$)are driving towards each other in a single pathway. There are two options for the players,\\
+Swerve(C)- Avoid collision but appeared weak.\\
+Stay (D)- Stay driving towards each other, hoping the opponent will swerve.\\
+We can write three conditions based on this,\\
+One, if both swerves they will not face collision, but there will be a small loss.\\
+Two, if one swerves and one stays,the one who stays will have a win and one who swerves will face lose.\\
+Three, if both stays, they both stays, they'll have a huge loss.\\
+We can write the payoff matrix with actual payoffs which will follow the standard condition, T>R>S>P.\\
+\[
+\begin{array}{c|cc}
+   & \textbf{Swerve (C)} & \textbf{Stay (D)} \\
+  \hline
+  \textbf{Swerve (C)} & (R, R) = (3,3) & (S, T) = (1,5) \\
+  \textbf{Stay (D)} & (T, S) = (5,1) & (P, P) = (0,0) \\
+\end{array}
+\]
+As, we know there will be three points where the value of $dx/dt$ will be $0$. The three conditions are $x=0$ , it means only defectors and $x=1$, it means only cooperators, these two are boundary points.\\
+The internal equilibrium will fulfil the condition of $f_c=f_d$.Let's find the equilibrium point by putting the payoff values\\
+\[xR+(1-x)S=xT+(1-x)P\]
+\[3x+1-x=5x\]
+\[x=\frac{1}{3}\]
+\[x^*=\frac{1}{3}\]
+This implifies that over time $1/3$ of the population will swerve and $2/3$ of the population will stay, it means that over time players are more tend to choose aggressive option.\\
+Let's try to plot it.\\
+\begin{figure}{h}
+    \centering
+    %\includegraphics[width=0.5\linewidth]{chicken game plot.pdf}
+    \caption{Chicken Game Dynamics}
+    \label{fig: Replicator dynamics for Chicken Game}
 \end{figure}
 
 
