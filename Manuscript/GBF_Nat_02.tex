@@ -237,7 +237,7 @@ Let's try to plot it.\\
     \caption{Chicken Game Dynamics}
     \label{fig: Replicator dynamics for Chicken Game}
 \end{figure}
-In this plot,less than the internal equilibrium point will cooperate, and higher than internal equilibrium will defect.\\
+In this case, from $0$ to the equilibrium point ($1/3$) will show defection and  $(1/3,1)$ will cooperate.\\
 \subsubsection{Snowdrift Game}
 Snowdrift game is a classical game in game theory in social dilemmas.where two players ($a$ and $b$) are heading toward each other on a snowy, one-lane road. Neither can pass unless one shovels the snow to clear the path. Both drivers have two choices: either shovel the snow (cooperate) or stay in their car and let the other person do all the work (defect).\\
 We can write three conditions based on this,\\
@@ -258,7 +258,7 @@ The internal or mixed equilibrium point will be,
 \[3x+1-x=5x\]
 \[x=\frac{1}{3}\]
 \[x^*=\frac{1}{3}\]
-If we notice, the chicken game and snowdrift game's mixed equilibrium point is same as their payoff structure, but where the difference lies?\\
+If we notice, the chicken game and snowdrift game's mixed equilibrium point is the same as their payoff structure, but where does the difference lie?\\
 The main difference between these two game is that in chicken game if the both players do not swerve and stay(D,D), they will have a head-on collision and it will be disastrous, so they will be wanting to avoid it aggressively,and they will go for a strategic bluffing or brinkmanship.It will increase the chances of defection. On the other hand,in snowdrift game both the player defects, no will face loss, but it would not appear as disastrous as they both can not move.Because of it, there will higher chances that they will take the risk of cooperation.
 So in the case of snowdrift,$1/3$ of the population will defect over time and $2/3$ of the population will cooperate over time.\\
 Let's have a plot using this idea,\\
@@ -268,7 +268,8 @@ Let's have a plot using this idea,\\
     \caption{Snowdrift Game Dynamics}
     \label{fig: Replicator dynamics for Snowdrift Game}
 \end{figure}
-In this case, less than the equilibrium point will defect and more than the equilibrium point will cooperate.
+In this case, from $0$ to the equilibrium point ($1/3$) will show defection and more $(1/3,1)$ will cooperate.\\
+
 \subsubsection{Two player games with multiple strategies}
 In the previous subsection, we analysed two player games with two strategies, now we are going to analyse two player games with multiple strategies.For better understanding of this particular problem, let's take a biological example, strains of \textit{Escherichia coli} are competing for resources available on the media. $K$ strain is the killer strain which produces toxin that will out-compete strain $S$. So, having toxin or not are the two strategies, we can write this using two strategy payoff matrix but there can be another possibility, where strain $R$ is resistant to the toxin but pay the cost for resistance. SO, the scenario now changed completely, now the payoff matrix will be $3 \times 3$. This study was carried out by\cite{Kerr2002}\cite{Czaran2002}
 Now, in a population there will be multiple strategies.So, we have to write the replicator dyanmics in $(n-1)$ dimensional simplex.For that we need $n\times n$ payoff matrix.
