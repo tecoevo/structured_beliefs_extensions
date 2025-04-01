@@ -24,5 +24,5 @@ plt.title("Plot of x(1-x)(fa - fb) for different fa and fb values")
 plt.legend()
 plt.grid()
 plt.show()
-
+ (Reviewed and Upgraded this code using the ChatGPT)
 
