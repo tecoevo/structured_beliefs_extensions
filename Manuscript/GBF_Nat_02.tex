@@ -115,71 +115,87 @@ gwbniwbwnijb
 
 Replicator dynamics is the core idea of evolutionary dynamics. Replicator dynamics determines how the frequency of different strategies in a population changes over time.
 We can analyze the equation used to determine replicator dynamics mathematically.
-Let's take the frequency of $a$ and $b$ strategies are $x_a$ and $x_b$ and the fitness of each strategy is $f_a$ and $f_b$. It is a two-player game so we can say, $ x_a+x_b=1 $. We can write two differential equations using the above information
-\[
-{dx_a}/{dt} = x_a(f_a - \bar{f})    (1)
-\] 
-\[{dx_b}/{dt}= y(f_b - \bar{f})   (2)
-\].
+Let's take the frequency of $A$ and $B$ strategies are $x_A$ and $x_B$ and the fitness of each strategy is $f_A$ and $f_B$. It is a two-player game so we can say, $ x_A+x_B=1 $. We can write two differential equations using the above information
+\begin{align}
+\frac{dx_A}{dt} = x_A(f_A - \bar{f}) \nonumber \\
+\frac{dx_B}{dt} = x_B(f_B - \bar{f}) \label{eq:1}
+\end{align}
+
 Now to keep the average fitness of the population constant, we can write an equation,
-\[\bar{f}= (x_af_a+x_bf_b)   (3) \],
-also, we can write the previously mentioned equation as $x_b=1-x_a$.
-Now, we can substitute this $x_b$ value into the $3$ numbered equation, after substituting, we get the undermentioned equation.
-\[\bar{f}={x_af_a+ (1-x_a)f_b} (4) \]
-Now let's substitute the $(4)$ numbered equation into the $(1)$ equation
-\[ dx_a/dt=x_a[f_a-(x_af_a+(1-x_a)f_b)]
-          =x_a[f_a-x_af_a-f_b+x_af_b]
-          =x_a[(1-x_a)f_a-(1-x_a)f_b]
-          =x_a(1-x_a)(f_a-f_b) \] .
+\begin{align}
+\bar{f}= (x_Af_A+x_Bf_B)\label{eq:2}
+\end{align} 
+also, we can write the previously mentioned equation as $x_B=1-x_A$.
+Now, we can substitute this $x_B$ value into the equation \ref{eq:2}, after substituting, we get the undermentioned equation.
+\begin{align}
+\bar{f}={x_Af_A+ (1-x_A)f_B}\label{eq:3}
+\end{align}
+Now let's substitute the equation \ref{eq:3} into the equation \ref{eq:1}
+\begin{align}
+&dx_A/dt=x_A[f_A-(x_Af_A+(1-x_A)f_B)] \nonumber\\
+          &=x_A[f_A-x_Af_A-f_B+x_af_B] \nonumber\\
+          &=x_A[(1-x_A)f_A-(1-x_A)f_B] \nonumber\\
+          &=x_A(1-x_A)(f_A-f_B) \nonumber
+\end{align} .
 This is for a two-player population. If we have $n$ population, we can denote the equation of replicator dynamics as,
 \[dx_i/dt=x_i[f_i(x)-\bar{f}]\]
 where $i=1,2,3.....(n-1)$
 
 To proceed with the replicator dynamics, we must understand simplex as the next step.
-Simplex is a tool in evolutionary dynamics that helps us understand and visualize how a system evolved through an evolutionary process. We can denote this for $(n-1)$ strategies. But for simplicity, we took a two-player ($n=2$) homogenous process in which for $a$, $x_a=1$ and $x_b=0$, or the same goes for $b$, where, $x_a=0$ and $x_b=1$.
-It will represent a line between points $a$ and $b$, with the midpoint being $x_a=x_b=0.5$. 
-For another example, if we homogeneously use $ n=3$, it will represent an equatorial triangle, and the midpoint of the simplex will be $x_a=x_b=x_c=1/3$.
+Simplex is a tool in evolutionary dynamics that helps us understand and visualize how a system evolved through an evolutionary process. We can denote this for $(n-1)$ strategies. But for simplicity, we took a two-player ($n=2$) homogenous process in which for $A$, $x_A=1$ and $x_B=0$, or the same goes for $B$, where, $x_A=0$ and $x_B=1$.
+It will represent a line between points $A$ and $B$, with the midpoint being $x_A=x_B=0.5$. 
+For another example, if we homogeneously use $ n=3$, it will represent an equatorial triangle, and the midpoint of the simplex will be $x_A=x_B=x_C=1/3$.
 In population genetics, this simplex is known as the de Finetti diagram.
-Let's get back to the replicator dynamics now,
-\[dx_a/dt=x_a(1-x_a)(f_a-f_b)\],
+Let's get back to the replicator dynamics now, Let's write the payoff matrix,\\
+\[
+\begin{array}{c|cc}
+    & A & B \\
+    \hline
+  A & (a_1) & (a_0) \\
+  B & (b_1) & (b_0)
+\end{array}
+\]
+We can write the replicator dynamics as,\\
+\[dx_A/dt=x_A(1-x_A)(f_A-f_B)\],
 What does this equation tell us? 
 We can understand that the rate of change of the frequency of a certain type with time depends on the fitness, average fitness of the population, and frequency. From this understanding, we can state that if $f_i(x)-\bar{f}>0$ then the frequency of this type will increase over time, and if $f_i(x)-\bar{f}<0$, the frequency of the type will decrease over time.
-If we make the change of strategy $a$ over time constant, which means $dx_a/dt=0$ then we can write the replicator dynamics equation as,
-\[x_a(1-x_a)(f_a-f_b)=0\]
-Now, if we try to find the certain under which $dx_a/dt$ will be $0$.
+If we make the change of strategy $A$ constant over time , which means $dx_A/dt=0$ then we can write the replicator dynamics equation as,
+\[x_A(1-x_A)(f_A-f_B)=0\]
+Now, if we try to find the certain under which $dx_A/dt$ will be $0$.
 We will have three certain conditions,
-\[x=0,x=1\] and \[f_a=f_b\]
-$x=0$ and $x=1$ will be the two end points of a single line simplex and the joining point for the frequency graph and the dynamics of this frequency depends on the values of $f_a$ and $f_b$. If $f_a>f_b$ then the curve will be over the $0$ if $f_a<f_b$ then the curve will be under $0$, and for the condition $f_a=f_b$, it will make a straight line between the $0$ and $1$\cite{Bishop1976}.We can calculate the particular frequency where the strategy $a$ becomes abundant from rare or rare from abundant.We can calculate the prticular turning point or saturation point frequency using this $f_a=f_b$ equation.\\
-Let's take this frequency as$x^*$.
-as we know $f_a=f_b$
+\[x=0,x=1\] and \[f_A=f_B\]
+$x=0$ and $x=1$ will be the two end points of a single line simplex and the joining point for the frequency graph and the dynamics of this frequency depends on the values of $f_A$ and $f_B$. If $f_A>f_B$ then the curve will be over the $0$ if $f_A<f_B$ then the curve will be under $0$, and for the condition $f_A=f_B$, it will make a straight line between the $0$ and $1$\cite{Bishop1976}.We can calculate the particular frequency where the strategy $A$ becomes abundant from rare or rare from abundant. We can calculate the particular turning point or saturation point frequency using this $f_A=f_B$ equation.\\
+Let's take this frequency as $ x^*$.
+As we know, $f_A=f_B$
 So we can write,
 \[xa_0+(1-x)a_1=xb_0+(1-x)b_1\]
 \[x(a_0-a_1)+a_1=x(b_0-b_1)+b_1\]
 \[x(a_0-a_1-b_0+b_1)=b_1-a_1\]
 \[x=\frac{b_1-a_1}{a_0-a_1-b_0+b_1}\]
-We can write the $x$ as the above mentioned frequency as $x^*$
+We can write the $x$ as the above-mentioned frequency as $x^*$
 \[x^*=\frac{b_1-a_1}{a_0-a_1-b_0+b_1}\]
 
 
-For a visual representation of this graph, we can plot this equation for different values of $f_a$ and $f_b$ using Python.
+For a visual representation of this graph, we can plot this equation for different values of $f_A$ and $f_B$ using Python.
 \begin{figure}[h]
         \centering
-        %\includegraphics[width=0.5\linewidth]{Figure_1.pdf}
+        \includegraphics[width=0.5\linewidth]{Figure_1.pdf}
         \label{fig:Visualization of $x_a(1-x_a)(f_a-f_b)=0$}
     \end{figure}
 We can get different conditions from this equation and graph. 
-(1) Dominance: Where any of the two strategies will be dominant over another, means, for example, if $f_a>f_b$ that strategy $a$ will be dominant over strategy $b$. It will be possible if the $a_1>b_1$ and $a_0>b_0$ where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player game.
-(2) Co-existence: It happens when one of the two strategies is rare and has an advantage for that. For example, if strategy $a$ is rare, then $f_a>f_b$ if $a$ becomes abundant, it will lose its advantage, so the inequality will be  $f_a<f_b$ and there will be a saturation point while becoming abundant from rare when the equation will $f_a=f_b$. In this scenario, the player should play the rare strategy.
-(3) Bi-stability: A condition where all $a$ and $b$ will be stable means a strategy will get an advantage if it is abundant. For example, if strategy $a$ is abundant then the inequality will be $f_a>f_b$ and if it becomes rare then the inequality will be $f_a<f_b$ and there will be a saturation point when $f_a=f_b$. For this condition, the player should play the strategy its opponent is playing.
-(4) Neutrality: Now we have one condition in which both strategies will have the same impact. It does not depend on the change on the strategy. The equation for this strategy will be $f_a=f_b$. We mentioned this neutrality condition as a saturation point before\cite{Gokhale2011}.\\
+(1) Dominance: Where any of the two strategies will be dominant over another, means, for example, if $f_A>f_B$, that strategy $A$ will be dominant over strategy $B$. It will be possible if the $a_1>b_1$ and $a_0>b_0$ where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player game.\\
+(2) Co-existence: It happens when one of the two strategies is rare and has an advantage for that. For example, if strategy $A$ is rare, then $f_A>f_B$. if $a$ becomes abundant, it will lose its advantage, so the inequality will be  $f_A<f_B$, and while becoming abundant strategy from rare strategy, there will be a saturation point and the equation will $f_A=f_B$. In this scenario, the player should play the rare strategy.It will be possible if the $a_1<b_1$ and $a_0>b_0$ where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player game.\\
+(3) Bi-stability: A condition where all $A$ and $B$ will be stable. It means that a strategy will get an advantage if it is abundant. For example, if strategy $A$ is abundant, then the inequality will be $f_A>f_B$, and if it becomes rare, then the inequality will be $f_A<f_B$, and there will be a saturation point when $f_A=f_B$. For this condition, the player should play the strategy its opponent is playing.It will be possible if the $a_1>b_1$ and $a_0<b_0$ where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player game.\\
+(4) Neutrality: Now, we have one condition in which both strategies will have the same impact. It does not depend on the change in the strategy. The equation for this strategy will be $f_A=f_B$.It will be possible if the $a_1=b_1$ and $a_0=b_0$ where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player game.\cite{Gokhale2011}.\\
 Now, based on the above explained process of replicator dynamics for two players with two strategies, we will explore some games and find their equilibrium point.\\
 
-\subsubsection{Prisoner's dilemma}
-The prisoner's dilemma is a fundamental game in the game theory which represents that two rational individuals might not cooperate, even if it benifits mutually.\\
-The game goes as two prisoners ($a$ player and $b$ player) are arrested by policeman and offered them some deals separately.\\
+\textbf{Prisoner's dilemma}
+\newline
+The prisoner's dilemma is a fundamental game in the game theory, which represents that two rational individuals might not cooperate, even if it benefits mutually.\\
+The game goes as two prisoners ($A$ player and $B$ player) are arrested by a policeman and offered some deals separately.\\
 There will be mainly three conditions,\\
-One, if both prisoners cooperate they will get equal and moderate amount of sentence.\\
-Two, if one prisoner defects, the defector will get no sentence but the cooperator gets high amount of sentence.\\
+One, if both prisoners cooperate, they will get equal and moderate amount of sentence.\\
+Two, if one prisoner defects, the defector will get no sentence, but the cooperator gets a longer sentence.\\
 Three, if both players defect, both will get a lower and equal sentence.\\
 Let's try to write the payoff matrix,
 \[
@@ -190,85 +206,71 @@ Let's try to write the payoff matrix,
     \text{Defect (D)} & (T,S) = (5,0) & (P,P) = (1,1)
 \end{array}
 \]
-The general and standard condition for prisoner' dilemma is T>R>P>S.\\
-As mentioned in the replicator dynamics section, there will be three points where the value of $dx/dt$ will be $0$. The three conditions are $x=0$ , it means only defectors and $x=1$, it means only cooperators, these two are boundary points.\\
-The internal equilibrium will fulfil the condition of $f_c=f_d$.Let's find the equilibrium point by putting the payoff values\\
+The general and standard condition for prisoner' dilemma is $T>R>P>S$.\\
+As mentioned in the replicator dynamics section, there will be three points where the value of $dx/dt$ will be $0$. The three conditions are $x=0$, it means only defectors, and $x=1$, which means only cooperators; these two are boundary points.\\
+The internal equilibrium will fulfil the condition of $f_C=f_D$.Let's find the equilibrium point by putting the payoff values\\
 \[xR+(1-x)S= xT+(1-x)P\]
 \[x^*=\frac{P-S}{(R-S)+(P-T)}\]
-let's put the values of payoffs,
+Let's put the values of payoffs,
 \[x^*=\frac{1-0}{(3-0)+(1-5)}= -1\]
-Since, the boundary points are ${0,1}$, there can not exist any internal equilibrium valued $-1$. This implifies that the whole system will go into full defection $(x=0)$ over time.
+Since the boundary points are ${0,1}$, there can not exist any internal equilibrium valued $-1$. This states that the entire system will transition to full defection $(x=0)$ over time.
 We can plot the graph using Python for the Prisoner's dilemma dynamics.\\
-\begin{figure}{h}
-    \centering
-      \includegraphics[width=0.5\linewidth]{Prisoner's dilemma plot.pdf}
-    \caption{Prisoner's Dilemma Dynamics}
-    \label{fig: Replicator Dynamics for Prisoner' Dilemma}
-\end{figure}
 
-\subsubsection{Chicken Game}
+\textbf{Chicken Game}
+\newline
 In this game, two players( player $a$ and player $b$)are driving towards each other in a single pathway. There are two options for the players,\\
-Swerve(C)- Avoid collision but appeared weak.\\
-Stay (D)- Stay driving towards each other, hoping the opponent will swerve.\\
-We can write three conditions based on this,\\
-One, if both swerves they will not face collision, but there will be a small loss.\\
-Two, if one swerves and one stays,the one who stays will have a win and one who swerves will face lose.\\
-Three, if both stays, they both stays, they'll have a huge loss.\\
-We can write the payoff matrix with actual payoffs which will follow the standard condition, T>R>S>P.\\
+Swerve(C)- Avoided collision but appeared weak.\\
+Stay (D)- Stay driving toward each other, hoping the opponent will swerve.\\
+We can write three conditions based on this: \\
+One, if both swerves, they will not face collision, but there will be a small loss.\\
+Two, if one swerves and one stays, the one who stays will have a win, and one who swerves will face loss.\\
+Three, if both stay, they both stay, they'll have a huge loss.\\
+We can write the payoff matrix with actual payoffs, which follow the standard condition, $a_1<b_1$ and $a_0>b_0$.\\
 \[
 \begin{array}{c|cc}
-   & \textbf{Swerve (C)} & \textbf{Stay (D)} \\
+   & \text{Swerve (C)} & \text{Stay (D)} \\
   \hline
-  \textbf{Swerve (C)} & (R, R) = (3,3) & (S, T) = (1,5) \\
-  \textbf{Stay (D)} & (T, S) = (5,1) & (P, P) = (0,0) \\
+  \text{Swerve (C)} & (-c) = (-3) & (b) = (4) \\
+  \text{Stay (D)} & (0) = (0) & (\frac{b}{2}) = (2) \\
 \end{array}
 \]
-As, we know there will be three points where the value of $dx/dt$ will be $0$. The three conditions are $x=0$ , it means only defectors and $x=1$, it means only cooperators, these two are boundary points.\\
-The internal equilibrium will fulfil the condition of $f_c=f_d$.Let's find the equilibrium point by putting the payoff values\\
-\[xR+(1-x)S=xT+(1-x)P\]
-\[3x+1-x=5x\]
-\[x=\frac{1}{3}\]
-\[x^*=\frac{1}{3}\]
-This implifies that over time $1/3$ of the population will swerve and $2/3$ of the population will stay, it means that over time players are more tend to choose aggressive option.\\
+As we know, there will be three points where the value of $dx/dt$ will be $0$. The three conditions are $x=0$, it means only defectors, and $x=1$, which means only cooperators; these two are boundary points.\\
+The internal equilibrium will fulfil the condition of $f_C=f_D$.Let's find the equilibrium point by putting the payoff values.\\
+\begin{align}
+&x(b)+(1-x)(-c)=x(b/2)+(1-x)(0)\nonumber\\
+&4x-3+3x=2x \nonumber\\
+&x=\frac{3}{5} \nonumber\\
+&x^*=\frac{3}{5} \nonumber
+\end{align}
+This implies that over time, $3/5$ of the population will stay and $2/5$ of the population will swerve respectively.It implies the condition of co-existence\\
 Let's try to plot it.\\
-\begin{figure}{h}
-    \centering
-    \includegraphics[width=0.5\linewidth]{chicken game plot.pdf}
-    \caption{Chicken Game Dynamics}
-    \label{fig: Replicator dynamics for Chicken Game}
-\end{figure}
-In this case, from $0$ to the equilibrium point ($1/3$) will show defection and  $(1/3,1)$ will cooperate.\\
-\subsubsection{Snowdrift Game}
-Snowdrift game is a classical game in game theory in social dilemmas.where two players ($a$ and $b$) are heading toward each other on a snowy, one-lane road. Neither can pass unless one shovels the snow to clear the path. Both drivers have two choices: either shovel the snow (cooperate) or stay in their car and let the other person do all the work (defect).\\
+\textbf{Stag Hunt Game}
+\newline
+Stag hunt game is a classical example of game theory for understanding social dilemma and the interplay between risk and trust.
+In this game, two players are hunting in a forest. They have two choices,Cooperate(C) with each other and hunt stag or Independently hunt hare(D).\\
 We can write three conditions based on this,\\
-One, if both stay in the car, they both will face a small loss.\\
-Two, if one shovels and one stays,the one who stays will have a win and one who shovels will face lose.\\
-Three, if they both stays, they'll have a huge loss.\\
-we can write the payoff matrix based on actual values,which will follow the standard condition, T>R>S>P.\\
+One,If they both cooperate and hunt stag, they will get the highest payoff.\\
+Two, If One goes for the stag hunt and the other one hunts hare, the one who hunts stag will get nothing and the one who hunts hare will get a lower payoff.\\
+Three, If they both defect and independently hunt hare, they will get a lower payoff.\\
+We can write the payoff matrix using actual values, which follow the conditions of $a_1>b_1$ and $a_0<b_0$.
 \[
 \begin{array}{c|cc}
-    & C & D \\
-    \hline
-    C & (3,3) & (1,5) \\
-    D & (5,1) & (0,0) \\
+   & \text{Cooperate (C)} & \text{Defect (D)} \\
+  \hline
+  \text{Cooperate (C)} & (S,S) = (4,4) & (S,H) = (0,3) \\
+  \text{Defect (D)} & (H,S) = (3,0) & (H,H) = (3,3) \\
 \end{array}
 \]
-The internal or mixed equilibrium point will be,
-\[xR+(1-x)S=xT+(1-x)P\]
-\[3x+1-x=5x\]
-\[x=\frac{1}{3}\]
-\[x^*=\frac{1}{3}\]
-If we notice, the chicken game and snowdrift game's mixed equilibrium point is the same as their payoff structure, but where does the difference lie?\\
-The main difference between these two game is that in chicken game if the both players do not swerve and stay(D,D), they will have a head-on collision and it will be disastrous, so they will be wanting to avoid it aggressively,and they will go for a strategic bluffing or brinkmanship.It will increase the chances of defection. On the other hand,in snowdrift game both the player defects, no will face loss, but it would not appear as disastrous as they both can not move.Because of it, there will higher chances that they will take the risk of cooperation.
-So in the case of snowdrift,$1/3$ of the population will defect over time and $2/3$ of the population will cooperate over time.\\
-Let's have a plot using this idea,\\
-\begin{figure}{h}
-    \centering
-    \includegraphics[width=0.5\linewidth]{Snowdrift game.pdf}
-    \caption{Snowdrift Game Dynamics}
-    \label{fig: Replicator dynamics for Snowdrift Game}
-\end{figure}
-In this case, from $0$ to the equilibrium point ($1/3$) will show defection and more $(1/3,1)$ will cooperate.\\
+As we know, there will be three points where the value of $dx/dt$ will be $0$. The three conditions are $x=0$, it means only defectors, and $x=1$, which means only cooperators; these two are boundary points.\\
+The internal equilibrium will fulfil the condition of $f_C=f_D$.Let's find the equilibrium point by putting the payoff values.\\
+\begin{align}
+&x(0)+(1-x)(4)=x(3)+(1-x)(3) \nonumber\\
+&4-4x=3x+3-3x \nonumber\\
+&4x=3 \nonumber\\
+&x= \frac{3}{4} \nonumber\\
+&x^*=\frac{3}{4}\nonumber
+\end{align}
+Over time,it implies that  $3/4$ of the population will hunt stag and the $1/4$ of the population will hunt hare.\\
 
 \subsubsection{Two player games with multiple strategies}
 In the previous subsection, we analysed two player games with two strategies, now we are going to analyse two player games with multiple strategies.For better understanding of this particular problem, let's take a biological example, strains of \textit{Escherichia coli} are competing for resources available on the media. $K$ strain is the killer strain which produces toxin that will out-compete strain $S$. So, having toxin or not are the two strategies, we can write this using two strategy payoff matrix but there can be another possibility, where strain $R$ is resistant to the toxin but pay the cost for resistance. SO, the scenario now changed completely, now the payoff matrix will be $3 \times 3$. This study was carried out by\cite{Kerr2002}\cite{Czaran2002}
