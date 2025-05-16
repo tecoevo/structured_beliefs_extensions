@@ -3,7 +3,7 @@
 \usepackage{times}
 \usepackage[titletoc]{appendix}
 \usepackage{graphicx}
-\usepackage{lineno}
+\usepackage[running]{lineno}
 \usepackage{multirow}
 \usepackage[english]{babel}
 \usepackage{typearea} 
@@ -113,19 +113,28 @@ Keywords:
 
 \subsubsection{Two player games with two strategies}
 
-Replicator dynamics is one of the possible frameworks that can explain evolutionary dynamics. Replicator dynamics determines how the frequency of different strategies in a population changes over time. We can write the equation used to determine replicator dynamics mathematically. Let's take the frequency of $A$ and $B$ strategies are $x_A$ and $x_B$ and the fitness of each strategy is $f_A$ and $f_B$ and the average fitness of the population is $\bar{f}$. It is a two-player two-strategy game so we can say, $ x_A+x_B=1 $, so we can write that $x_B=1-x_A$ and $x_A=1-x_B$. Let's try to write a payoff matrix,\\
-\[
+Replicator dynamics is one of the possible frameworks that can explain evolutionary dynamics. 
+Replicator dynamics determines how the frequency of different strategies in a population changes over time. 
+We can write the equation used to determine replicator dynamics mathematically. Let's take the frequency of $A$ and $B$ strategies are $x_A$ and $x_B$ and the fitness of each strategy is $f_A$ and $f_B$ and the average fitness of the population is $\bar{f}$. 
+It is a two-player two-strategy game so we can say, $ x_A+x_B=1 $, so we can write that $x_B=1-x_A$ and $x_A=1-x_B$. Let's try to write a payoff matrix,
+
+\begin{linenomath}
+\begin{equation}
 \begin{pmatrix}
 & A & B \\
   A & a_1 & a_0 \\
   B & b_1 & b_0
 \end{pmatrix}
-\]
+\end{equation}
+\end{linenomath}
+
 Now based on the payoffs we can write the average fitness of each strategy.
+\begin{linenomath}
 \begin{align}
 f_A &=x_A\cdot a_1 + (1-x_A)\cdot a_0 \nonumber\\
 f_B &=x_B\cdot b_1 + (1-x_B)\cdot b_0 \nonumber
 \end{align} 
+\end{linenomath}
 Now to keep the average fitness of the population constant, we can write an equation.
 \begin{align}
 \bar{f}= (x_Af_A+x_Bf_B)\label{eq:1}
@@ -348,7 +357,7 @@ x_P&=\frac{1}{3}\nonumber
 If we replace the value of \eqref{eq:8} and \eqref{eq:9} into the equation \eqref{eq:6} in the same manner, we will get $x_P=x_R=x_S=\frac{1}{3}$. In this game no player will gain an advantage by changing their strategies. 
 \section{Stochastic Process and Finite Population}
 \subsection{Two players with two strategies}
-In the previous subsection, we used an infinite population for the deterministic approach\cite{Hofbauer2003}. Now, we will proceed with a finite population. There are mainly two reasons to use a finite population: first, it is realistic, and second, it is a natural way to introduce randomness into the replicator dynamics\cite{Altrock2010}.
+In the previous subsection, we used an infinite population for the deterministic approach \cite{Hofbauer2003}. Now, we will proceed with a finite population. There are mainly two reasons to use a finite population: first, it is realistic, and second, it is a natural way to introduce randomness into the replicator dynamics\cite{Altrock2010}.
 Now, we can consider the finite population of a specific game as $N$.Let's assume there are two strategies $a$ and $b$. Frequencies for $a$ and $b$ are $i$ and $(N-i)$. We can write the payoff matrix according to this specification,
 \[
 \begin{array}{c|cc}
@@ -363,7 +372,7 @@ Now we can denote the average payoff of $a$ and $b$ strategies as $\pi_a$ and $\
 \[\pi_b=\frac {i}{N-1}b_1 + \frac{N-i-1}{N-1}b_0\]
 Now, a question can arise, why are we using $i-1$ instead of $i$? We have to understand that instead of an infinitely large population, we are using a real finite population and for that, we have to remove the particular individual who is observing or analysing this situation. So we use $i-1$.
 In the previous work, we used fitness directly related to payoff. But in the actual population, we introduce a tunable parameter similar to the fitness which controls the game.
-Nowak et al.\cite{Nowak2004} introduced this tunable parameter as selection intensity. Because for some situations or equations, we can know the particular relation between the fitness and payoff but for most of cases, we don't know the particular relation; we can just create a hypothesis.
+Nowak et al.~\cite{Nowak2004} introduced this tunable parameter as selection intensity. Because for some situations or equations, we can know the particular relation between the fitness and payoff but for most of cases, we don't know the particular relation; we can just create a hypothesis.
 \[f_i=1-w+w\pi_i\]
 where $w$ selection intensity and $\pi_i$ is the payoff. The value of $w$ is bound by  $0$ and $1$. If the value is $0$, then $f_i=1$. We can deduce from this equation that for every value of $i$, we will face neutrality, and if the value is $1$, we will have $f_i=\pi_i$. Now, it suggests that the game payoff controls the fitness.
 Now, we can move to the part of the evolutionary dynamics where, for the finite population, there's randomness involved in the population. So, we will go for the stochastic processes.
