@@ -1,9 +1,10 @@
+
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{times}
 \usepackage[titletoc]{appendix}
 \usepackage{graphicx}
-\usepackage[running]{lineno}
+\usepackage{lineno}
 \usepackage{multirow}
 \usepackage[english]{babel}
 \usepackage{typearea} 
@@ -18,6 +19,7 @@
 \usepackage{rotating}
 \usepackage[numbers]{natbib}
 \usepackage[colorinlistoftodos]{todonotes}
+\usepackage{float}
 \newcommand{\Fig}[1]{Figure~\ref{fig:#1}}
 
 \renewcommand{\baselinestretch}{1.5}
@@ -56,7 +58,7 @@
     linkcolor=blue,          % color of internal links (change box color with linkbordercolor)
     citecolor=darkgreen,        % color of links to bibliography
     filecolor=magenta,      % color of file links
-    urlcolor=black%color of external links
+    urlcolor= black           % color of external links
 }
 
 
@@ -64,7 +66,7 @@
 \definecolor{greenie}{rgb}{0.1,0.62,0.0}
 \definecolor{orange}{rgb}{0.9,0.3,0.0}
 \definecolor{deepblue}{rgb}{0.0,0.0,0.7}
-\newcommand{\cha}[1]{\textcolor{darkgreen}{(#1)}} 
+\newcommand{\cha}[1]{\textcolor{darkgreen}{(#1)}}
 
 
 \title{\vspace*{-22mm}\bf Title}
@@ -101,45 +103,29 @@ Keywords:
 \tableofcontents
 
 \section{Introduction}
-
-
-
-
-%\textbf{Collective cooperation and resource dynamics}.
-%
-
 \section{Deterministic dynamics}
 \subsection{Replicator Dynamics}
 
-\subsubsection{Two player games with two strategies}
+\subsubsection{Two-player games with two strategies}
 
-Replicator dynamics is one of the possible frameworks that can explain evolutionary dynamics. 
-Replicator dynamics determines how the frequency of different strategies in a population changes over time. 
-We can write the equation used to determine replicator dynamics mathematically. Let's take the frequency of $A$ and $B$ strategies are $x_A$ and $x_B$ and the fitness of each strategy is $f_A$ and $f_B$ and the average fitness of the population is $\bar{f}$. 
-It is a two-player two-strategy game so we can say, $ x_A+x_B=1 $, so we can write that $x_B=1-x_A$ and $x_A=1-x_B$. Let's try to write a payoff matrix,
-
-\begin{linenomath}
-\begin{equation}
+Replicator dynamics is one of the possible frameworks that can explain evolutionary dynamics. Replicator dynamics determines how the frequency of different strategies in a population changes over time. We can write the equation used to assess replicator dynamics mathematically. Let's take the frequency of $A$ and $B$ strategies are $x_A$ and $x_B$ and the fitness of each strategy is $f_A$ and $f_B$ and the average fitness of the population is $\bar{f}$. It is a two-player two-strategy game, so we can say $ x_A+x_B=1 $, so we can write that $x_B=1-x_A$ and $x_A=1-x_B$. Let's try to write a payoff matrix,\\
+\[
 \begin{pmatrix}
 & A & B \\
   A & a_1 & a_0 \\
   B & b_1 & b_0
 \end{pmatrix}
-\end{equation}
-\end{linenomath}
-
-Now based on the payoffs we can write the average fitness of each strategy.
-\begin{linenomath}
+\]
+Now, based on the payoffs, we can write the average fitness of each strategy.
 \begin{align}
 f_A &=x_A\cdot a_1 + (1-x_A)\cdot a_0 \nonumber\\
 f_B &=x_B\cdot b_1 + (1-x_B)\cdot b_0 \nonumber
 \end{align} 
-\end{linenomath}
-Now to keep the average fitness of the population constant, we can write an equation.
+Now, to keep the average fitness of the population constant, we can write an equation.
 \begin{align}
 \bar{f}= (x_Af_A+x_Bf_B)\label{eq:1}
 \end{align}
-Now, we can substitute this $x_B$ value into the equation \ref{eq:1}. After substitution, we will get the undermentioned equation.
+Now, we can substitute this $x_B$ value into the equation \eqref{eq:1}. After substitution, we will get the following equation.
 \begin{align}
 \bar{f}={x_Af_A+ (1-x_A)f_B}\label{eq:2}
 \end{align}
@@ -155,17 +141,17 @@ Now let's substitute the equation \eqref{eq:2} into the equation \eqref{eq:3}.
           &=x_A[(1-x_A)f_A-(1-x_A)f_B] \nonumber\\
           &=x_A(1-x_A)(f_A-f_B) \label{eq:4}
 \end{align}
-This is for a two-strategy game. If we have $n$ strategies,where $i=1,2,3.....(n-1)$.We can write the undermentioned equation.
+This is for a two-strategy game. If we have $n$ strategies,where $i=1,2,3.....(n-1)$.We can write the following equation.
 \[\frac{dx_i}{dt}=x_i[f_i(x)-\bar{f}]\]
 What does this equation tell us? 
-We can understand that the rate of change with time of the frequency of a certain type  depends on the fitness, average fitness of the population, and frequency. From this understanding, we can say that if $f_i(x)-\bar{f}>0$ then the frequency of this type will increase over time, and if $f_i(x)-\bar{f}<0$, the frequency of the type will decrease over time.
-Now, We can write the replicator dynamics \eqref{eq:4}.
+We can understand that the rate of change with time of the frequency of a certain type depends on the fitness, average fitness of the population, and frequency. From this understanding, we can say that if $f_i(x)-\bar{f}>0$, then the frequency of this type will increase over time, and if $f_i(x)-\bar{f}<0$, the frequency of the type will decrease over time.
+Now, we can write the replicator dynamics \eqref{eq:4}.
 \[\frac{dx}{dt}=x_A(1-x_A)(f_A-f_B)\]
 If we make the change of strategy $A$ constant over time, which means $\frac{dx}{dt}=0$ then we can write the replicator dynamics equation as:
 \[x_A(1-x_A)(f_A-f_B)=0\]
 Now, if we try to find certain conditions under which $\frac{dx}{dt}$ will be $0$.
-We will have three certain conditions, $x=0$, $x=1$ and $f_A=f_B$.
-In graphical representation, for the condition $f_A=f_B$, it will make a straight line between the $0$ and $1$. If the condition is $f_A>f_B$ then the curve will be over the straight line and if $f_A<f_B$ then the curve will be under the straight line\cite{Bishop1976} For a visual representation of this graph, we can plot this equation for different values of $f_A$ and $f_B$ using Python.\\
+We will have three certain conditions, $x=0$, $x=1$, and $f_A=f_B$.
+In graphical representation, for the condition $f_A=f_B$, it will make a straight line between $0$ and $1$. If the condition is $f_A>f_B$ then the curve will be over the straight line and if $f_A<f_B$ then the curve will be under the straight line\citep{Bishop1976}.\\
 We can calculate the particular frequency where the strategy $A$ becomes abundant from rare or rare from abundant. We can calculate this using the $f_A=f_B$ equation.\\
 Let's take this frequency as $x^*$.
 As we know, $f_A=f_B$
@@ -181,10 +167,10 @@ We can write the $x$ as $x^*$
 x^*=\frac{b_0-a_0}{a_1-a_0-b_1+b_0} \label{eq:5}
 \end{align}
 We get different conditions from this equation.\\
-(1) Dominance: It happens when any one of the two strategies will be dominant over another, means, for example, if $f_A>f_B$, that strategy $A$ will be dominant over strategy $B$. It will be possible if the $a_1>b_1$ and $a_0>b_0$ where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player two-strategy game.\\
-(2) Co-existence: It happens when one of the two strategies is rare and has an advantage for that. For example, if strategy $A$ is rare, then $f_A>f_B$. if $a$ becomes abundant, it will lose its advantage, so the inequality will be  $f_A<f_B$, and while becoming abundant strategy from rare strategy, there will be an internal equilibrium point and the equation will $f_A=f_B$. In this scenario, the player should play the rare strategy.It will be possible if the $a_1<b_1$ and $a_0>b_0$ where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player two-strategy game.\\
-(3) Bi-stability: A condition where all $A$ and $B$ will be stable. It means that a strategy will get an advantage if it is abundant. For example, if strategy $A$ is abundant, then the inequality will be $f_A>f_B$, and if it becomes rare, then the inequality will be $f_A<f_B$, and there will be a internal equilibria when $f_A=f_B$. For this condition, the player should play the strategy its opponent is playing. It will be possible if the $a_1>b_1$ and $a_0<b_0$ where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player two strategy game.\\
-(4) Neutrality: Now, we have one condition in which both strategies will have the same impact. It does not depend on the change in the strategy. The equation for this strategy is $f_A=f_B$. It will be possible if $a_1=b_1$ and $a_0=b_0$ where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player two-strategy  game.\cite{Gokhale2011}.\\
+(1) Dominance: It happens when one of the two strategies will be dominant over another, meaning, for example, if $f_A>f_B$, that strategy $A$ will be dominant over strategy $B$. It will be possible if the $a_1>b_1$ and $a_0>b_0$, where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player two-strategy game.\\
+(2) Co-existence: It happens when one of the two strategies is rare and has an advantage over that. For example, if strategy $A$ is rare, then $f_A>f_B$. If $a$ becomes abundant, it will lose its advantage, so the inequality will be  $f_A<f_B$, and while becoming abundant strategy from rare strategy, there will be an internal equilibrium point, and the equation will be $f_A=f_B$. In this scenario, the player should play the rare strategy. It will be possible if the $a_1<b_1$ and $a_0>b_0$, where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player two-strategy game.\\
+(3) Bi-stability: A condition where all $A$ and $B$ will be stable. It means that a strategy will get an advantage if it is abundant. For example, if strategy $A$ is abundant, then the inequality will be $f_A>f_B$, and if it becomes rare, then the inequality will be $f_A<f_B$, and there will be an internal equilibria when $f_A=f_B$. For this condition, the player should play the strategy that its opponent is playing. It will be possible if the $a_1>b_1$ and $a_0<b_0$, where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player two-strategy game.\\
+(4) Neutrality: Now, we have one condition in which both strategies will have the same impact. It does not depend on the change in the strategy. The equation for this strategy is $f_A=f_B$. It will be possible if $a_1=b_1$ and $a_0=b_0$ where $a_1,a_0,b_1,b_0$ are the payoffs of a payoff matrix of a two-player two-strategy  game.\citep{Gokhale2011}.\\
 Now, based on the above explained process of replicator dynamics for two players with two strategies, we will explore some games and find their internal equilibrium point.\\
 \textbf{Prisoner's dilemma}
 \newline
@@ -205,24 +191,30 @@ Let's try to write the payoff matrix.
   \text{Defect (D)} & T = 5 & P = 1 \\
 \end{array}
 \]
-The general and standard condition for prisoner' dilemma is $a_1<b_1$ and $a_0<b_0$. As mentioned in the replicator dynamics section, there are three conditions where the value of $dx/dt$ will be $0$. The three conditions are $x=0$, it means only defectors, and $x=1$, which means only cooperators. The internal equilibrium will fulfil the condition of $f_C=f_D$. Let's find the equilibrium point by using the equation \eqref{eq:5} and putting the payoff values into the equation.
+The general and standard condition for the prisoner' dilemma is $a_1<b_1$ and $a_0<b_0$. As mentioned in the replicator dynamics section, there are three conditions where the value of $dx/dt$ will be $0$. The three conditions are $x=0$, which means only defectors, and $x=1$, which means only cooperators. The internal equilibrium will fulfil the condition of $f_C=f_D$. Let's find the equilibrium point by using the equation \eqref{eq:5} and putting the payoff values into the equation.
 \begin{align}
 x^*&=\frac{1-0}{3-0-5 +1} \nonumber\\
 x^*&= -1 \nonumber
 \end{align}
-Since, $x\in{0,1}$ so there can not exist any internal equilibrium valued $-1$. This states that the entire system will have transition to full defection $(x=0)$ over time.
-We can plot the graph using Python for the Prisoner's dilemma dynamics.\\
+Since $x\in{0,1}$ so there can not exist any internal equilibrium valued $-1$. This states that the entire system will transition to full defection $(x=0)$ over time.
+We can plot the graph using Python for the Prisoner's dilemma dynamics.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{PD.pdf}
+    \caption{$x^*=-1$, Internal Equilibrium for Prisoner's Dilemma Game}
+    \label{fig:1}
+\end{figure}
 \textbf{Chicken Game}
 \newline
-In this game, two players( player $A$ and player $B$)are driving towards each other in a single pathway. There are two options for the players:
+In this game, two players( player $A$ and player $B$)are driving towards each other on a single pathway. There are two options for the players:
 \begin{enumerate}
 \item Swerve(C)- Avoided collision but appeared weak.
 \item Stay (D)- Stay driving toward each other, hoping the opponent will swerve.
 \end{enumerate}
 We can write three conditions based on this:
 \begin{enumerate}
-\item If both swerves, they will not face collision, but there will be a small loss.
-\item If one swerves and one stays, the one who stays will have a win, and one who swerves will face loss.
+\item If both swerve, they will not face a collision, but there will be a small loss.
+\item If one swerves and one stays, the one who stays will have a win, and the one who swerves will face a loss.
 \item If both stay, they'll have a huge loss.
 \end{enumerate}
 We can write the payoff matrix with actual payoffs, which follow the standard condition, $a_1<b_1$ and $a_0>b_0$.
@@ -234,16 +226,22 @@ We can write the payoff matrix with actual payoffs, which follow the standard co
   \text{Stay} & 0 = 0 & \frac{b}{2} = 2 \\
 \end{array}
 \]
-As we know, there are three conditions where the value of $dx/dt$ will be $0$. The three conditions are $x=0$, it means only defectors, and $x=1$, which means only cooperators. The internal equilibrium will fulfil the condition of $f_C=f_D$.Let's find the equilibrium point by using the equation \eqref{eq:5} and putting the payoff values into the equation.
+As we know, there are three conditions where the value of $\frac{dx}{dt}$ will be $0$. The three conditions are $x=0$, which means only defectors, and $x=1$, which means only cooperators. The internal equilibrium will fulfil the condition of $f_C=f_D$.Let's find the equilibrium point by using the equation \eqref{eq:5} and putting the payoff values into the equation.
 \begin{align}
 x^*&= \frac{2-4}{-3-4-0+2} \nonumber\\
 x^*&= \frac{2}{5} \nonumber
 \end{align}
-This implies that, over time $2/5$ of the population will swerve and $3/5$ of the population will stay.It implies the condition of co-existence. Let's try to plot it.\\
+This implies that, over time, $2/5$ of the population will swerve and $3/5$ of the population will stay. It implies the condition of co-existence. Let's try to plot it.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{CG.pdf}
+    \caption{$x^*=\frac{2}{5}$, Internal Equilibrium for Chicken Game}
+    \label{fig:2}
+\end{figure}
 \textbf{Stag Hunt Game}
 \newline
-Stag hunt game is a classical example of game theory for understanding social dilemma and the interplay between risk and trust.
-In this game, two players are hunting in a forest. They have two choices,Cooperate(C) with each other and hunt stag or Independently hunt hare(D).\\
+The stag hunt game is a classical example of game theory for understanding social dilemma and the interplay between risk and trust.
+In this game, two players are hunting in a forest. They have two choices: Cooperate(C) with each other and hunt a stag or Independently hunt hare(D).\\
 We can write three conditions based on this:
 \begin{enumerate}
 \item If they both cooperate and hunt stag, they will get the highest payoff.
@@ -264,9 +262,15 @@ As we know, there are three conditions where the value of $dx/dt$ will be $0$. T
 x^* &=\frac{3-0}{4-0-3+3} \nonumber\\
 x^* &= \frac{3}{4} \nonumber
 \end{align}
-Over time, $3/4$ of the population will hunt stag and the $1/4$ of the population will hunt hare.\\
+Over time, $3/4$ of the population will hunt hare and the $1/4$ of the population will hunt stag.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{SH.pdf}
+    \caption{$x^*=\frac{3}{4}$, Internal Equilibrium for Stag Hunt Game}
+    \label{fig:3}
+\end{figure}
 \subsubsection{Two player games with multiple strategies}
-In the previous subsection, we analysed two player games with two strategies, now we are going to analyse two player games with multiple strategies.For better understanding of this particular problem, let's take a biological example, strains of \textit{Escherichia coli} are competing for resources available on the media. $K$ strain is the killer strain which produces toxin that will out-compete strain $S$. So, having toxin or not are the two strategies, we can write this using two strategy payoff matrix but there can be another possibility, where strain $R$ is resistant to the toxin but pay the cost for resistance. SO, the scenario now changed completely; now the payoff matrix will be $3 \times 3$. This study was carried out by\cite{Kerr2002}\cite{Czaran2002}.
+In the previous subsection, we analysed two player games with two strategies, now we are going to analyse two player games with multiple strategies. For better understanding of this particular problem, let's take a biological example, strains of \textit{Escherichia coli} are competing for resources available on the media. $K$ strain is the killer strain which produces toxin that will out-compete strain $S$. So, having toxin or not are the two strategies, we can write this using two strategy payoff matrix but there can be another possibility, where strain $R$ is resistant to the toxin but pay the cost for resistance. So, the scenario now changed completely; now the payoff matrix will be $3 \times 3$. This study was carried out by\citep{Kerr2002}\citep{Czaran2002}.
 Now, in a population there will be multiple strategies. So, we have to write the replicator dynamics in $(n-1)$ dimensional simplex.For that we need $n\times n$ payoff matrix.
 \[
 \begin{array}{c@{}c}
@@ -287,13 +291,21 @@ Now, in a population there will be multiple strategies. So, we have to write the
 \end{array}
 \]
 This is a two player game, here $a_{1,2}$ means player $A$ playing strategy $1$ against the strategy $2$ of player $B$ so we can write the equation using replicator dyanmics.
-\[dx_i/dt=x_i[f_i(x)-\bar{f}]\]
+\begin{equation}
+dx_i/dt=x_i[f_i(x)-\bar{f}\nonumber\\
+\end{equation}
 We can derive the average fitness of a strategy $i$ from this equation.
-\[f_i(x)=a_{i,1}x_1+a_{i,2}x_2+.....+a_{i,n}x_n\]
+\begin{equation}
+f_i(x)=a_{i,1}x_1+a_{i,2}x_2+\cdots+a_{i,n}x_n\nonumber\\
+\end{equation}
 We can write this equation as:
-\[f_i(x)=\sum_{j=1}^{n}a_{i,j}x_j\]
+\begin{equation}
+f_i(x)=\sum_{j=1}^{n}a_{i,j}x_j\nonumber\\
+\end{equation}
 and the average fitness of a population is denoted as:
-\[\bar{f}=x_1f_1+x_2f_2+.....+x_nf_n= \sum_{i=1}^{n}x_if_i \]
+\begin{equation}
+bar{f}=x_1f_1+x_2f_2+.....+x_nf_n= \sum_{i=1}^{n}x_if_i\nonumber\\
+\end{equation}
 \textbf{Rock-Paper-Scissors Game}
 \newline
 Rock paper scissors game is a game in game theory where, there are $n=3$ strategies for each player. In this game, there are mainly three conditions:
@@ -354,109 +366,173 @@ x_R+x_S+x_P&=1\nonumber\\
 2x_P+x_P&=1\nonumber\\
 x_P&=\frac{1}{3}\nonumber
 \end{align}
-If we replace the value of \eqref{eq:8} and \eqref{eq:9} into the equation \eqref{eq:6} in the same manner, we will get $x_P=x_R=x_S=\frac{1}{3}$. In this game no player will gain an advantage by changing their strategies. 
+If we replace the value of \eqref{eq:8} and \eqref{eq:9} into the equation \eqref{eq:6} in the same manner, we will get $x_P=x_R=x_S=\frac{1}{3}$. In this game no player will gain an advantage by changing their strategies.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{RPS.pdf}
+    \caption{Internal Equilibrium of Rock-Paper-Scissors Game}
+    \label{fig:4}
+\end{figure} 
 \section{Stochastic Process and Finite Population}
 \subsection{Two players with two strategies}
-In the previous subsection, we used an infinite population for the deterministic approach \cite{Hofbauer2003}. Now, we will proceed with a finite population. There are mainly two reasons to use a finite population: first, it is realistic, and second, it is a natural way to introduce randomness into the replicator dynamics\cite{Altrock2010}.
-Now, we can consider the finite population of a specific game as $N$.Let's assume there are two strategies $a$ and $b$. Frequencies for $a$ and $b$ are $i$ and $(N-i)$. We can write the payoff matrix according to this specification,
+In the previous subsection, we used an infinite population for the deterministic approach \citep{Hofbauer2003}. Now, we will proceed with a finite population.
+There are mainly two reasons to use a finite population: first, it is realistic, and second, it is a natural way to introduce randomness into the replicator dynamics \citep{Altrock2010}.\\
+\textbf{Wright-Fisher Process}
+\newline
+The theory of Wright-Fisher process is rooted in the population genetics. In Wright-Fisher process,each of $N$ individuals in a generation reproduce a large number of offspring which is proportional to their fitness.
+From this offspring pool, a $N$ sized generation is again randomly sampled. The composition of the population can change more faster. In principle, in a single generation, the population can go back to a single ancestor. 
+It states that the Wright-Fisher process is not a simple birth-death process. It is a more general Markov chain process \citep{Imhof2006}.\\
+\textbf{Moran Process}
+\newline
+Moran process is a classical model of population genetics like Wright-Fisher process. In contrast to the Wright-Fisher process, Moran process is a simple birth-death process, where in a population one randomly selected individual reproduce it's identical copy proportional to it's fitness value and to keep the population size constant one randomly selected individual is removed from the population.
+In the previous works, we used trivial fitness means the average fitness is exactly equal to the average payoff. But in the actual population, fitness can depend on payoff in many other ways. For some systems we may know the exact relation between payoff and fitness but for other systems, we can just speculate.
+Nowak et al.\citep{Nowak2004} introduced a tunable parameter as selection intensity. 
+\begin{equation}
+f_i=1-w+w\pi_i \label{eq:10}
+\end{equation}
+where $f_i$ is the average fitness of a population, $w$ is the selection intensity, $\pi_i$ is the average payoff of a strategy. If $w=1$ it will be strong selection, $f_i=\pi_i$ and if $w=0$ it will be weak selection, $f_i=1$.\\
+Now, we can consider the finite population of a specific game as $N$.
+Let's assume there are two strategies $A$ and $B$. Frequencies for $A$ and $B$ are $i$ and $(N-i)$.
+We can write the payoff matrix according to this specification.
 \[
 \begin{array}{c|cc}
-    & a & b \\
+    & A & B \\
     \hline
-  a & (a_1) & (a_0) \\
-  b & (b_1) & (b_0)
+  A & a_1 & a_0 \\
+  B & b_1 & b_0
 \end{array}
 \]
 Now we can denote the average payoff of $a$ and $b$ strategies as $\pi_a$ and $\pi_b$.
-\[\pi_a=\frac{i-1}{N-1}a_1 + \frac{N-i}{N-1}a_0\]
-\[\pi_b=\frac {i}{N-1}b_1 + \frac{N-i-1}{N-1}b_0\]
-Now, a question can arise, why are we using $i-1$ instead of $i$? We have to understand that instead of an infinitely large population, we are using a real finite population and for that, we have to remove the particular individual who is observing or analysing this situation. So we use $i-1$.
-In the previous work, we used fitness directly related to payoff. But in the actual population, we introduce a tunable parameter similar to the fitness which controls the game.
-Nowak et al.~\cite{Nowak2004} introduced this tunable parameter as selection intensity. Because for some situations or equations, we can know the particular relation between the fitness and payoff but for most of cases, we don't know the particular relation; we can just create a hypothesis.
-\[f_i=1-w+w\pi_i\]
-where $w$ selection intensity and $\pi_i$ is the payoff. The value of $w$ is bound by  $0$ and $1$. If the value is $0$, then $f_i=1$. We can deduce from this equation that for every value of $i$, we will face neutrality, and if the value is $1$, we will have $f_i=\pi_i$. Now, it suggests that the game payoff controls the fitness.
-Now, we can move to the part of the evolutionary dynamics where, for the finite population, there's randomness involved in the population. So, we will go for the stochastic processes.
-For these stochastic processes, we will focus on the Moran process. It consists of two events: birth and death. For the birth process, one subject is chosen randomly, and it produces its identical copy, and for the death process, again, one random subject is chosen from the population and eliminated. It means by introducing randomness with the birth-death process, now this theory can change the population with each time step, and for $N$ steps it will control a generation \cite{Moran1962}
-There are three mathematical equations that we can derive from this theory: (1) The number of $a$ individuals increases by 1; (2) the number of $a$ individuals decreases by 1; (3) the number of $a$ individuals remains neutral.\\
-For the (1) scenario, we can write:
-\[T_i^+=\frac{if_a}{if_a+(N-i)f_b}\frac{N-i}{N}\]
-For the (2) scenario, we can write:
-\[T_i^-=\frac{(N-i)f_a}{if_a+(N-i)f_b}\frac{i}{N}\]
-For the (3) scenario, we can write:
-\[1-T_i^+-T_i^-\]
-Now, what can we deduce from these equations?\\
-From the (1) equation, we can say that $a$ numbered individuals can increase only when an $a$ individual is chosen for birth and a $b$ individual is chosen for death.\\
-From the (2) equation, we can say that the number of $a$ decreases cause an $a$ individual is chosen for death and a $b$ individual is chosen for birth.\\
-From the (3) equation, we can deduce that no one is chosen for the birth or death process, so there is neutrality.\\
-Now, let us jump to the fixation probability.\\
+\begin{align}
+\pi_A&=\frac{i-1}{N-1}a_1 + \frac{N-i}{N-1}a_0 \nonumber\\
+\pi_B&=\frac {i}{N-1}b_1 + \frac{N-i-1}{N-1}b_0\label{eq:11}
+\end{align}
+Now, a question can arise, why are we using $i-1$ instead of $i$? We have to understand that instead of an infinitely large population, we are using a real finite population and for that, we have to remove the particular individual who is observing or analysing the situation, so we use $i-1$.\\
+Now, we can move to the part of the evolutionary dynamics for the finite population where randomness is involved in the population.
+So, we will go for the stochastic processes.
+For these stochastic processes, we will focus on the Moran process. It consists of two events: birth and death. 
+For the birth process, one subject is chosen randomly, and it produces its identical copy, and for the death process, again, one random subject is chosen from the population and eliminated. 
+It means by introducing randomness with the birth-death process, now this theory can change the population with each time step, and for $N$ steps it will control a generation \cite{Moran1962}
+There are three situations in this theory.
+\begin{enumerate}
+\item The number of individual playing strategy $A$ increases by 1.
+\item The number of individual playing strategy $A$ decreases by 1.
+\item The number of individual playing strategy $A$ remains neutral.
+\end{enumerate}
+From these three scenarios we can write there equations.\\
+For the (1) scenario,
+\begin{equation}
+T_i^+=\frac{if_A}{if_A+(N-i)f_B}\frac{N-i}{N} \label{eq:12}
+\end{equation}
+For the (2) scenario,
+\begin{equation}
+T_i^-=\frac{(N-i)f_A}{if_A+(N-i)f_B}\frac{i}{N} \label{eq:13}
+\end{equation}
+For the (3) scenario,
+\begin{equation}
+1-T_i^+-T_i^- \label{eq:14}
+\end{equation}
+Now, what can we tell from these equations?
+\begin{enumerate}
+\item From the \eqref{eq:12} equation, we can say that  individual playing strategy $A$ can increase only when an individual playing strategy $A$  is chosen for birth and an individual playing strategy $B$  is chosen for death.
+\item From the \eqref{eq:13} equation, we can say that the number of the individuals playing strategy $A$ decreases because an individual playing strategy $A$ individual is chosen for death and an individual playing strategy $B$ is chosen for birth.
+\item From the \eqref{eq:14} equation, we can deduce that no one is chosen for the birth or death process, so there is neutrality.
+\end{enumerate}
+\textbf{Fixation Probability}
+\newline
 In genetics, we often ask a question related to the invasion of a gene: how can the gene invade another gene, and how does it affect the other gene's population?
-After understanding the transition probability and Moran processes, we can now form a question based on the previously mentioned topic. In a population of $j$ numbered $a$ individuals and $(N-j)$ numbered $b$ individuals, what is the probability that the whole population will consist of $a$ individuals?
-This is known as the fixation probability of $j$ numbered $a$ individuals.We can denote this fixation probability as $\rho(j)$.
-Since fixation is an absorbing state, if the entire population once becomes $a$, it can not be reverted. We can try to write a probability balance equation.
-\[\rho(j)=T_i^+\rho_a(j+1)+(1-T_i^+-T_i^-)\rho_a(j)+T_i^-\rho_a(j-1)\]
-This is a discrete stochastic process that we can derive using the absorbing phenomenon of Markov chain processes.
-Let's solve this equation.
-\[\rho_a(j)-\rho_a(j-1)=\frac{T_i^-}{T_i^+}(\rho_a(j+1)-\rho_a(j))\]
-\[T_i^++(\rho_a(j)-\rho_a(j-1)=T_i^-(\rho_a(j+1)-\rho_a(j)\]
-\[T_i^+\rho_a(j)-T_i^+\rho_a(j-1)=T_i^-\rho_a(j+1)-T_i^-\rho_a(j)\]
-\[\rho_a(j+1)=\frac{\rho_a(j)(T_i^+ + T_i^-)-T_i^+\rho_a(j+1)}{T_i^-}\]
- Now, let's write the equation.\\
- $Ratio_j=R_j=\frac{T_i^-}{T_i^+}= \frac{(N-j)f_b}{jf_a}$
- Let's substitute the value of $R_j$
- \[\rho_a(j+1)={\rho_a(j)(1+R_j)-R_j\rho_a(j-1)}\]
- Let's solve this equation by putting some real values,\\
- We get this underwritten equation by putting the value of $j=1$,
- \[\rho_a(2)= \rho_a(1)(1+R_1)-R_1\rho_a(0)\]
- Let's put $j=2$.
- \[\rho_a(3)=\rho_a(2)(1+R_2)-R_2\rho_a(1)\]
- Let's substitute the value of $\rho_a(2)$
- \[\rho_a(3)=\rho_a(1)(1+R_1)(1+R_2)-\rho_a(1)\]
- \[\rho_a(3)=\rho_a(1)((1+R_1)(1+R_2)-1)\]
- Now we can write a general equation based on this.
- \[\rho_a(j)=\left[1+\sum_{m=1}^{j-1}\prod_{i=1}{m}R_i \right] \rho_a(1)\]
- Since we know that $j=N$, and fixation is guaranteed means $\rho_a(N)=1$
- \[1=\left[1+\sum_{m=1}^{N-1}\prod_{i=1}^{m} R_i\right]\rho_a(1)\]
- \[\rho_a(1)=\frac{1}{1+\sum_{m=1}^{N-1}\prod_{i=1}^{m}R_i}\]
- We can use the above equation when proceeding with just a $1$ player population.
- So, we can write the final fixation probability equation as,
- \[\rho(j)=\frac{1+\sum_{m=1}^{j-1}\prod_{i=1}^{m}R_i}{1+\sum_{m=1}^{N-1}\prod_{i=1}^{m}R_i}\]
- If we consider a neutral drift, where $f_a=f_b$, then we can write the equation as $\rho_a={j}/{N}$.
- If we observe the neutral drift with a single individual, we can write $\rho_a=1/N$\cite{Traulsen2006}. We can calculate the fixation probability for strategy $b$ as $\rho_b$. $1$ $b$ individual reaches fixation is equal to the $N-1$ $a$ individuals fails to reach fixation.
-\[\rho_b=1-\rho_a(N-1)\]
-\[=1-\frac{1 + \sum_{m=1}^{N-2} \prod_{i=1}^{m} R_i}{1 + \sum_{m=1}^{N-1} \prod_{i=1}^{m} R_i}\]
-\[=\frac{1}{1+\sum_{m=1}^{N-1}\prod_{i=1}^{m}R_i}(\prod_{i=1}^{N-1}R_i)\]
-\[=\rho_a(\prod_{i=1}^{N-1}R_i)\]
-Now, we can write about the one-third rule.\\
-The selection of one particular strategy means the fixation probability is greater than neutral.
- \[\rho_a>1/N\]
- But if you want to calculate for the weak selection, the fitness will be,
- \[f_a=1+w\pi_a\]
- \[f_b=1+w\pi_b\]
- We can write the ratio of transition probabilities using the above-mentioned equations,
- \[R_i=\frac{T_i^-}{T_i^+}= \frac{(N-j)f_b}{jf_a}\approx\frac{N-j}{j}(1+w(\pi_b-\pi_a) \]
- For small \( w \), we take a logarithmic expansion and approximate,
-\[\prod_{j=1}^{m} R_i \approx \prod_{j=1}^{m} \frac{N-j}{j} \left( 1 + w (\pi_B - \pi_A) \right)\]
-\[\prod_{j=1}^{m} \frac{N-j}{j} = \frac{(N-1)!}{m!(N-m-1)!} \approx N^m.\]
-The weak selection term contributes an additional summation,
-\[\sum_{m=1}^{N-1} \sum_{j=1}^{m} (\pi_A - \pi_B).\]
-Now, we know that,
-\[\sum_{m=1}^{N-1} \prod_{j=1}^{m} R_i \approx N^m - 1 + w \sum_{m=1}^{N-1} \sum_{j=1}^{m} (\pi_B - \pi_A)\]
-Now, we can write,
-\[\rho_A(1) \approx \frac{1}{1 + \sum_{m=1}^{N-1} \prod_{j=1}^{m} R_i}\]
-Finally, we can summarise the whole equation as,
-\[\rho_A(1) \approx \frac{1}{N} + \frac{w}{N^m} \sum_{m=1}^{N-1} \sum_{j=1}^{m} (\pi_A - \pi_B)\]
+After understanding the transition probability and Moran processes, we can now form a question based on the previously mentioned topic.
+In a population of $j$ numbered individuals playing strategy $A$ and $(N-j)$ numbered individuals playing strategy $B$, what is the probability of the whole population will consist of individuals playing $A$?
+This is known as the fixation probability of $j$ numbered individuals playing $A$ strategy.
+We can denote this fixation probability as $\rho_j$.
+The two absorbing states are $\rho_j=0$ and $\rho_j=1$.
+Since fixation is an absorbing state, if the entire population once becomes $A$, it can not be reverted. We can try to write a probability balance equation.
+\begin{align}
+\rho_j &= T_j^-\rho_{j-1}+(1-T_j^+ - T_j^-)\rho_j + T_j^+p_{j+1} \nonumber\\
+0 &= T_j^-\rho_{j-1} - T_j^-\rho_j - T_j^+\rho_j + T_J^+\rho_{j+1}\nonumber\\
+0 &= \underbrace{-T^-_j (\rho_j - \rho_{j-1})}_{y_j} + \underbrace{T^+_j (\rho_{j+1} - \rho_j)}_{y_{j+1}} \label{eq:15}
+\end{align}
+We can write this equation as the differences between fixation probabilities,$y_{j+1}=y_jr_j$, where $r_j=\frac{T_j^-}{T_j^+}$
+\begin{align}
+y_1 &= \rho_1 - \rho_0 = \rho_1 \nonumber\\
+y_2 &= \rho_2 - \rho_1 = r_1 \rho_1 \nonumber\\
+\vdots \notag \\
+y_k &= \rho_k - \rho_{k-1} = \rho_1 \prod_{j=1}^{k-1} r_j \label{eq:16}\\
+\vdots \notag \\
+y_N &= \rho_N - \rho_{N-1} = \rho_1 \prod_{j=1}^{N-1} r_j \label{eq:17}
+\end{align}
+This means each incremental change from $\rho_{N-1}$ to $\rho_N$ is based on the growing product of $r_j$ multiplied by $\rho_1$.\\
+Now let's calculate the sum over all $y_j$. This sum is telescopic sum.
+\begin{align}
+\sum_{k=1}^N y_k &= \rho_1-\rho_0+ \rho_2-\rho_1+ \rho_3-\rho_2+\cdots+\rho_N-\rho_{N-1} \nonumber\\
+\sum_{k=1}^N y_k &= \rho_N-\rho_0=1 \label{eq:18}
+\end{align}
+Using \eqref{eq:16} and \eqref{eq:18} we can calculate the value of $\rho_1$.
+\begin{equation}
+1=\sum_{k=1}^N y_k=\sum_{k=1}^N \rho_1 \prod_{j=1}^{N-1}r_j=\rho_1(1+ \sum_{k=1}^{N-1}\prod_{j=1}^k r_j)\label{eq:19}
+\end{equation}
+So, we can write the fixation probability of one $A$ individual as,
+\begin{equation}
+\rho_1= \frac{1}{1+ \sum_{k=1}^{N-1}\prod{j=1}^k r_j} \label{eq:20}
+\end{equation}
+For neutral selection, $T_j^-=T_j^+$ and $r_j=1$. Hence, all products are simply one and we find $\rho_1= 1/N$.\\
+This is the fixation probability of single mutant $\rho_1$. In general, the fixation probability of $i$ mutants are $\rho_i$.
+\begin{align}
+\rho_i&= \sum_{j=1}^i y_k \nonumber\\
+&= \rho_1 \sum_{k=1}^i \prod_{j=1}^{k-1}r_j\nonumber\\
+&=\rho_1(1+ \sum_{k=1}^{i-1} \prod_{j=1}^k r_j)\nonumber\\
+&= \frac{1+\sum_{k=1}^{i-1}\prod_{j=1}^k r_j}{1+ \sum_{k=1}^{N-1}\prod_{j=1}^k r_j}
+\end{align}
+For neutral selection, we have $T_j^-=T_j^+$ and $r_j=1$. Hence, all products are simply one and we find $\rho_1= j/N$.\\
+The probability that a single individual playing strategy $A$ takes over a population of $N-1$ individuals playing strategy $B$ is the fixation probability of strategy $A$, $\rho_A=\rho_1$.\\
+The probability that a single individual playing strategy $B$ takes over a population of $N-1$ individuals playing strategy $A$ is the fixation probability of strategy $B$. The fixation probability of $B$ strategy is equal to the $N-1$ individuals playing strategy $A$ fail to take over the population so there is only one individual playing strategy $B$. So, the fixation probability of strategy $B$ is $\rho_B= 1-\rho_{N-1}$.\citep{traulsen2009stochastic}
+\begin{align}
+\rho_B &=1-\rho_{N-1} \nonumber\\
+&=\frac{1 + \sum_{k=1}^{N-2} \prod_{j=1}^{k} r_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j} \nonumber\\
+&= \frac{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j} - \frac{1 + \sum_{k=1}^{N-2} \prod_{j=1}^{k} r_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j} \nonumber\\
+&= \frac{\prod_{j=1}^{N-1} r_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j} \nonumber \\
+&= \rho_A \prod_{j=1}^{N-1} r_j \label{eq:22}
+\end{align}
+
+
+
+
+
+
+%\textbf{Collective cooperation and resource dynamics}.
+%
+
+
+
+
+
+
 \section{Discussion}
+
+
 \textbf{Code availability}.
 Appropriate computer code describing the model is available at 
 \texttt{ REDACTED for review}.% {\url{https://github.com/tecoevo/beliefs}}.
+
 \section{Acknowledgements}
 \texttt{ REDACTED for review}.% {\url{https://github.com/tecoevo/beliefs}}.
+
+
 \bibliographystyle{naturemag}
 \bibliography{references.bib}
+
 \renewcommand{\theequation}{SI.\arabic{equation}}
 \setcounter{equation}{0}
+
 \renewcommand{\thefigure}{SI.\arabic{figure}}
 \setcounter{figure}{0}
+
 \section{Supplementary material}
+
+
 \subsection{Analysis of the simple system}
+
+
+
+
 \end{document}
