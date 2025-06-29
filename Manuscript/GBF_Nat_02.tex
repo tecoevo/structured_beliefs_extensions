@@ -1,4 +1,3 @@
-
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{times}
@@ -289,14 +288,14 @@ Now, in a population there will be multiple strategies. So, we have to write the
        a_{n,1} & a_{n,2} & \dots & a_{n,n}
    \end{pmatrix}
 \end{array}
-\]
+\] \label{eq:6}
 This is a two player game, here $a_{1,2}$ means player $A$ playing strategy $1$ against the strategy $2$ of player $B$ so we can write the equation using replicator dyanmics.
 \begin{equation}
 dx_i/dt=x_i[f_i(x)-\bar{f}\nonumber\\
 \end{equation}
 We can derive the average fitness of a strategy $i$ from this equation.
 \begin{equation}
-f_i(x)=a_{i,1}x_1+a_{i,2}x_2+\cdots+a_{i,n}x_n\nonumber\\
+f_i(x)=a_{i,1}x_1+a_{i,2}x_2+.....+a_{i,n}x_n\nonumber\\
 \end{equation}
 We can write this equation as:
 \begin{equation}
@@ -304,7 +303,7 @@ f_i(x)=\sum_{j=1}^{n}a_{i,j}x_j\nonumber\\
 \end{equation}
 and the average fitness of a population is denoted as:
 \begin{equation}
-bar{f}=x_1f_1+x_2f_2+.....+x_nf_n= \sum_{i=1}^{n}x_if_i\nonumber\\
+\bar{f}=x_1f_1+x_2f_2+.....+x_nf_n= \sum_{i=1}^{n}x_if_i\nonumber\\
 \end{equation}
 \textbf{Rock-Paper-Scissors Game}
 \newline
@@ -315,7 +314,7 @@ Rock paper scissors game is a game in game theory where, there are $n=3$ strateg
 \item If the rock meets with paper and paper with scissors and scissors with rock, they will get the lowest payoff.
 \end{enumerate}
 Let's try to write the payoff matrix.
-\[
+\begin{equation}
 A =
 \begin{pmatrix}
   & R & S & P \\
@@ -323,7 +322,7 @@ R & 0 & 1 & -1 \\
 S & -1 & 0 & 1 \\
 P & 1 & -1 & 0
 \end{pmatrix}
-\]
+\end{equation}
 Let's write the average fitness for each strategy,\\
 For Rock,
 \begin{align}
@@ -342,23 +341,23 @@ f_P &= x_R - x_S \nonumber
 \end{align}
 $x_R,x_S,x_P$ are the frequencies of choosing rock, scissors and paper respectively, and we can write,
 \begin{align}
-x_R+x_S+x_P=1 \label{eq:6}
+x_R+x_S+x_P=1 \label{eq:7}
 \end{align}
 Now the mathematical condition for finding the internal equilibrium is $f_R=f_S=f_P$.
 \begin{align}
 f_R &=f_S \nonumber\\
 x_S-x_P &=x_P-x_R \nonumber\\
-2x_P &=x_S+x_R \label{eq:7}
+2x_P &=x_S+x_R \label{eq:8}
 \end{align}
 \begin{align}
 f_S &=f_P \nonumber\\
 x_P-x_R &=x_R-x_S \nonumber\\
-2x_R &=x_P+x_S \label{eq:8}
+2x_R &=x_P+x_S \label{eq:9}
 \end{align}
 \begin{align}
 f_R&=f_P \nonumber\\
 x_S-x_P&=x_R-x_S \nonumber\\
-2x_S&=x_R+x_P \label{eq:9}
+2x_S&=x_R+x_P \label{eq:10}
 \end{align}
 Now if we replace the value of \eqref{eq:7} into the equation \eqref{eq:6} we will get,
 \begin{align}
@@ -375,7 +374,8 @@ If we replace the value of \eqref{eq:8} and \eqref{eq:9} into the equation \eqre
 \end{figure} 
 \section{Stochastic Process and Finite Population}
 \subsection{Two players with two strategies}
-In the previous subsection, we used an infinite population for the deterministic approach \citep{Hofbauer2003}. Now, we will proceed with a finite population.
+In the previous subsection, we used an infinite population for the deterministic approach \citep{Hofbauer2003}.
+Now, we will proceed with a finite population.
 There are mainly two reasons to use a finite population: first, it is realistic, and second, it is a natural way to introduce randomness into the replicator dynamics \citep{Altrock2010}.\\
 \textbf{Wright-Fisher Process}
 \newline
@@ -388,11 +388,11 @@ Moran process is a classical model of population genetics like Wright-Fisher pro
 In the previous works, we used trivial fitness means the average fitness is exactly equal to the average payoff. But in the actual population, fitness can depend on payoff in many other ways. For some systems we may know the exact relation between payoff and fitness but for other systems, we can just speculate.
 Nowak et al.\citep{Nowak2004} introduced a tunable parameter as selection intensity. 
 \begin{equation}
-f_i=1-w+w\pi_i \label{eq:10}
+f_i=1-w+w\pi_i \label{eq:11}
 \end{equation}
 where $f_i$ is the average fitness of a population, $w$ is the selection intensity, $\pi_i$ is the average payoff of a strategy. If $w=1$ it will be strong selection, $f_i=\pi_i$ and if $w=0$ it will be weak selection, $f_i=1$.\\
 Now, we can consider the finite population of a specific game as $N$.
-Let's assume there are two strategies $A$ and $B$. Frequencies for $A$ and $B$ are $i$ and $(N-i)$.
+Let's assume there are two strategies $A$ and $B$. Number of players playing strategy $A$ and $B$ are $j$ and $(N-j)$ respectively.
 We can write the payoff matrix according to this specification.
 \[
 \begin{array}{c|cc}
@@ -404,10 +404,10 @@ We can write the payoff matrix according to this specification.
 \]
 Now we can denote the average payoff of $a$ and $b$ strategies as $\pi_a$ and $\pi_b$.
 \begin{align}
-\pi_A&=\frac{i-1}{N-1}a_1 + \frac{N-i}{N-1}a_0 \nonumber\\
-\pi_B&=\frac {i}{N-1}b_1 + \frac{N-i-1}{N-1}b_0\label{eq:11}
+\pi_A&=\frac{j-1}{N-1}a_1 + \frac{N-j}{N-1}a_0 \nonumber\\
+\pi_B&=\frac {j}{N-1}b_1 + \frac{N-j-1}{N-1}b_0\label{eq:12}
 \end{align}
-Now, a question can arise, why are we using $i-1$ instead of $i$? We have to understand that instead of an infinitely large population, we are using a real finite population and for that, we have to remove the particular individual who is observing or analysing the situation, so we use $i-1$.\\
+Now, a question can arise, why are we using $j-1$ instead of $j$? We have to understand that instead of an infinitely large population, we are using a real finite population and for that, we have to remove the particular individual who is observing or analysing the situation, so we use $j-1$.\\
 Now, we can move to the part of the evolutionary dynamics for the finite population where randomness is involved in the population.
 So, we will go for the stochastic processes.
 For these stochastic processes, we will focus on the Moran process. It consists of two events: birth and death. 
@@ -422,15 +422,15 @@ There are three situations in this theory.
 From these three scenarios we can write there equations.\\
 For the (1) scenario,
 \begin{equation}
-T_i^+=\frac{if_A}{if_A+(N-i)f_B}\frac{N-i}{N} \label{eq:12}
+T_j^+=\frac{jf_A}{jf_A+(N-j)f_B}\frac{N-j}{N} \label{eq:13}
 \end{equation}
 For the (2) scenario,
 \begin{equation}
-T_i^-=\frac{(N-i)f_A}{if_A+(N-i)f_B}\frac{i}{N} \label{eq:13}
+T_j^-=\frac{(N-j)f_A}{jf_A+(N-j)f_B}\frac{j}{N} \label{eq:14}
 \end{equation}
 For the (3) scenario,
 \begin{equation}
-1-T_i^+-T_i^- \label{eq:14}
+1-T_j^+-T_j^- \label{eq:15}
 \end{equation}
 Now, what can we tell from these equations?
 \begin{enumerate}
@@ -450,38 +450,38 @@ Since fixation is an absorbing state, if the entire population once becomes $A$,
 \begin{align}
 \rho_j &= T_j^-\rho_{j-1}+(1-T_j^+ - T_j^-)\rho_j + T_j^+p_{j+1} \nonumber\\
 0 &= T_j^-\rho_{j-1} - T_j^-\rho_j - T_j^+\rho_j + T_J^+\rho_{j+1}\nonumber\\
-0 &= \underbrace{-T^-_j (\rho_j - \rho_{j-1})}_{y_j} + \underbrace{T^+_j (\rho_{j+1} - \rho_j)}_{y_{j+1}} \label{eq:15}
+0 &= \underbrace{-T^-_j (\rho_j - \rho_{j-1})}_{y_j} + \underbrace{T^+_j (\rho_{j+1} - \rho_j)}_{y_{j+1}} \label{eq:16}
 \end{align}
-We can write this equation as the differences between fixation probabilities,$y_{j+1}=y_jr_j$, where $r_j=\frac{T_j^-}{T_j^+}$
+We can write this equation as the differences between fixation probabilities, $y_{j+1}=y_jr_j$, where $r_j=\frac{T_j^-}{T_j^+}$
 \begin{align}
 y_1 &= \rho_1 - \rho_0 = \rho_1 \nonumber\\
 y_2 &= \rho_2 - \rho_1 = r_1 \rho_1 \nonumber\\
-\vdots \notag \\
-y_k &= \rho_k - \rho_{k-1} = \rho_1 \prod_{j=1}^{k-1} r_j \label{eq:16}\\
-\vdots \notag \\
-y_N &= \rho_N - \rho_{N-1} = \rho_1 \prod_{j=1}^{N-1} r_j \label{eq:17}
+\vdots \nonumber\\
+y_k &= \rho_k - \rho_{k-1} = \rho_1 \prod_{j=1}^{k-1} r_j \label{eq:17}\\
+\vdots \nonumber\\
+y_N &= \rho_N - \rho_{N-1} = \rho_1 \prod_{j=1}^{N-1} r_j \label{eq:18}
 \end{align}
 This means each incremental change from $\rho_{N-1}$ to $\rho_N$ is based on the growing product of $r_j$ multiplied by $\rho_1$.\\
 Now let's calculate the sum over all $y_j$. This sum is telescopic sum.
 \begin{align}
 \sum_{k=1}^N y_k &= \rho_1-\rho_0+ \rho_2-\rho_1+ \rho_3-\rho_2+\cdots+\rho_N-\rho_{N-1} \nonumber\\
-\sum_{k=1}^N y_k &= \rho_N-\rho_0=1 \label{eq:18}
+\sum_{k=1}^N y_k &= \rho_N-\rho_0=1 \label{eq:19}
 \end{align}
 Using \eqref{eq:16} and \eqref{eq:18} we can calculate the value of $\rho_1$.
 \begin{equation}
-1=\sum_{k=1}^N y_k=\sum_{k=1}^N \rho_1 \prod_{j=1}^{N-1}r_j=\rho_1(1+ \sum_{k=1}^{N-1}\prod_{j=1}^k r_j)\label{eq:19}
+1=\sum_{k=1}^N y_k=\sum_{k=1}^N \rho_1 \prod_{j=1}^{N-1}r_j=\rho_1(1+ \sum_{k=1}^{N-1}\prod_{j=1}^k r_j)\label{eq:20}
 \end{equation}
 So, we can write the fixation probability of one $A$ individual as,
 \begin{equation}
-\rho_1= \frac{1}{1+ \sum_{k=1}^{N-1}\prod{j=1}^k r_j} \label{eq:20}
+\rho_1= \frac{1}{1+ \sum_{k=1}^{N-1}\prod_{j=1}^k r_j} \label{eq:21}
 \end{equation}
 For neutral selection, $T_j^-=T_j^+$ and $r_j=1$. Hence, all products are simply one and we find $\rho_1= 1/N$.\\
 This is the fixation probability of single mutant $\rho_1$. In general, the fixation probability of $i$ mutants are $\rho_i$.
 \begin{align}
-\rho_i&= \sum_{j=1}^i y_k \nonumber\\
+\rho_i&= \sum_{k=1}^i y_k \nonumber\\
 &= \rho_1 \sum_{k=1}^i \prod_{j=1}^{k-1}r_j\nonumber\\
 &=\rho_1(1+ \sum_{k=1}^{i-1} \prod_{j=1}^k r_j)\nonumber\\
-&= \frac{1+\sum_{k=1}^{i-1}\prod_{j=1}^k r_j}{1+ \sum_{k=1}^{N-1}\prod_{j=1}^k r_j}
+&= \frac{1+\sum_{k=1}^{i-1}\prod_{j=1}^k r_j}{1+ \sum_{k=1}^{N-1}\prod_{j=1}^k r_j} \label{eq:22}
 \end{align}
 For neutral selection, we have $T_j^-=T_j^+$ and $r_j=1$. Hence, all products are simply one and we find $\rho_1= j/N$.\\
 The probability that a single individual playing strategy $A$ takes over a population of $N-1$ individuals playing strategy $B$ is the fixation probability of strategy $A$, $\rho_A=\rho_1$.\\
@@ -491,16 +491,103 @@ The probability that a single individual playing strategy $B$ takes over a popul
 &=\frac{1 + \sum_{k=1}^{N-2} \prod_{j=1}^{k} r_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j} \nonumber\\
 &= \frac{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j} - \frac{1 + \sum_{k=1}^{N-2} \prod_{j=1}^{k} r_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j} \nonumber\\
 &= \frac{\prod_{j=1}^{N-1} r_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j} \nonumber \\
-&= \rho_A \prod_{j=1}^{N-1} r_j \label{eq:22}
+&= \rho_A \prod_{j=1}^{N-1} r_j \label{eq:23}
 \end{align}
+\subsection{Two Players with multiple strategies}
+In the previous section we've discussed about the Moran process and fixation probability for  two player two strategy games,
+but in this section the aim is to explain the same for the two player multiple strategy games.\\
+Let's take the example of Rock-Paper-Scissors game for explaining the Moran process for multiple strategy games.
+Suppose,it is a well mixed finite population of fixed size $N$.
+Individuals can adopt one of three strategies: Rock(R), Paper(P), Scissors(S).
+Number of individuals playing these strategies are $i_R$, $i_P$, $i_S$.
+In a $N$ sized finite population, the number of players using each and every strategy should be an integer between $0$ and $N$, and their sum must be exactly $N$. So it can be written that,
+\begin{equation}
+i_R+i_P+i_S = N \label{eq:24}
+\end{equation}
+Now, let's write the payoff matrix for the RPS game.
+\begin{equation}
+A =
+\begin{pmatrix}
+  & R & S & P \\
+R & 0 & 1 & -1 \\
+S & -1 & 0 & 1 \\
+P & 1 & -1 & 0
+\end{pmatrix} \label{eq:25}
+\end{equation}
+Now let's write the average payoff value for each strategy.
+\begin{equation}
+\pi_R= i_S - i_P \label{eq:26}
+\end{equation}
+\begin{equation}
+\pi_S= i_P - i_R \label{eq:27}
+\end{equation}
+\begin{equation}
+\pi_P= i_R - i_S \label{eq:28}
+\end{equation}
+Now the individuals are selected proportional to fitness at birth and proportional to inverse  fitness at death at selection intensity $w$.
+Then, the linear fitness for a strategy is $f=1-w+w\pi$.
+Let's assume that for the given strategies $i_R, i_S, i_P$ the ordering of average payoff is unique and $\pi_R$ is the highest value and $\pi_P$ is the lowest, i.e., $\pi_R > \pi_S > \pi_P$.\\
+Then the transition probability $T_{P \to R}$ represents that in the next time step of the Moran process, an individual playing strategy $P$ is replaced by an individual playing strategy $R$. This signifies a birth-death event where one individual playing strategy $P$ is eliminated from the population and the strategy $R$ reproduces.
+For $T_{P \to R}$ we can write that,
+\begin{equation}
+T_{P \to R} = \frac{i_R f_R}{i_R f_R + i_S f_S + i_P f_P}\times \frac{i_P f_P^{-1}}{i_R f_R^{-1} + i_S f_S^{-1} + i_P f_P^{-1}} \label{eq:29}
+\end{equation}
+For strong selection $w \to 1$ the condition will be $\lim_{w \to 1} T_{P \to R} =1$.\\
+Now let's assume, the payoff orderings are not unique and two or more payoffs can be equal. Now we can write three conditions based on that.
+\begin{enumerate}
+\item If $\pi_R>\pi_S=\pi_P$, then the individual playing strategy $R$ is certainly selected for birth. But selection at
+death will remove an single individual among two remaining
+strategies $P$ and $S$ with probability determined by their abundance.
+\begin{enumerate}
+\item If $S$ is chosen for death we find,\\
+$\lim_{w \to 1} T_{S \to R} =\frac{i_S}{i_S + i_P}$.
+\item If $P$ is chosen for death we find,\\
+$\lim_{w \to 1} T_{P \to R} =\frac{i_P}{i_S + i_P}$.
+\end{enumerate}
+\item If $\pi_R=\pi_S>pi_P$, then the individual playing strategy $P$ is selected for death. But selection at birth is random.
+\begin{enumerate}
+\item If $R$ is chosen for reproduction we find,\\
+$\lim_{w \to 1} T_{P \to R} =\frac{i_R}{i_R + i_S}$.
+\item If $S$ is chosen for birth we find,\\
+$\lim_{w \to 1} T_{P \to S} =\frac{i_S}{i_R + i_S}$.
+\end{enumerate}
+\item If $\pi_R=\pi_S=\pi_P$, then the selection at birth and selection at death both are random.\\
+$\lim_{w \to 1} T_{X \to Y} = \frac{i_X}{N} \times \frac{i_Y}{N}$\\
+where, $X \in \{R, P, S\}$ and $Y \in \{R, P, S\}$.
+\end{enumerate}
+From the equations \eqref{eq:26}, \eqref{eq:27}, \eqref{eq:28} we can find the point sets in the simplex where two or more payoff is equal. $\pi_R=\pi_S=\pi_P$ is the only center point of the simplex.
+We can write three equations based on this.
+\begin{enumerate}
+\item The first equation is $\pi_R=\pi_S$
+\begin{align}
+\pi_R &=\pi_S\nonumber\\
+i_S-i_P &=i_P-i_R \nonumber\\
+2i_P &= i_S+i_R \nonumber\\
+2i_P &=i_S+N-i_P-i_S \nonumber\\
+3i_P &= N \nonumber\\
+i_P &= \frac{N}{3} \label{eq:30}
+\end{align}
+\item The second equation is $\pi_S=\pi_P$ and after solving it like \eqref{eq:30} we get $i_R=\frac{N}{3}$.
+\item The third equation is $\pi_S=\pi_P$ and after solving it like \eqref{eq:30} we get $i_S=\frac{N}{3}$.
+\end{enumerate}
+Direction of the fixation is deterministic, this means individual with highest payoff is determined for reproduction and individual with lowest payoff is determined for death.
+In cases, near the corners and the edges of the simplex the final state where the system fixates is determined by initial conditions.
+But, in a larger area, the system fixates stochastically.
+In this case where the system is symmetric, the fixation probability can be either one of these three $\rho_R, \rho_S, \rho_P$.
+
+
+
+
+
+ 
 
 
 
 
 
 
-%\textbf{Collective cooperation and resource dynamics}.
-%
+
+
 
 
 
