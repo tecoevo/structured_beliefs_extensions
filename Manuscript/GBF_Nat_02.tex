@@ -493,6 +493,75 @@ The probability that a single individual playing strategy $B$ takes over a popul
 &= \frac{\prod_{j=1}^{N-1} r_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j} \nonumber \\
 &= \rho_A \prod_{j=1}^{N-1} r_j \label{eq:23}
 \end{align}
+\textbf{Weak Selection and Risk Dominance}
+\newline
+For weak selection, selection intensity is $w\ll 1$ and $r_j$ simplifies to,
+\begin{equation}
+r_j = \frac{1-w+w\pi_B}{1-w+w\pi_A} \approx 1-w(\pi_A-\pi_B) \label{eq:24}
+\end{equation}
+Now we can write the product in the \eqref{eq:21} in a simplified way for weak selection.
+\begin{equation}
+\prod_{j=1}^k r_j \approx \prod_{j=1}^k 1-w(\pi_A-\pi_B) \approx 1-w \sum_{j=1}^k (\pi_A-\pi_B). \label{eq:25}
+\end{equation}
+Now, let's annotate a equation $(\pi_A-\pi_B)$.
+From equation \eqref{eq:12} we can write,
+\begin{align}
+\pi_A - \pi_B &= \frac{(j - 1)a + (N - j)b - jc - (N - j - 1)d}{N - 1} \nonumber\\
+&= \frac{j(a - b - c + d) + (-a + bN - dN + d)}{N - 1}\nonumber\\
+&= \underbrace{\frac{a - b - c + d}{N - 1}}_{u} j 
++ \underbrace{\frac{-a + bN - dN + d}{N - 1}}_{v} \label{eq:26}
+\end{align}
+Now, let's solve the sum for the payoff difference using equation \eqref{eq:26}.
+\begin{equation}
+\sum_{j=1}^{k} (\pi_A - \pi_B) = \sum_{j=1}^{k} (u j + v) = u \frac{(k+1)k}{2} + vk = \frac{u}{2}k^2 +( \frac{u}{2} + v)k. \label{eq:27}
+\end{equation}
+Now, the ratio of fixation probabilities:
+\begin{align}
+\frac{\rho_B}{\rho_A} &= \prod_{j=1}^{N-1}r_j \approx 1 - w \sum_{j=1}^{N-1} (\pi_A - \pi_B)\nonumber\\
+&= 1 - w[ \frac{u}{2}(N-1) + \frac{u}{2} + v](N-1) \nonumber\\
+&= 1 - \frac{w}{2} \underbrace{[(a - b - c + d)(N - 1) - a - b - c + 3d + (2b - 2d)N]}_{\Xi} \label{eq:28}
+\end{align}
+If the payoff difference is $\Xi > 0$, then only strategy $A$ will be favoured, means $\rho_A>\rho_B$.
+For large population, $N \gg 1$ we can write that
+\begin{equation}
+0<\Xi \approx N(a+b-c-d)\label{eq:29}
+\end{equation}
+It is equivalent to
+\begin{equation}
+x^*=\frac{d-b}{a-b-c+d}<\frac{1}{2} \label{eq:30}
+\end{equation}
+So, we can write that $\rho_A >\rho_B$ is equivalent to $x^*<\frac{1}{2}$.
+This condition is risk dominance and it implies that for weak selection, strategies which have higher fixation probabilities can invade and fixate from a wider range of starting conditions.\\
+\textbf{One-Third Rule}
+\newline
+Now we can write the approximation of the fixation probability equation under weak selection by inserting equation \eqref{eq:27} into equation \eqref{eq:21}.
+\begin{align}
+\rho_1 &= \frac{1}{1+\sum_{k=1}^{N-1} \prod_{j=1}^{k}r_j}\nonumber\\
+&\approx \frac{1}{1+\sum_{k=1}^{N-1}[1-w(\frac{u}{2}k^2+(\frac{u}{2}+v)k)]} \label{eq:31}
+\end{align}
+If we use the formula $\sum_{k=1}^{N-1} k = \frac{N(N - 1)}{2}$ and $\sum_{k=1}^{N-1} k^2 = \frac{N(N - 1)(2N - 1)}{6}$, the fixation probability will be,
+\begin{align}
+\rho_1 &\approx\frac{1}{(N - 1)- w [\frac{u}{2}\frac{N(N - 1)(2N - 1)}{6} + (\frac{u}{2} + v)\frac{N(N - 1)}{2}]}\nonumber\\
+&\approx \frac{1}{N - w[ u \frac{N(N - 1)(2N - 1)}{12} + ( \frac{u}{2} + v)\frac{N(N - 1)}{2}]}\nonumber\\
+&\approx \frac{1}{N - wu \cdot \frac{N(N - 1)(2N - 1)}{12} - w ( \frac{u}{2} + v)\frac{N(N - 1)}{2}} \nonumber\\
+&= \frac{1}{N} + \frac{w}{4N}[\underbrace{( a - b - c + d)\frac{2N - 1}{3} - a - b - c + 3d + (2b - 2d)N
+}_{\Gamma}] \label{eq:32}
+\end{align}
+Now take this condition for $w=0$ which is known as neutral selection.
+Neutral selection means there is no selective force working, and the fixation is totally determined by randomness.
+So, in the case of neutral selection the fixation probability $\rho_1 = \frac{1}{N}$.
+Now, if we want to know that if the fixation probability is higher than $\frac{1}{N}$ or not, we need to consider $\Gamma$.
+If $\Gamma>0$ then only fixation probability will be greater than $\frac{1}{N}$.
+\begin{equation}
+\frac{a-b-c+d}{3}+ b-d > 0 \label{eq:33}
+\end{equation}
+The condition showed in the \eqref{eq:33} is equivalent to,
+\begin{equation}
+x^* = \frac{d-b}{a-b-c+d}<\frac{1}{3} \label{eq:34}
+\end{equation}
+This condition is known as one-third rule.
+It implies that the fixation probability of a strategy will be higher than $\frac{1}{N}$, meaning the strategy is more likely to fix than by random drift, if and only if the unstable tipping point $x^*$ is less than $\frac{1}{3}$ \citep{Ohtsuki2007}.
+
 \subsection{Two Players with multiple strategies}
 In the previous section we've discussed about the Moran process and fixation probability for  two player two strategy games,
 but in this section the aim is to explain the same for the two player multiple strategy games.\\
@@ -502,7 +571,7 @@ Individuals can adopt one of three strategies: Rock(R), Paper(P), Scissors(S).
 Number of individuals playing these strategies are $i_R$, $i_P$, $i_S$.
 In a $N$ sized finite population, the number of players using each and every strategy should be an integer between $0$ and $N$, and their sum must be exactly $N$. So it can be written that,
 \begin{equation}
-i_R+i_P+i_S = N \label{eq:24}
+i_R+i_P+i_S = N \label{eq:35}
 \end{equation}
 Now, let's write the payoff matrix for the RPS game.
 \begin{equation}
@@ -512,17 +581,17 @@ A =
 R & 0 & 1 & -1 \\
 S & -1 & 0 & 1 \\
 P & 1 & -1 & 0
-\end{pmatrix} \label{eq:25}
+\end{pmatrix} \label{eq:36}
 \end{equation}
 Now let's write the average payoff value for each strategy.
 \begin{equation}
-\pi_R= i_S - i_P \label{eq:26}
+\pi_R= i_S - i_P \label{eq:37}
 \end{equation}
 \begin{equation}
-\pi_S= i_P - i_R \label{eq:27}
+\pi_S= i_P - i_R \label{eq:38}
 \end{equation}
 \begin{equation}
-\pi_P= i_R - i_S \label{eq:28}
+\pi_P= i_R - i_S \label{eq:39}
 \end{equation}
 Now the individuals are selected proportional to fitness at birth and proportional to inverse  fitness at death at selection intensity $w$.
 Then, the linear fitness for a strategy is $f=1-w+w\pi$.
@@ -530,7 +599,7 @@ Let's assume that for the given strategies $i_R, i_S, i_P$ the ordering of avera
 Then the transition probability $T_{P \to R}$ represents that in the next time step of the Moran process, an individual playing strategy $P$ is replaced by an individual playing strategy $R$. This signifies a birth-death event where one individual playing strategy $P$ is eliminated from the population and the strategy $R$ reproduces.
 For $T_{P \to R}$ we can write that,
 \begin{equation}
-T_{P \to R} = \frac{i_R f_R}{i_R f_R + i_S f_S + i_P f_P}\times \frac{i_P f_P^{-1}}{i_R f_R^{-1} + i_S f_S^{-1} + i_P f_P^{-1}} \label{eq:29}
+T_{P \to R} = \frac{i_R f_R}{i_R f_R + i_S f_S + i_P f_P}\times \frac{i_P f_P^{-1}}{i_R f_R^{-1} + i_S f_S^{-1} + i_P f_P^{-1}} \label{eq:40}
 \end{equation}
 For strong selection $w \to 1$ the condition will be $\lim_{w \to 1} T_{P \to R} =1$.\\
 Now let's assume, the payoff orderings are not unique and two or more payoffs can be equal. Now we can write three conditions based on that.
@@ -555,7 +624,7 @@ $\lim_{w \to 1} T_{P \to S} =\frac{i_S}{i_R + i_S}$.
 $\lim_{w \to 1} T_{X \to Y} = \frac{i_X}{N} \times \frac{i_Y}{N}$\\
 where, $X \in \{R, P, S\}$ and $Y \in \{R, P, S\}$.
 \end{enumerate}
-From the equations \eqref{eq:26}, \eqref{eq:27}, \eqref{eq:28} we can find the point sets in the simplex where two or more payoff is equal. $\pi_R=\pi_S=\pi_P$ is the only center point of the simplex.
+From the equations \eqref{eq:37}, \eqref{eq:38}, \eqref{eq:39} we can find the point sets in the simplex where two or more payoff is equal. $\pi_R=\pi_S=\pi_P$ is the only center point of the simplex.
 We can write three equations based on this.
 \begin{enumerate}
 \item The first equation is $\pi_R=\pi_S$
@@ -565,10 +634,10 @@ i_S-i_P &=i_P-i_R \nonumber\\
 2i_P &= i_S+i_R \nonumber\\
 2i_P &=i_S+N-i_P-i_S \nonumber\\
 3i_P &= N \nonumber\\
-i_P &= \frac{N}{3} \label{eq:30}
+i_P &= \frac{N}{3} \label{eq:41}
 \end{align}
-\item The second equation is $\pi_S=\pi_P$ and after solving it like \eqref{eq:30} we get $i_R=\frac{N}{3}$.
-\item The third equation is $\pi_S=\pi_P$ and after solving it like \eqref{eq:30} we get $i_S=\frac{N}{3}$.
+\item The second equation is $\pi_S=\pi_P$ and after solving it like \eqref{eq:41} we get $i_R=\frac{N}{3}$.
+\item The third equation is $\pi_S=\pi_P$ and after solving it like \eqref{eq:41} we get $i_S=\frac{N}{3}$.
 \end{enumerate}
 Direction of the fixation is deterministic, this means individual with highest payoff is determined for reproduction and individual with lowest payoff is determined for death.
 In cases, near the corners and the edges of the simplex the final state where the system fixates is determined by initial conditions.
