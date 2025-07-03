@@ -561,6 +561,19 @@ x^* = \frac{d-b}{a-b-c+d}<\frac{1}{3} \label{eq:34}
 \end{equation}
 This condition is known as one-third rule.
 It implies that the fixation probability of a strategy will be higher than $\frac{1}{N}$, meaning the strategy is more likely to fix than by random drift, if and only if the unstable tipping point $x^*$ is less than $\frac{1}{3}$ \citep{Ohtsuki2007}.
+\cha{What will happen if this is a structured population?}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{SH_FP.pdf}
+    \caption{Analytical plot for fixation probability of Stag Hunt Game}
+    \label{fig:5}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{SH_FP_SIM.pdf}
+    \caption{Simulation plot for fixation probability of Stag Hunt Game. Simulation number is $10^4$.}
+    \label{fig:6}
+\end{figure}
 
 \subsection{Two Players with multiple strategies}
 In the previous section we've discussed about the Moran process and fixation probability for  two player two strategy games,
@@ -643,6 +656,12 @@ Direction of the fixation is deterministic, this means individual with highest p
 In cases, near the corners and the edges of the simplex the final state where the system fixates is determined by initial conditions.
 But, in a larger area, the system fixates stochastically.
 In this case where the system is symmetric, the fixation probability can be either one of these three $\rho_R, \rho_S, \rho_P$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{RPS_FP.pdf}
+    \caption{Simulation plot for fixation probability for Rock-Paper-Scissors Game. Simulation number is $10^3$.}
+    \label{fig:7}
+\end{figure}
 
 
 
