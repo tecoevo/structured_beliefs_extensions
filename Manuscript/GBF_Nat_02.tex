@@ -89,10 +89,7 @@
 \linenumbers
 \maketitle
 
-\begin{abstract}
-% Suggest we set this up differently:
-Abstract stuff
-\end{abstract}
+
 
 
 \noindent
@@ -100,9 +97,10 @@ Keywords:
 
 
 \tableofcontents
-
+\section{Abstract}
 \section{Introduction}
-\section{Deterministic dynamics}
+\section{Review of Literature}
+\section{Methodology}
 \subsection{Replicator Dynamics}
 
 \subsubsection{Two-player games with two strategies}
@@ -372,8 +370,8 @@ If we replace the value of \eqref{eq:8} and \eqref{eq:9} into the equation \eqre
     \caption{Internal Equilibrium of Rock-Paper-Scissors Game}
     \label{fig:4}
 \end{figure} 
-\section{Stochastic Process and Finite Population}
-\subsection{Two players with two strategies}
+\subsection{Stochastic Process and Finite Population}
+\subsubsection{Two players with two strategies}
 In the previous subsection, we used an infinite population for the deterministic approach \citep{Hofbauer2003}.
 Now, we will proceed with a finite population.
 There are mainly two reasons to use a finite population: first, it is realistic, and second, it is a natural way to introduce randomness into the replicator dynamics \citep{Altrock2010}.\\
@@ -561,25 +559,17 @@ x^* = \frac{d-b}{a-b-c+d}<\frac{1}{3} \label{eq:34}
 \end{equation}
 This condition is known as one-third rule.
 It implies that the fixation probability of a strategy will be higher than $\frac{1}{N}$, meaning the strategy is more likely to fix than by random drift, if and only if the unstable tipping point $x^*$ is less than $\frac{1}{3}$ \citep{Ohtsuki2007}.
-\cha{What will happen if this is a structured population?}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{SH_FP.pdf}
-    \caption{Analytical plot for fixation probability of Stag Hunt Game}
+    \includegraphics[width=0.8\textwidth]{SH_FP_SIM.pdf}
+    \caption{Fixation probability in the Stag Hunt game for a population size $N = 30$, based on $10^4$ simulations. The results correspond to the analytical expression given in equation~\eqref{eq:22}. The $X$-axis represents $i/N$, where $i=$ initial mutant number and $N$ is the population number. The $Y$-axis represents fixation probability.}
     \label{fig:5}
 \end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{SH_FP_SIM.pdf}
-    \caption{Simulation plot for fixation probability of Stag Hunt Game. Simulation number is $10^4$.}
-    \label{fig:6}
-\end{figure}
-
-\subsection{Two Players with multiple strategies}
-In the previous section we've discussed about the Moran process and fixation probability for  two player two strategy games,
+\subsubsection{Two Players with multiple strategies}
+In the previous section we've discussed about the Moran process and fixation probability for two player two strategy games,
 but in this section the aim is to explain the same for the two player multiple strategy games.\\
 Let's take the example of Rock-Paper-Scissors game for explaining the Moran process for multiple strategy games.
-Suppose,it is a well mixed finite population of fixed size $N$.
+Suppose, it is a well mixed finite population of fixed size $N$.
 Individuals can adopt one of three strategies: Rock(R), Paper(P), Scissors(S).
 Number of individuals playing these strategies are $i_R$, $i_P$, $i_S$.
 In a $N$ sized finite population, the number of players using each and every strategy should be an integer between $0$ and $N$, and their sum must be exactly $N$. So it can be written that,
@@ -608,80 +598,70 @@ Now let's write the average payoff value for each strategy.
 \end{equation}
 Now the individuals are selected proportional to fitness at birth and proportional to inverse  fitness at death at selection intensity $w$.
 Then, the linear fitness for a strategy is $f=1-w+w\pi$.
-Let's assume that for the given strategies $i_R, i_S, i_P$ the ordering of average payoff is unique and $\pi_R$ is the highest value and $\pi_P$ is the lowest, i.e., $\pi_R > \pi_S > \pi_P$.\\
-Then the transition probability $T_{P \to R}$ represents that in the next time step of the Moran process, an individual playing strategy $P$ is replaced by an individual playing strategy $R$. This signifies a birth-death event where one individual playing strategy $P$ is eliminated from the population and the strategy $R$ reproduces.
-For $T_{P \to R}$ we can write that,
+There are six transition probabilities in each state.
+The transition probabilities in each state and to change into one of the six neighbouring states are given by a general equation.
 \begin{equation}
-T_{P \to R} = \frac{i_R f_R}{i_R f_R + i_S f_S + i_P f_P}\times \frac{i_P f_P^{-1}}{i_R f_R^{-1} + i_S f_S^{-1} + i_P f_P^{-1}} \label{eq:40}
+T_{Y \to X}(i_R,i_S,i_P)= \frac{i_X f_X}{\sum_Z i_Z f_Z} \cdot \frac{i_Y}{N} \label{eq:40}
 \end{equation}
-For strong selection $w \to 1$ the condition will be $\lim_{w \to 1} T_{P \to R} =1$.\\
-Now let's assume, the payoff orderings are not unique and two or more payoffs can be equal. Now we can write three conditions based on that.
+where $X,Y,Z \in (i_R,i_P,i_S)$.\\
+Now let's try to write these six transition probabilities,
+where each step of the Moran process consists of:
 \begin{enumerate}
-\item If $\pi_R>\pi_S=\pi_P$, then the individual playing strategy $R$ is certainly selected for birth. But selection at
-death will remove an single individual among two remaining
-strategies $P$ and $S$ with probability determined by their abundance.
-\begin{enumerate}
-\item If $S$ is chosen for death we find,\\
-$\lim_{w \to 1} T_{S \to R} =\frac{i_S}{i_S + i_P}$.
-\item If $P$ is chosen for death we find,\\
-$\lim_{w \to 1} T_{P \to R} =\frac{i_P}{i_S + i_P}$.
+\item Selection of an individual for reproduction, proportional to fitness.
+\item Selection of an individual for death, uniformly at random.
 \end{enumerate}
-\item If $\pi_R=\pi_S>pi_P$, then the individual playing strategy $P$ is selected for death. But selection at birth is random.
-\begin{enumerate}
-\item If $R$ is chosen for reproduction we find,\\
-$\lim_{w \to 1} T_{P \to R} =\frac{i_R}{i_R + i_S}$.
-\item If $S$ is chosen for birth we find,\\
-$\lim_{w \to 1} T_{P \to S} =\frac{i_S}{i_R + i_S}$.
-\end{enumerate}
-\item If $\pi_R=\pi_S=\pi_P$, then the selection at birth and selection at death both are random.\\
-$\lim_{w \to 1} T_{X \to Y} = \frac{i_X}{N} \times \frac{i_Y}{N}$\\
-where, $X \in \{R, P, S\}$ and $Y \in \{R, P, S\}$.
-\end{enumerate}
-From the equations \eqref{eq:37}, \eqref{eq:38}, \eqref{eq:39} we can find the point sets in the simplex where two or more payoff is equal. $\pi_R=\pi_S=\pi_P$ is the only center point of the simplex.
-We can write three equations based on this.
-\begin{enumerate}
-\item The first equation is $\pi_R=\pi_S$
+We can write the fitnesses as \( f_R, f_P, f_S \) where,
 \begin{align}
-\pi_R &=\pi_S\nonumber\\
-i_S-i_P &=i_P-i_R \nonumber\\
-2i_P &= i_S+i_R \nonumber\\
-2i_P &=i_S+N-i_P-i_S \nonumber\\
-3i_P &= N \nonumber\\
-i_P &= \frac{N}{3} \label{eq:41}
+f_R &= 1-w+w\pi_R \nonumber\\
+f_S &= 1-w+w\pi_S \nonumber\\
+f_P &= 1-w+w\pi_P \label{eq:41}
 \end{align}
-\item The second equation is $\pi_S=\pi_P$ and after solving it like \eqref{eq:41} we get $i_R=\frac{N}{3}$.
-\item The third equation is $\pi_S=\pi_P$ and after solving it like \eqref{eq:41} we get $i_S=\frac{N}{3}$.
+and the total fitness of the population be:
+\begin{equation}
+\phi = i_R f_R + i_P f_P + i_S f_S \label{eq:42}
+\end{equation}
+Then, the six transition probabilities are 
+\begin{enumerate}
+\item Rock reproduces, Paper dies: $T_{P \to R}$.
+\begin{align}
+T^{R+} &= \frac{i_R f_R}{\phi} \cdot \frac{i_P}{N} \label{eq:43}
+\end{align}
+\item Paper reproduces, Rock dies: $T_{R \to P}$.
+\begin{align}
+T^{R-} &= \frac{i_P f_P}{\phi} \cdot \frac{i_R}{N}\label{eq:44}
+\end{align}
+\item Paper reproduces, Scissors dies: $T_{S \to P}$.
+\begin{align}
+T^{P+} &= \frac{i_P f_P}{\phi} \cdot \frac{i_S}{N} \label{eq:45}
+\end{align}
+\item Scissors reproduces, Paper dies: $T_{P \to S}$.
+\begin{align}
+T^{P-} &= \frac{i_S f_S}{\phi} \cdot \frac{i_P}{N} \label{eq:46}
+\end{align}
+\item Scissors reproduces, Rock dies: $T_{R \to S}$.
+\begin{align}
+T^{S+} &= \frac{i_S f_S}{\phi} \cdot \frac{i_R}{N} \label{eq:47}
+\end{align}
+\item Rock reproduces, Scissors dies: $T_{S \to R}$.
+\begin{align}
+T^{S-} &= \frac{i_R f_R}{\phi} \cdot \frac{i_S}{N} \label{eq:48}
+\end{align}
 \end{enumerate}
-Direction of the fixation is deterministic, this means individual with highest payoff is determined for reproduction and individual with lowest payoff is determined for death.
-In cases, near the corners and the edges of the simplex the final state where the system fixates is determined by initial conditions.
-But, in a larger area, the system fixates stochastically.
-In this case where the system is symmetric, the fixation probability can be either one of these three $\rho_R, \rho_S, \rho_P$.
+All six of these transition probabilities completely determine the stochastic dynamics of the Moran process of a three-strategy game such as Rock-Paper-Scissors.
+The population will move to any one of the six neighbouring states at each time step in the strategy simplex, which means it will move to a state where one strategy will be increased and another decreased by $1$ person.
+The development of this system is a Markov chain process over the state space of all feasible $(i_R, i_P, i_S)$ triples fulfilling equation \eqref{eq:35}.
+This process continues until it arrives at one of the absorbing boundaries, which means only one strategy remains and all other strategies become extinct.
+These absorbing states can be equated to fixation of single strategy.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{RPS_FP.pdf}
-    \caption{Simulation plot for fixation probability for Rock-Paper-Scissors Game. Simulation number is $10^3$.}
-    \label{fig:7}
+    \includegraphics[width=0.9\textwidth]{RPS_FP.pdf}
+    \caption{Fixation probability heatmap for the Rock-Paper-Scissors game in a finite population of size $N = 10$. Each ternary plot illustrates the probability that a specific strategy Rock (left), Paper (middle), or Scissors (right), fixates in the populations. The vertices of each triangle represent homogeneous populations, while interior points denote mixed populations. Color intensity corresponds to the probability of fixation for the strategy, with darker shades indicating higher probabilities. Results are based on $10^3$ stochastic simulations of the Moran process for each initial condition. These plots reveal how initial composition influences evolutionary outcomes in cyclic dominance dynamics.}
+   \label{fig:6}
 \end{figure}
 
 
 
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\section{Results}
 \section{Discussion}
 
 
