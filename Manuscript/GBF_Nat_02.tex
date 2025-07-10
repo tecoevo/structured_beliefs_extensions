@@ -565,11 +565,14 @@ It implies that the fixation probability of a strategy will be higher than $\fra
     \caption{Fixation probability in the Stag Hunt game for a population size $N = 30$, based on $10^4$ simulations. The results correspond to the analytical expression given in equation~\eqref{eq:22}. The $X$-axis represents $i/N$, where $i=$ initial mutant number and $N$ is the population number. The $Y$-axis represents fixation probability.}
     \label{fig:5}
 \end{figure}
+
+
+
 \subsubsection{Two Players with multiple strategies}
-In the previous section we've discussed about the Moran process and fixation probability for two player two strategy games,
+In the previous section we've discussed about the Moran process and fixation probability for  two player two strategy games,
 but in this section the aim is to explain the same for the two player multiple strategy games.\\
 Let's take the example of Rock-Paper-Scissors game for explaining the Moran process for multiple strategy games.
-Suppose, it is a well mixed finite population of fixed size $N$.
+Suppose,it is a well mixed finite population of fixed size $N$.
 Individuals can adopt one of three strategies: Rock(R), Paper(P), Scissors(S).
 Number of individuals playing these strategies are $i_R$, $i_P$, $i_S$.
 In a $N$ sized finite population, the number of players using each and every strategy should be an integer between $0$ and $N$, and their sum must be exactly $N$. So it can be written that,
@@ -649,13 +652,13 @@ T^{S-} &= \frac{i_R f_R}{\phi} \cdot \frac{i_S}{N} \label{eq:48}
 \end{enumerate}
 All six of these transition probabilities completely determine the stochastic dynamics of the Moran process of a three-strategy game such as Rock-Paper-Scissors.
 The population will move to any one of the six neighbouring states at each time step in the strategy simplex, which means it will move to a state where one strategy will be increased and another decreased by $1$ person.
-The development of this system is a Markov chain process over the state space of all feasible $(i_R, i_P, i_S)$ triples fulfilling equation \eqref{eq:35}.
+The development of this system is a Markov chain process over the state space of all feasible $(i_R, i_P, i_S)$ triplets fulfilling equation \eqref{eq:35}.
 This process continues until it arrives at one of the absorbing boundaries, which means only one strategy remains and all other strategies become extinct.
 These absorbing states can be equated to fixation of single strategy.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{RPS_FP.pdf}
-    \caption{Fixation probability heatmap for the Rock-Paper-Scissors game in a finite population of size $N = 10$. Each ternary plot illustrates the probability that a specific strategy Rock (left), Paper (middle), or Scissors (right), fixates in the populations. The vertices of each triangle represent homogeneous populations, while interior points denote mixed populations. Color intensity corresponds to the probability of fixation for the strategy, with darker shades indicating higher probabilities. Results are based on $10^3$ stochastic simulations of the Moran process for each initial condition. These plots reveal how initial composition influences evolutionary outcomes in cyclic dominance dynamics.}
+    \caption{Fixation probability heatmap for the Rock-Paper-Scissors game in a finite population of size $N = 10$. Each ternary plot illustrates the probability that a specific strategy Rock (left), Paper (middle), or Scissors (right), fixates in the populations. The vertices of each triangle represent homogeneous populations, while interior points denote well-mixed populations. Color intensity corresponds to the probability of fixation for the strategy, with darker shades indicating higher probabilities. Results are based on $10^3$ stochastic simulations of the Moran process for each initial condition. These plots reveal how initial conditions influences evolutionary outcomes in cyclic dominance dynamics.}
    \label{fig:6}
 \end{figure}
 
