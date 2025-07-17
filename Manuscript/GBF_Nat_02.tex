@@ -250,20 +250,20 @@ We can write the payoff matrix using actual values, which follow the conditions 
 \begin{array}{c|cc}
    & \text{Cooperate (C)} & \text{Defect (D)} \\
   \hline
-  \text{Cooperate (C)} & S = 4 & S = 0 \\
+  \text{Cooperate (C)} & S = 4 & S = 1 \\
   \text{Defect (D)} & H = 3 & H = 3 \\
 \end{array}
 \]
 As we know, there are three conditions where the value of $dx/dt$ will be $0$. These three conditions are $x=0$, it means only defectors, and $x=1$, which means only cooperators. The internal equilibrium will fulfil the condition of $f_C=f_D$.Let's find the equilibrium point by using the equation \eqref{eq:5} and putting the payoff values into the equation.\\
 \begin{align}
-x^* &=\frac{3-0}{4-0-3+3} \nonumber\\
-x^* &= \frac{3}{4} \nonumber
+x^* &=\frac{3-1}{4-1-3+3} \nonumber\\
+x^* &= \frac{2}{3} \nonumber
 \end{align}
-Over time, $3/4$ of the population will hunt hare and the $1/4$ of the population will hunt stag.
+Over time, $2/3$ of the population will hunt hare and the $1/3$ of the population will hunt stag.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{SH.pdf}
-    \caption{$x^*=\frac{3}{4}$, Internal Equilibrium for Stag Hunt Game}
+    \caption{$x^*=\frac{2}{3}$, Internal Equilibrium for Stag Hunt Game}
     \label{fig:3}
 \end{figure}
 \subsubsection{Two player games with multiple strategies}
@@ -649,6 +649,10 @@ T^{S+} &= \frac{i_S f_S}{\phi} \cdot \frac{i_R}{N} \label{eq:47}
 \begin{align}
 T^{S-} &= \frac{i_R f_R}{\phi} \cdot \frac{i_S}{N} \label{eq:48}
 \end{align}
+\item everyone stays at the same state:
+\begin{align}
+T_{\text{Stay}}(i_R,i_P,i_S) = T_{R \to R} + T_{S \to S} + T_{P \to P} \label{eq:49}
+\end{align}
 \end{enumerate}
 All six of these transition probabilities completely determine the stochastic dynamics of the Moran process of a three-strategy game such as Rock-Paper-Scissors.
 The population will move to any one of the six neighbouring states at each time step in the strategy simplex, which means it will move to a state where one strategy will be increased and another decreased by $1$ person.
@@ -657,9 +661,9 @@ This process continues until it arrives at one of the absorbing boundaries, whic
 These absorbing states can be equated to fixation of single strategy.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{RPS_FP.pdf}
-    \caption{Fixation probability heatmap for the Rock-Paper-Scissors game in a finite population of size $N = 10$. Each ternary plot illustrates the probability that a specific strategy Rock (left), Paper (middle), or Scissors (right), fixates in the populations. The vertices of each triangle represent homogeneous populations, while interior points denote well-mixed populations. Color intensity corresponds to the probability of fixation for the strategy, with darker shades indicating higher probabilities. Results are based on $10^3$ stochastic simulations of the Moran process for each initial condition. These plots reveal how initial conditions influences evolutionary outcomes in cyclic dominance dynamics.}
-   \label{fig:6}
+    \includegraphics[width=0.8\textwidth]{RPS_FP.pdf}
+    \caption{In a finite population of size $N = 33$, with $10^4$ simulations and a zero-sum payoff matrix \eqref{eq:36}, the fixation probability of Rock is highest near the Rock-rich corner. This is because, under strong selection ($w = 1$), strategies with higher initial frequencies have greater chances to fixate. Since Rock starts in high abundance in this region, it dominates via replication advantage over time.}
+    \label{fig:6}
 \end{figure}
 
 
