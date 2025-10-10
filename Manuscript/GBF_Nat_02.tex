@@ -19,13 +19,14 @@
 \usepackage[numbers]{natbib}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{float}
+\usepackage{times}
 \newcommand{\Fig}[1]{Figure~\ref{fig:#1}}
 
 \renewcommand{\baselinestretch}{1.5}
 \newcommand{\bbar}[1]{\overline{#1}}
 
 \newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
-\renewcommand{\familydefault}{\sfdefault}
+
 
 \usepackage[font={small},labelfont={bf},justification=justified,margin=0.5cm]{caption}
 
@@ -68,7 +69,7 @@
 \newcommand{\cha}[1]{\textcolor{darkgreen}{(#1)}}
 
 
-\title{\vspace*{-22mm}\bf Title}
+\title{\vspace*{-22mm}\bf Application of Evolutionary Game Theory in Biological Systems}
 %\author{Chaitanya S. Gokhale$^{1}$, Joseph Bulbulia$^{2,3}$, Marcus Frean$^{4}$\\
 %\normalsize $^1$Research Group for Theoretical Models of Eco-evolutionary Dynamics\\
 %\normalsize Department of Evolutionary Theory, \\
@@ -85,7 +86,6 @@
 \begin{document}
 
 
-
 \linenumbers
 \maketitle
 
@@ -99,11 +99,23 @@ Keywords:
 \tableofcontents
 \section{Abstract}
 \section{Introduction}
+One of the most important part of evolutionary biology revolves around the basic concept of cooperation. Cooperation is required to build new dimensions of biological organization. Cooperation forms the basis of the emergence of genomes, cells, multi-cellular organisms, social insects and human society. Cooperation implies that selfish replicators are willing to sacrifice a part of their reproductive capacity so that they can assist others \citep{Nowak2006}.
+Studies suggest that bacterial colonies which form biofilm require high level of cooperation because secreted extracellular polymeric material is a shared resource and can be advantageous to entire bacterial colonies \citep{Xavier2007}. In case of \textit{Dictyostelium discoideum}, also known as social amoeba, where some of the cells become self-sacrificing to create supportive stalks in which a colony of spores propagates \citep{Medina2024}. Also, social insects showing extreme cooperative specialization whereby workers sacrifice their own reproduction in order to contribute to the overall colony's fitness \citep{Fischman2011}.\\
+Despite of having evolutionary advantage, cooperation is quite unfavourable in real world systems because when people have an individual self interest, they would likely exceed the amount of collective resource available (Tragedy of commons) or short-term gain through defection is more tempting in real world scenarios \citep{Rankin2007}.
+In the biological context, this effect can lead to the public goods dilemma, which means cooperative interactions produce benefits that are distributed among all group members, defectors can enjoy such benefits without necessarily paying the costs that are involved in their creation. 
+Let's take examples of bacterial communities, in an experimental study  \textit{Vibrio cholerae} cheater cells can impose experimental benefits of costly extracellular enzymes synthesized by cooperators by evolutionary time \citep{Schluter2015}, and also in a study it is shown that defector individuals of \textit{Pseudomonas aeruginosa} can avoid the expense of generating the QS signal or the cooperative behaviour that is coordinated by QS and but can use QS signal to propagate \citep{Diggle2007}.\\
+Population structure significantly influences the evolutionary dynamics by determining which individual interacts with whom. Real populations aren't well-mixed, instead spatial or social structures create non-random patterns of interaction, that can crucially effect the evolution of cooperation over defection. Structuring population spatially should resolve the cooperation dilemma by using spatial clustering and network reciprocity\citep{Nowak2010}. 
+In a paper, Powers, Penn, and Watson demonstrate that the cooperation and population structure co-evolve together in a synergistic way\citep{Powers2011}.
+This thesis focuses on population structure as a promising pathway to understand cooperation-defection and to catalyse cooperation, since evolving population structure is a necessary parameter for the stability and evolution of cooperative behaviour. The simplest way to simulate a game in structured population through graphs is simulating the game in square lattice spatial structure.\\
+Evolutionary Game Theory is one of the most prominent mathematical framework, which can possibly explain these complex evolutionary dynamics by converting biological behaviours as strategic interacting games, where interaction payoffs determine fitness. Unlike classical game theory, evolutionary game theory focuses on evolution of strategy based on the reproductive success or fitness value. Prisoner's dilemma, an example of a game in EGT, shows that mutual cooperation yields comparatively higher collective payoff than the payoff for mutual defection, yet individual defection gives more high payoff when interacting with a cooperator, spreading defection in the population.
+Evolutionary Game Theory can be applied to different biological systems, starting from fermentation, cellular metabolic cooperation, biofilm formation, antibiotic resistance formation, cancer progression modeled as interaction between healthy and malignant cells or quorum sensing as cooperative interactions preventing exploitation while maintaining beneficial collective actions \citep{Hummert2014}.\\
+In this thesis, the evolutionary game theory is used to study how population structure facilitates cooperation in biological systems, and mathematical models and computational simulations are used to study the dynamics of cooperation-defection in the context of various spatial and social organization. This study seeks to contribute to the existing body of knowledge of cooperation in microbial ecology, cellular biology and other different biological systems by combining theoretical predictions with empirical examples to determine why cooperation is evolutionarily stable, and how to catalyse cooperation and to determine its key role in the evolution of biological organization.
 \section{Review of Literature}
 \section{Methodology}
 \subsection{Replicator Dynamics}
-
+\label{subsec:Replicator Dynamics}
 \subsubsection{Two-player games with two strategies}
+\label{subsubsec:Two-player games with two strategies}
 
 Replicator dynamics is one of the possible frameworks that can explain evolutionary dynamics. Replicator dynamics determines how the frequency of different strategies in a population changes over time. We can write the equation used to assess replicator dynamics mathematically. Let's take the frequency of $A$ and $B$ strategies are $x_A$ and $x_B$ and the fitness of each strategy is $f_A$ and $f_B$ and the average fitness of the population is $\bar{f}$. It is a two-player two-strategy game, so we can say $ x_A+x_B=1 $, so we can write that $x_B=1-x_A$ and $x_A=1-x_B$. Let's try to write a payoff matrix,\\
 \[
@@ -370,7 +382,7 @@ If we replace the value of \eqref{eq:8} and \eqref{eq:9} into the equation \eqre
     \caption{Internal Equilibrium of Rock-Paper-Scissors Game}
     \label{fig:4}
 \end{figure} 
-\subsection{Stochastic Process and Finite Population}
+\subsection{Stochastic Dynamics and Finite Population}
 \subsubsection{Two players with two strategies}
 In the previous subsection, we used an infinite population for the deterministic approach \citep{Hofbauer2003}.
 Now, we will proceed with a finite population.
@@ -405,7 +417,7 @@ Now we can denote the average payoff of $a$ and $b$ strategies as $\pi_a$ and $\
 \pi_A&=\frac{j-1}{N-1}a_1 + \frac{N-j}{N-1}a_0 \nonumber\\
 \pi_B&=\frac {j}{N-1}b_1 + \frac{N-j-1}{N-1}b_0\label{eq:12}
 \end{align}
-Now, a question can arise, why are we using $j-1$ instead of $j$? We have to understand that instead of an infinitely large population, we are using a real finite population and for that, we have to remove the particular individual who is observing or analysing the situation, so we use $j-1$.\\
+Now, a question can arise, why are we using $N-1$ instead of $N$? We have to understand that instead of an infinitely large population, we are using a real finite population and for that, we have to remove the particular individual who is observing or analysing the situation, so we use $N-1$.\\
 Now, we can move to the part of the evolutionary dynamics for the finite population where randomness is involved in the population.
 So, we will go for the stochastic processes.
 For these stochastic processes, we will focus on the Moran process. It consists of two events: birth and death. 
@@ -581,13 +593,12 @@ i_R+i_P+i_S = N \label{eq:35}
 \end{equation}
 Now, let's write the payoff matrix for the RPS game.
 \begin{equation}
-A =
-\begin{pmatrix}
-  & R & S & P \\
+\begin{array}{c|ccc}
+  & R & S & P \\ \hline
 R & 0 & 1 & -1 \\
 S & -1 & 0 & 1 \\
 P & 1 & -1 & 0
-\end{pmatrix} \label{eq:36}
+\end{array} \label{eq:36}
 \end{equation}
 Now let's write the average payoff value for each strategy.
 \begin{equation}
@@ -649,7 +660,7 @@ T^{S+} &= \frac{i_S f_S}{\phi} \cdot \frac{i_R}{N} \label{eq:47}
 \begin{align}
 T^{S-} &= \frac{i_R f_R}{\phi} \cdot \frac{i_S}{N} \label{eq:48}
 \end{align}
-\item everyone stays at the same state:
+\item Everyone stays at the same state:
 \begin{align}
 T_{\text{Stay}}(i_R,i_P,i_S) = T_{R \to R} + T_{S \to S} + T_{P \to P} \label{eq:49}
 \end{align}
@@ -661,15 +672,85 @@ This process continues until it arrives at one of the absorbing boundaries, whic
 These absorbing states can be equated to fixation of single strategy.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{RPS_FP.pdf}
-    \caption{In a finite population of size of $N = 33$ with $ 10^4$ simulations and a zero-sum RPS payoff matrix \eqref{eq:36}, the fixation probability of Rock is highest near the Rock-rich corner. Under strong selection $w=1$, fixation is determined primarily by payoff advantages rather than initial frequency alone. Near the Rock-rich corner, Rock not only has a numerical advantage but also gains high fitness from frequent wins against Scissors, enabling it to dominate and fixate with high probability.}
+    \includegraphics[width=0.8\textwidth]{Fixation_RPS.pdf}
+    \caption{In a finite population of size of $N = 33$ with $ 10^4$ simulations and a zero-sum RPS payoff matrix \eqref{eq:36}, the fixation probability of Rock is highest near the Rock-rich corner. Under strong selection $w=1$, fixation is determined primarily by payoff advantages rather than initial frequency alone. Near the Rock-rich corner, Rock not only has a numerical advantage but also gains high fitness from frequent wins against Scissors, enabling it to dominate and fixate with high probability and the same explanation goes for the other two strategies present.}
     \label{fig:6}
 \end{figure}
+
+\subsection{Evolutionary Dynamics of Structured Populations}
+In the previous subsection, we tried to explain the evolutionary dynamics using stochastic process in a finite population, but the population was unstructured. But to make the mathematical process and our understanding about the evolutionary dynamics more realistic, we have to consider a structured finite population.
+The structure of a population can influence the evolutionary dynamics in biological systems. For an example, in a paper by Arne Traulsen, it was discussed that the structure of a microbial population can influence it's evolutionary dynamics \citep{Traulsen2021}.\\
+Now, how to do that mathematically? One of the most popular and common theory to model and understand the structure of a population is evolutionary graph theory \citep{Lieberman2005}. 
+In the graph theory the nodes represent individuals and the links determines the individual's neighbours, and where an individual can place it's offspring. But to know which individual will reproduce and how the offspring will be placed, we need to understand update mechanism.
+The two most important events that determine and control the population dynamics are birth and death. Based on these two events, the selection type is often determined whether it's local selection or global selection and ultimately it influence the structure of the population.
+For birth we use $b$ if the birth is random and $B$ if the birth is chosen with the probability proportional to it's selection parameter.
+For death we use $d$ if the death is random and $D$ if the death is chosen with the probability proportional to it's selection parameter.
+According to this, we can write eight update mechanisms $bd$, $db$, $Bd$, $dB$, $Db$, $bD$, $BD$, $DB$.\\
+Now let's try to understand the $Bd$ rule, suppose we are applying $Bd$ rule in a population size of $N$, where there are $n$ mutants and $N-n$ wild types, with mutants having a relative selection parameter for birth $r$ with respect to the wild types.\\
+Suppose, the mutant number of the population is increased by $1$, means one mutant is selected for reproduction, it's a global selection as the mutant is selected from the whole population.
+Now, one from the neighbours of the reproductive mutant is selected for death, it is a local selection event.\\
+Now, the transition probability of mutant number being increased by one is:
+\begin{equation}
+T_{Bd}^+ = \frac{rn}{rn+ N-n} \cdot \frac{N-n}{N-1} \label{eq:50}
+\end{equation}
+In a similar manner, the transition probability of mutant number being decreased by one is:
+\begin{equation}
+T_{Bd}^- = \frac{N-n}{rn+ N-n} \cdot \frac{n}{N-1} \label{eq:51}
+\end{equation}
+From these two equations we can write $T_{Bd}^-/T_{Bd}^+ = 1/r$. So the fixation probability will be:
+\begin{equation}
+\frac{1+\sum_{i=1}^{n-1}\prod_{j=1}^i \frac{T_{Bd}^-}{T_{Bd}^+}}{1+ \sum_{i=1}^{N-1}\prod_{j=1}^i \frac{T_{Bd}^-}{T_{Bd}^+}} = \frac{\frac{1-\frac{1}{r^n}}{1-r}} {\frac{1-\frac{1}{r^N}}{1-r}} = \frac{1-\frac{1}{r^n}}{1-\frac{1}{r^N}} \label{eq:52}
+\end{equation}
+If we try to write the dB update mechanism, the transition probabilities will be:
+\begin{align}
+T_{dB}^+ &= \frac{N-n}{N} \cdot \frac{rn}{rn+N-r-1} \nonumber\\
+T_{dB}^- &= \frac{n}{N} \cdot \frac{N-n}{(n-1)r + N-n} \label{eq:53}
+\end{align}
+Then, the fixation probability is:
+\begin{equation}
+\rho_n = \frac{1 + \sum_{i=1}^{n-1} \prod_{j=1}^i[ r^{-1} \cdot \frac{(n-1)r + N - n}{n r + N - n - 1}]}{1 + \sum_{i=1}^{N-1} \prod_{j=1}^i[ r^{-1} \cdot \frac{(n-1)r + N - n}{n r + N - n - 1}]} \label{eq:54}
+\end{equation}
+\newline
+\textbf{Stag Hunt Game in Structured Population}
+\newline
+As discussed earlier in the subsubsection \ref{subsubsec:Two-player games with two strategies} of the subsection \ref{subsec:Replicator Dynamics}, stag hunt game is a classical example of game theory to understand the interplay between risk and trust. There are two strategies, cooperation and defection. The stag hunt game can be used to model how cooperation can persist when cooperators cluster locally in structured finite populations like biofilms, among microbial population \citep{Lambert2014}. 
+The simplest way to simulate a game in structured population through graphs is simulating the game in square lattice spatial structure.\\
+Let's write the payoff matrix for the stag hunt game,
+\begin{equation}
+\begin{array}{c|cc}
+   & \text{Cooperate (C)} & \text{Defect (D)} \\
+  \hline
+  \text{Cooperate (C)} & S = 4 & S = 1 \\
+  \text{Defect (D)} & H = 3 & H = 3 \\
+\end{array} \label{eq:55}
+\end{equation}
+Now, on a square lattice the payoff of the strategy of an individual depends on the neighbours of the individual, where the number of cooperative neighbours is denoted as $n_C$ and number of the defective neighbours is denoted by $n_D$. \\
+Average payoff of the individual playing cooperation strategy is:
+\begin{equation}
+\pi_C = n_C \cdot 4 + n_D \cdot 1 \label{eq:56}
+\end{equation}
+and the average payoff of the individual playing defection is:
+\begin{equation}
+\pi_D = n_C \cdot 3 + n_D \cdot 3 \label{eq:57}
+\end{equation}
+Then, the fitness is respectively, $f_C = 1 - w + w \cdot \pi_C$ and $f_D = 1 - w + w \cdot \pi_D$.
+then, the relative fitness of mutants for birth with respect to the wild types can be analytically represented as:
+\begin{equation}
+r = \frac{f_C}{f_D} = \frac{1 - w + w \cdot \pi_C}{1 - w + w \cdot \pi_D} \label{eq:58}
+\end{equation}
+Now, if we apply the $Bd$ update mechanism in a population size of $N$, where there are $n$ mutants (cooperators) and $N_n$ wild types (defectors). Then, the transition probability of mutant number being increased by one and the transition probability of mutant number being decreased by one can be calculated using the equation \eqref{eq:50} and \eqref{eq:51}, where r = relative fitness = $\frac{1 - w + w \cdot \pi_C}{1 - w + w \cdot \pi_D}$. Now, we can calculate the fixation probability using the equation \eqref{eq:52}.
+
+
+
+
 
 
 
 \section{Results}
 \section{Discussion}
+
+
+
 
 
 \textbf{Code availability}.
@@ -698,3 +779,4 @@ Appropriate computer code describing the model is available at
 
 
 \end{document}
+
