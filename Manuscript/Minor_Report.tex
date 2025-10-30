@@ -10,6 +10,7 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{subcaption}
 \usepackage{enumerate}
 \usepackage{mathtools}
 \usepackage{graphicx}
@@ -263,20 +264,20 @@ We can write the payoff matrix using actual values, which follow the conditions 
 \begin{array}{c|cc}
    & \text{Cooperate (C)} & \text{Defect (D)} \\
   \hline
-  \text{Cooperate (C)} & S = 4 & S = 1 \\
-  \text{Defect (D)} & H = 3 & H = 3 \\
-\end{array}
+  \text{Cooperate (C)} & S = 5 & S = 1 \\
+  \text{Defect (D)} & H = 2 & H = 2 \\
+\end{array} \label{eq:6}
 \]
 As we know, there are three conditions where the value of $dx/dt$ will be $0$. These three conditions are $x=0$, it means only defectors, and $x=1$, which means only cooperators. The internal equilibrium will fulfil the condition of $f_C=f_D$.Let's find the equilibrium point by using the equation \eqref{eq:5} and putting the payoff values into the equation.\\
 \begin{align}
-x^* &=\frac{3-1}{4-1-3+3} \nonumber\\
-x^* &= \frac{2}{3} \nonumber
+x^* &=\frac{2-1}{5-1-2+2} \nonumber\\
+x^* &= \frac{1}{4} \nonumber
 \end{align}
-Over time, $2/3$ of the population will hunt hare and the $1/3$ of the population will hunt stag.
+Over time, $1/4$ of the population will hunt hare and the $3/4$ of the population will hunt stag.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{SH.pdf}
-    \caption{$x^*=\frac{2}{3}$, Internal Equilibrium for Stag Hunt Game}
+    \caption{$x^*=\frac{1}{4}$, Internal Equilibrium for Stag Hunt Game}
     \label{fig:3}
 \end{figure}
 \subsubsection{Two player games with multiple strategies}
@@ -300,7 +301,7 @@ Now, in a population there will be multiple strategies. So, we have to write the
        a_{n,1} & a_{n,2} & \dots & a_{n,n}
    \end{pmatrix}
 \end{array}
-\] \label{eq:6}
+\] \label{eq:7}
 This is a two player game, here $a_{1,2}$ means player $A$ playing strategy $1$ against the strategy $2$ of player $B$ so we can write the equation using replicator dyanmics.
 \begin{equation}
 dx_i/dt=x_i[f_i(x)-\bar{f}\nonumber\\
@@ -353,23 +354,23 @@ f_P &= x_R - x_S \nonumber
 \end{align}
 $x_R,x_S,x_P$ are the frequencies of choosing rock, scissors and paper respectively, and we can write,
 \begin{align}
-x_R+x_S+x_P=1 \label{eq:7}
+x_R+x_S+x_P=1 \label{eq:8}
 \end{align}
 Now the mathematical condition for finding the internal equilibrium is $f_R=f_S=f_P$.
 \begin{align}
 f_R &=f_S \nonumber\\
 x_S-x_P &=x_P-x_R \nonumber\\
-2x_P &=x_S+x_R \label{eq:8}
+2x_P &=x_S+x_R \label{eq:9}
 \end{align}
 \begin{align}
 f_S &=f_P \nonumber\\
 x_P-x_R &=x_R-x_S \nonumber\\
-2x_R &=x_P+x_S \label{eq:9}
+2x_R &=x_P+x_S \label{eq:10}
 \end{align}
 \begin{align}
 f_R&=f_P \nonumber\\
 x_S-x_P&=x_R-x_S \nonumber\\
-2x_S&=x_R+x_P \label{eq:10}
+2x_S&=x_R+x_P \label{eq:11}
 \end{align}
 Now if we replace the value of \eqref{eq:7} into the equation \eqref{eq:6} we will get,
 \begin{align}
@@ -400,7 +401,7 @@ Moran process is a classical model of population genetics like Wright-Fisher pro
 In the previous works, we used trivial fitness means the average fitness is exactly equal to the average payoff. But in the actual population, fitness can depend on payoff in many other ways. For some systems we may know the exact relation between payoff and fitness but for other systems, we can just speculate.
 Nowak et al.\citep{Nowak2004} introduced a tunable parameter as selection intensity. 
 \begin{equation}
-f_i=1-w+w\pi_i \label{eq:11}
+f_i=1-w+w\pi_i \label{eq:12}
 \end{equation}
 where $f_i$ is the average fitness of a population, $w$ is the selection intensity, $\pi_i$ is the average payoff of a strategy. If $w=1$ it will be strong selection, $f_i=\pi_i$ and if $w=0$ it will be weak selection, $f_i=1$.\\
 Now, we can consider the finite population of a specific game as $N$.
@@ -417,7 +418,7 @@ We can write the payoff matrix according to this specification.
 Now we can denote the average payoff of $a$ and $b$ strategies as $\pi_a$ and $\pi_b$.
 \begin{align}
 \pi_A&=\frac{j-1}{N-1}a_1 + \frac{N-j}{N-1}a_0 \nonumber\\
-\pi_B&=\frac {j}{N-1}b_1 + \frac{N-j-1}{N-1}b_0\label{eq:12}
+\pi_B&=\frac {j}{N-1}b_1 + \frac{N-j-1}{N-1}b_0\label{eq:13}
 \end{align}
 Now, a question can arise, why are we using $N-1$ instead of $N$? We have to understand that instead of an infinitely large population, we are using a real finite population and for that, we have to remove the particular individual who is observing or analysing the situation, so we use $N-1$.\\
 Now, we can move to the part of the evolutionary dynamics for the finite population where randomness is involved in the population.
@@ -434,15 +435,15 @@ There are three situations in this theory.
 From these three scenarios we can write there equations.\\
 For the (1) scenario,
 \begin{equation}
-T_j^+=\frac{jf_A}{jf_A+(N-j)f_B}\frac{N-j}{N} \label{eq:13}
+T_j^+=\frac{jf_A}{jf_A+(N-j)f_B}\frac{N-j}{N} \label{eq:14}
 \end{equation}
 For the (2) scenario,
 \begin{equation}
-T_j^-=\frac{(N-j)f_A}{jf_A+(N-j)f_B}\frac{j}{N} \label{eq:14}
+T_j^-=\frac{(N-j)f_A}{jf_A+(N-j)f_B}\frac{j}{N} \label{eq:15}
 \end{equation}
 For the (3) scenario,
 \begin{equation}
-1-T_j^+-T_j^- \label{eq:15}
+1-T_j^+-T_j^- \label{eq:16}
 \end{equation}
 Now, what can we tell from these equations?
 \begin{enumerate}
@@ -462,30 +463,30 @@ Since fixation is an absorbing state, if the entire population once becomes $A$,
 \begin{align}
 \rho_j &= T_j^-\rho_{j-1}+(1-T_j^+ - T_j^-)\rho_j + T_j^+p_{j+1} \nonumber\\
 0 &= T_j^-\rho_{j-1} - T_j^-\rho_j - T_j^+\rho_j + T_J^+\rho_{j+1}\nonumber\\
-0 &= \underbrace{-T^-_j (\rho_j - \rho_{j-1})}_{y_j} + \underbrace{T^+_j (\rho_{j+1} - \rho_j)}_{y_{j+1}} \label{eq:16}
+0 &= \underbrace{-T^-_j (\rho_j - \rho_{j-1})}_{y_j} + \underbrace{T^+_j (\rho_{j+1} - \rho_j)}_{y_{j+1}} \label{eq:17}
 \end{align}
 We can write this equation as the differences between fixation probabilities, $y_{j+1}=y_jr_j$, where $r_j=\frac{T_j^-}{T_j^+}$
 \begin{align}
 y_1 &= \rho_1 - \rho_0 = \rho_1 \nonumber\\
 y_2 &= \rho_2 - \rho_1 = r_1 \rho_1 \nonumber\\
 \vdots \nonumber\\
-y_k &= \rho_k - \rho_{k-1} = \rho_1 \prod_{j=1}^{k-1} r_j \label{eq:17}\\
+y_k &= \rho_k - \rho_{k-1} = \rho_1 \prod_{j=1}^{k-1} r_j \label{eq:18}\\
 \vdots \nonumber\\
-y_N &= \rho_N - \rho_{N-1} = \rho_1 \prod_{j=1}^{N-1} r_j \label{eq:18}
+y_N &= \rho_N - \rho_{N-1} = \rho_1 \prod_{j=1}^{N-1} r_j \label{eq:19}
 \end{align}
 This means each incremental change from $\rho_{N-1}$ to $\rho_N$ is based on the growing product of $r_j$ multiplied by $\rho_1$.\\
 Now let's calculate the sum over all $y_j$. This sum is telescopic sum.
 \begin{align}
 \sum_{k=1}^N y_k &= \rho_1-\rho_0+ \rho_2-\rho_1+ \rho_3-\rho_2+\cdots+\rho_N-\rho_{N-1} \nonumber\\
-\sum_{k=1}^N y_k &= \rho_N-\rho_0=1 \label{eq:19}
+\sum_{k=1}^N y_k &= \rho_N-\rho_0=1 \label{eq:20}
 \end{align}
 Using \eqref{eq:16} and \eqref{eq:18} we can calculate the value of $\rho_1$.
 \begin{equation}
-1=\sum_{k=1}^N y_k=\sum_{k=1}^N \rho_1 \prod_{j=1}^{N-1}r_j=\rho_1(1+ \sum_{k=1}^{N-1}\prod_{j=1}^k r_j)\label{eq:20}
+1=\sum_{k=1}^N y_k=\sum_{k=1}^N \rho_1 \prod_{j=1}^{N-1}r_j=\rho_1(1+ \sum_{k=1}^{N-1}\prod_{j=1}^k r_j)\label{eq:21}
 \end{equation}
 So, we can write the fixation probability of one $A$ individual as,
 \begin{equation}
-\rho_1= \frac{1}{1+ \sum_{k=1}^{N-1}\prod_{j=1}^k r_j} \label{eq:21}
+\rho_1= \frac{1}{1+ \sum_{k=1}^{N-1}\prod_{j=1}^k r_j} \label{eq:22}
 \end{equation}
 For neutral selection, $T_j^-=T_j^+$ and $r_j=1$. Hence, all products are simply one and we find $\rho_1= 1/N$.\\
 This is the fixation probability of single mutant $\rho_1$. In general, the fixation probability of $i$ mutants are $\rho_i$.
@@ -493,7 +494,7 @@ This is the fixation probability of single mutant $\rho_1$. In general, the fixa
 \rho_i&= \sum_{k=1}^i y_k \nonumber\\
 &= \rho_1 \sum_{k=1}^i \prod_{j=1}^{k-1}r_j\nonumber\\
 &=\rho_1(1+ \sum_{k=1}^{i-1} \prod_{j=1}^k r_j)\nonumber\\
-&= \frac{1+\sum_{k=1}^{i-1}\prod_{j=1}^k r_j}{1+ \sum_{k=1}^{N-1}\prod_{j=1}^k r_j} \label{eq:22}
+&= \frac{1+\sum_{k=1}^{i-1}\prod_{j=1}^k r_j}{1+ \sum_{k=1}^{N-1}\prod_{j=1}^k r_j} \label{eq:23}
 \end{align}
 For neutral selection, we have $T_j^-=T_j^+$ and $r_j=1$. Hence, all products are simply one and we find $\rho_1= j/N$.\\
 The probability that a single individual playing strategy $A$ takes over a population of $N-1$ individuals playing strategy $B$ is the fixation probability of strategy $A$, $\rho_A=\rho_1$.\\
@@ -503,53 +504,53 @@ The probability that a single individual playing strategy $B$ takes over a popul
 &=\frac{1 + \sum_{k=1}^{N-2} \prod_{j=1}^{k} r_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j} \nonumber\\
 &= \frac{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j} - \frac{1 + \sum_{k=1}^{N-2} \prod_{j=1}^{k} r_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j} \nonumber\\
 &= \frac{\prod_{j=1}^{N-1} r_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} r_j} \nonumber \\
-&= \rho_A \prod_{j=1}^{N-1} r_j \label{eq:23}
+&= \rho_A \prod_{j=1}^{N-1} r_j \label{eq:24}
 \end{align}
 \textbf{Weak Selection and Risk Dominance}
 \newline
 For weak selection, selection intensity is $w\ll 1$ and $r_j$ simplifies to,
 \begin{equation}
-r_j = \frac{1-w+w\pi_B}{1-w+w\pi_A} \approx 1-w(\pi_A-\pi_B) \label{eq:24}
+r_j = \frac{1-w+w\pi_B}{1-w+w\pi_A} \approx 1-w(\pi_A-\pi_B) \label{eq:25}
 \end{equation}
 Now we can write the product in the \eqref{eq:21} in a simplified way for weak selection.
 \begin{equation}
-\prod_{j=1}^k r_j \approx \prod_{j=1}^k 1-w(\pi_A-\pi_B) \approx 1-w \sum_{j=1}^k (\pi_A-\pi_B). \label{eq:25}
+\prod_{j=1}^k r_j \approx \prod_{j=1}^k 1-w(\pi_A-\pi_B) \approx 1-w \sum_{j=1}^k (\pi_A-\pi_B). \label{eq:26}
 \end{equation}
 Now, let's annotate a equation $(\pi_A-\pi_B)$.
-From equation \eqref{eq:12} we can write,
+From equation \eqref{eq:13} we can write,
 \begin{align}
 \pi_A - \pi_B &= \frac{(j - 1)a + (N - j)b - jc - (N - j - 1)d}{N - 1} \nonumber\\
 &= \frac{j(a - b - c + d) + (-a + bN - dN + d)}{N - 1}\nonumber\\
 &= \underbrace{\frac{a - b - c + d}{N - 1}}_{u} j 
-+ \underbrace{\frac{-a + bN - dN + d}{N - 1}}_{v} \label{eq:26}
++ \underbrace{\frac{-a + bN - dN + d}{N - 1}}_{v} \label{eq:27}
 \end{align}
-Now, let's solve the sum for the payoff difference using equation \eqref{eq:26}.
+Now, let's solve the sum for the payoff difference using equation \eqref{eq:27}.
 \begin{equation}
-\sum_{j=1}^{k} (\pi_A - \pi_B) = \sum_{j=1}^{k} (u j + v) = u \frac{(k+1)k}{2} + vk = \frac{u}{2}k^2 +( \frac{u}{2} + v)k. \label{eq:27}
+\sum_{j=1}^{k} (\pi_A - \pi_B) = \sum_{j=1}^{k} (u j + v) = u \frac{(k+1)k}{2} + vk = \frac{u}{2}k^2 +( \frac{u}{2} + v)k. \label{eq:28}
 \end{equation}
 Now, the ratio of fixation probabilities:
 \begin{align}
 \frac{\rho_B}{\rho_A} &= \prod_{j=1}^{N-1}r_j \approx 1 - w \sum_{j=1}^{N-1} (\pi_A - \pi_B)\nonumber\\
 &= 1 - w[ \frac{u}{2}(N-1) + \frac{u}{2} + v](N-1) \nonumber\\
-&= 1 - \frac{w}{2} \underbrace{[(a - b - c + d)(N - 1) - a - b - c + 3d + (2b - 2d)N]}_{\Xi} \label{eq:28}
+&= 1 - \frac{w}{2} \underbrace{[(a - b - c + d)(N - 1) - a - b - c + 3d + (2b - 2d)N]}_{\Xi} \label{eq:29}
 \end{align}
 If the payoff difference is $\Xi > 0$, then only strategy $A$ will be favoured, means $\rho_A>\rho_B$.
 For large population, $N \gg 1$ we can write that
 \begin{equation}
-0<\Xi \approx N(a+b-c-d)\label{eq:29}
+0<\Xi \approx N(a+b-c-d)\label{eq:30}
 \end{equation}
 It is equivalent to
 \begin{equation}
-x^*=\frac{d-b}{a-b-c+d}<\frac{1}{2} \label{eq:30}
+x^*=\frac{d-b}{a-b-c+d}<\frac{1}{2} \label{eq:31}
 \end{equation}
 So, we can write that $\rho_A >\rho_B$ is equivalent to $x^*<\frac{1}{2}$.
 This condition is risk dominance and it implies that for weak selection, strategies which have higher fixation probabilities can invade and fixate from a wider range of starting conditions.\\
 \textbf{One-Third Rule}
 \newline
-Now we can write the approximation of the fixation probability equation under weak selection by inserting equation \eqref{eq:27} into equation \eqref{eq:21}.
+Now we can write the approximation of the fixation probability equation under weak selection by inserting equation \eqref{eq:28} into equation \eqref{eq:22}.
 \begin{align}
 \rho_1 &= \frac{1}{1+\sum_{k=1}^{N-1} \prod_{j=1}^{k}r_j}\nonumber\\
-&\approx \frac{1}{1+\sum_{k=1}^{N-1}[1-w(\frac{u}{2}k^2+(\frac{u}{2}+v)k)]} \label{eq:31}
+&\approx \frac{1}{1+\sum_{k=1}^{N-1}[1-w(\frac{u}{2}k^2+(\frac{u}{2}+v)k)]} \label{eq:32}
 \end{align}
 If we use the formula $\sum_{k=1}^{N-1} k = \frac{N(N - 1)}{2}$ and $\sum_{k=1}^{N-1} k^2 = \frac{N(N - 1)(2N - 1)}{6}$, the fixation probability will be,
 \begin{align}
@@ -557,7 +558,7 @@ If we use the formula $\sum_{k=1}^{N-1} k = \frac{N(N - 1)}{2}$ and $\sum_{k=1}^
 &\approx \frac{1}{N - w[ u \frac{N(N - 1)(2N - 1)}{12} + ( \frac{u}{2} + v)\frac{N(N - 1)}{2}]}\nonumber\\
 &\approx \frac{1}{N - wu \cdot \frac{N(N - 1)(2N - 1)}{12} - w ( \frac{u}{2} + v)\frac{N(N - 1)}{2}} \nonumber\\
 &= \frac{1}{N} + \frac{w}{4N}[\underbrace{( a - b - c + d)\frac{2N - 1}{3} - a - b - c + 3d + (2b - 2d)N
-}_{\Gamma}] \label{eq:32}
+}_{\Gamma}] \label{eq:33}
 \end{align}
 Now take this condition for $w=0$ which is known as neutral selection.
 Neutral selection means there is no selective force working, and the fixation is totally determined by randomness.
@@ -565,18 +566,18 @@ So, in the case of neutral selection the fixation probability $\rho_1 = \frac{1}
 Now, if we want to know that if the fixation probability is higher than $\frac{1}{N}$ or not, we need to consider $\Gamma$.
 If $\Gamma>0$ then only fixation probability will be greater than $\frac{1}{N}$.
 \begin{equation}
-\frac{a-b-c+d}{3}+ b-d > 0 \label{eq:33}
+\frac{a-b-c+d}{3}+ b-d > 0 \label{eq:34}
 \end{equation}
-The condition showed in the \eqref{eq:33} is equivalent to,
+The condition showed in the \eqref{eq:34} is equivalent to,
 \begin{equation}
-x^* = \frac{d-b}{a-b-c+d}<\frac{1}{3} \label{eq:34}
+x^* = \frac{d-b}{a-b-c+d}<\frac{1}{3} \label{eq:35}
 \end{equation}
 This condition is known as one-third rule.
 It implies that the fixation probability of a strategy will be higher than $\frac{1}{N}$, meaning the strategy is more likely to fix than by random drift, if and only if the unstable tipping point $x^*$ is less than $\frac{1}{3}$ \citep{Ohtsuki2007}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{SH_FP_SIM.pdf}
-    \caption{Fixation probability in the Stag Hunt game for a population size $N = 30$, based on $10^4$ simulations. The results correspond to the analytical expression given in equation~\eqref{eq:22}. The $X$-axis represents $i/N$, where $i=$ initial mutant number and $N$ is the population number. The $Y$-axis represents fixation probability.}
+    \caption{Fixation probability in the Stag Hunt game for a population size $N = 30$, based on $10^4$ simulations. The results correspond to the analytical expression given in equation~\eqref{eq:23}. The $X$-axis represents $i/N$, where $i=$ initial mutant number and $N$ is the population number. The $Y$-axis represents fixation probability.}
     \label{fig:5}
 \end{figure}
 
@@ -591,7 +592,7 @@ Individuals can adopt one of three strategies: Rock(R), Paper(P), Scissors(S).
 Number of individuals playing these strategies are $i_R$, $i_P$, $i_S$.
 In a $N$ sized finite population, the number of players using each and every strategy should be an integer between $0$ and $N$, and their sum must be exactly $N$. So it can be written that,
 \begin{equation}
-i_R+i_P+i_S = N \label{eq:35}
+i_R+i_P+i_S = N \label{eq:36}
 \end{equation}
 Now, let's write the payoff matrix for the RPS game.
 \begin{equation}
@@ -600,24 +601,24 @@ Now, let's write the payoff matrix for the RPS game.
 R & 0 & 1 & -1 \\
 S & -1 & 0 & 1 \\
 P & 1 & -1 & 0
-\end{array} \label{eq:36}
+\end{array} \label{eq:37}
 \end{equation}
 Now let's write the average payoff value for each strategy.
 \begin{equation}
-\pi_R= i_S - i_P \label{eq:37}
+\pi_R= i_S - i_P \label{eq:38}
 \end{equation}
 \begin{equation}
-\pi_S= i_P - i_R \label{eq:38}
+\pi_S= i_P - i_R \label{eq:39}
 \end{equation}
 \begin{equation}
-\pi_P= i_R - i_S \label{eq:39}
+\pi_P= i_R - i_S \label{eq:40}
 \end{equation}
 Now the individuals are selected proportional to fitness at birth and proportional to inverse  fitness at death at selection intensity $w$.
 Then, the linear fitness for a strategy is $f=1-w+w\pi$.
 There are six transition probabilities in each state.
 The transition probabilities in each state and to change into one of the six neighbouring states are given by a general equation.
 \begin{equation}
-T_{Y \to X}(i_R,i_S,i_P)= \frac{i_X f_X}{\sum_Z i_Z f_Z} \cdot \frac{i_Y}{N} \label{eq:40}
+T_{Y \to X}(i_R,i_S,i_P)= \frac{i_X f_X}{\sum_Z i_Z f_Z} \cdot \frac{i_Y}{N} \label{eq:41}
 \end{equation}
 where $X,Y,Z \in (i_R,i_P,i_S)$.\\
 Now let's try to write these six transition probabilities,
@@ -630,46 +631,46 @@ We can write the fitnesses as \( f_R, f_P, f_S \) where,
 \begin{align}
 f_R &= 1-w+w\pi_R \nonumber\\
 f_S &= 1-w+w\pi_S \nonumber\\
-f_P &= 1-w+w\pi_P \label{eq:41}
+f_P &= 1-w+w\pi_P \label{eq:42}
 \end{align}
 and the total fitness of the population be:
 \begin{equation}
-\phi = i_R f_R + i_P f_P + i_S f_S \label{eq:42}
+\phi = i_R f_R + i_P f_P + i_S f_S \label{eq:43}
 \end{equation}
 Then, the six transition probabilities are 
 \begin{enumerate}
 \item Rock reproduces, Paper dies: $T_{P \to R}$.
 \begin{align}
-T^{R+} &= \frac{i_R f_R}{\phi} \cdot \frac{i_P}{N} \label{eq:43}
+T^{R+} &= \frac{i_R f_R}{\phi} \cdot \frac{i_P}{N} \label{eq:44}
 \end{align}
 \item Paper reproduces, Rock dies: $T_{R \to P}$.
 \begin{align}
-T^{R-} &= \frac{i_P f_P}{\phi} \cdot \frac{i_R}{N}\label{eq:44}
+T^{R-} &= \frac{i_P f_P}{\phi} \cdot \frac{i_R}{N}\label{eq:45}
 \end{align}
 \item Paper reproduces, Scissors dies: $T_{S \to P}$.
 \begin{align}
-T^{P+} &= \frac{i_P f_P}{\phi} \cdot \frac{i_S}{N} \label{eq:45}
+T^{P+} &= \frac{i_P f_P}{\phi} \cdot \frac{i_S}{N} \label{eq:46}
 \end{align}
 \item Scissors reproduces, Paper dies: $T_{P \to S}$.
 \begin{align}
-T^{P-} &= \frac{i_S f_S}{\phi} \cdot \frac{i_P}{N} \label{eq:46}
+T^{P-} &= \frac{i_S f_S}{\phi} \cdot \frac{i_P}{N} \label{eq:47}
 \end{align}
 \item Scissors reproduces, Rock dies: $T_{R \to S}$.
 \begin{align}
-T^{S+} &= \frac{i_S f_S}{\phi} \cdot \frac{i_R}{N} \label{eq:47}
+T^{S+} &= \frac{i_S f_S}{\phi} \cdot \frac{i_R}{N} \label{eq:48}
 \end{align}
 \item Rock reproduces, Scissors dies: $T_{S \to R}$.
 \begin{align}
-T^{S-} &= \frac{i_R f_R}{\phi} \cdot \frac{i_S}{N} \label{eq:48}
+T^{S-} &= \frac{i_R f_R}{\phi} \cdot \frac{i_S}{N} \label{eq:49}
 \end{align}
 \item Everyone stays at the same state:
 \begin{align}
-T_{\text{Stay}}(i_R,i_P,i_S) = T_{R \to R} + T_{S \to S} + T_{P \to P} \label{eq:49}
+T_{\text{Stay}}(i_R,i_P,i_S) = T_{R \to R} + T_{S \to S} + T_{P \to P} \label{eq:50}
 \end{align}
 \end{enumerate}
 All six of these transition probabilities completely determine the stochastic dynamics of the Moran process of a three-strategy game such as Rock-Paper-Scissors.
 The population will move to any one of the six neighbouring states at each time step in the strategy simplex, which means it will move to a state where one strategy will be increased and another decreased by $1$ person.
-The development of this system is a Markov chain process over the state space of all feasible $(i_R, i_P, i_S)$ triplets fulfilling equation \eqref{eq:35}.
+The development of this system is a Markov chain process over the state space of all feasible $(i_R, i_P, i_S)$ triplets fulfilling equation \eqref{eq:36}.
 This process continues until it arrives at one of the absorbing boundaries, which means only one strategy remains and all other strategies become extinct.
 These absorbing states can be equated to fixation of single strategy.
 \begin{figure}[H]
@@ -693,24 +694,24 @@ Suppose, the mutant number of the population is increased by $1$, means one muta
 Now, one from the neighbours of the reproductive mutant is selected for death, it is a local selection event.\\
 Now, the transition probability of mutant number being increased by one is:
 \begin{equation}
-T_{Bd}^+ = \frac{rn}{rn+ N-n} \cdot \frac{N-n}{N-1} \label{eq:50}
+T_{Bd}^+ = \frac{rn}{rn+ N-n} \cdot \frac{N-n}{N-1} \label{eq:51}
 \end{equation}
 In a similar manner, the transition probability of mutant number being decreased by one is:
 \begin{equation}
-T_{Bd}^- = \frac{N-n}{rn+ N-n} \cdot \frac{n}{N-1} \label{eq:51}
+T_{Bd}^- = \frac{N-n}{rn+ N-n} \cdot \frac{n}{N-1} \label{eq:52}
 \end{equation}
 From these two equations we can write $T_{Bd}^-/T_{Bd}^+ = 1/r$. So the fixation probability will be:
 \begin{equation}
-\frac{1+\sum_{i=1}^{n-1}\prod_{j=1}^i \frac{T_{Bd}^-}{T_{Bd}^+}}{1+ \sum_{i=1}^{N-1}\prod_{j=1}^i \frac{T_{Bd}^-}{T_{Bd}^+}} = \frac{\frac{1-\frac{1}{r^n}}{1-r}} {\frac{1-\frac{1}{r^N}}{1-r}} = \frac{1-\frac{1}{r^n}}{1-\frac{1}{r^N}} \label{eq:52}
+\frac{1+\sum_{i=1}^{n-1}\prod_{j=1}^i \frac{T_{Bd}^-}{T_{Bd}^+}}{1+ \sum_{i=1}^{N-1}\prod_{j=1}^i \frac{T_{Bd}^-}{T_{Bd}^+}} = \frac{\frac{1-\frac{1}{r^n}}{1-r}} {\frac{1-\frac{1}{r^N}}{1-r}} = \frac{1-\frac{1}{r^n}}{1-\frac{1}{r^N}} \label{eq:53}
 \end{equation}
 If we try to write the dB update mechanism, the transition probabilities will be:
 \begin{align}
 T_{dB}^+ &= \frac{N-n}{N} \cdot \frac{rn}{rn+N-r-1} \nonumber\\
-T_{dB}^- &= \frac{n}{N} \cdot \frac{N-n}{(n-1)r + N-n} \label{eq:53}
+T_{dB}^- &= \frac{n}{N} \cdot \frac{N-n}{(n-1)r + N-n} \label{eq:54}
 \end{align}
 Then, the fixation probability is:
 \begin{equation}
-\rho_n = \frac{1 + \sum_{i=1}^{n-1} \prod_{j=1}^i[ r^{-1} \cdot \frac{(n-1)r + N - n}{n r + N - n - 1}]}{1 + \sum_{i=1}^{N-1} \prod_{j=1}^i[ r^{-1} \cdot \frac{(n-1)r + N - n}{n r + N - n - 1}]} \label{eq:54}
+\rho_n = \frac{1 + \sum_{i=1}^{n-1} \prod_{j=1}^i[ r^{-1} \cdot \frac{(n-1)r + N - n}{n r + N - n - 1}]}{1 + \sum_{i=1}^{N-1} \prod_{j=1}^i[ r^{-1} \cdot \frac{(n-1)r + N - n}{n r + N - n - 1}]} \label{eq:55}
 \end{equation}
 \subsubsection{Two-player game with two strategies in Structured Population}
 As discussed earlier in the subsubsection \ref{subsubsec:Two-player games with two strategies} of the subsection \ref{subsec:Replicator Dynamics}, stag hunt game is a classical example of game theory to understand the interplay between risk and trust. There are two strategies, cooperation and defection. The stag hunt game can be used to model how cooperation can persist when cooperators cluster locally in structured finite populations like biofilms, among microbial population \citep{Lambert2014}. 
@@ -722,32 +723,52 @@ Let's write the payoff matrix for the stag hunt game,
   \hline
   \text{Cooperate (C)} & S = 4 & S = 1 \\
   \text{Defect (D)} & H = 3 & H = 3 \\
-\end{array} \label{eq:55}
+\end{array} \label{eq:56}
 \end{equation}
 Now, on a square lattice the payoff of the strategy of an individual depends on the neighbours of the individual, where the number of cooperative neighbours is denoted as $n_C$ and number of the defective neighbours is denoted by $n_D$. \\
 Average payoff of the individual playing cooperation strategy is:
 \begin{equation}
-\pi_C = n_C \cdot 4 + n_D \cdot 1 \label{eq:56}
+\pi_C = n_C \cdot 4 + n_D \cdot 1 \label{eq:57}
 \end{equation}
 and the average payoff of the individual playing defection is:
 \begin{equation}
-\pi_D = n_C \cdot 3 + n_D \cdot 3 \label{eq:57}
+\pi_D = n_C \cdot 3 + n_D \cdot 3 \label{eq:58}
 \end{equation}
 Then, the fitness is respectively, $f_C = 1 - w + w \cdot \pi_C$ and $f_D = 1 - w + w \cdot \pi_D$.
 then, the relative fitness of mutants for birth with respect to the wild types can be analytically represented as:
 \begin{equation}
-r = \frac{f_C}{f_D} = \frac{1 - w + w \cdot \pi_C}{1 - w + w \cdot \pi_D} \label{eq:58}
+r = \frac{f_C}{f_D} = \frac{1 - w + w \cdot \pi_C}{1 - w + w \cdot \pi_D} \label{eq:59}
 \end{equation}
 Now, if we apply the $Bd$ update mechanism in a population size of $N$, where there are $n$ mutants (cooperators) and $N_n$ wild types (defectors). Then, the transition probability of mutant number being increased by one and the transition probability of mutant number being decreased by one can be calculated using the equation \eqref{eq:50} and \eqref{eq:51}, where r = relative fitness = $\frac{1 - w + w \cdot \pi_C}{1 - w + w \cdot \pi_D}$. Now, we can calculate the fixation probability using the equation \eqref{eq:52}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{SH_SP.pdf}
-    \caption{Spatial evolution of the stag hunt game over four time steps. Where the orange color denotes the defectors and the cyan color the cooperators.
-    At time step $0$, the cooperators are $70\%$ and defectors are $30\%$. 
-    At time step $1000$, the cooperators are $63.7\%$ and defectors are $36.3\%$. 
-    At time step $2000$, cooperators are $52.5\%$ and defectors are $47.5\%$. 
-    At time step $3000$, the cooperators are $39.8\%$ and defectors are $60.2\%$.}
+    \caption{Spatial evolution of the stag hunt game, over four time steps. Where the orange color denotes the defectors and the cyan color the cooperators.
+    At time step $0$, the cooperators are $300\%$ and defectors are $70\%$. 
+    At time step $1000$, the cooperators are $34.3\%$ and defectors are $65.7\%$. 
+    At time step $2000$, cooperators are $37.1\%$ and defectors are $62.9\%$. 
+    At time step $3000$, the cooperators are $42.9\%$ and defectors are $57.1\%$.}
     \label{fig:6}
+\end{figure}
+Now, we have simulated the stag-hunt game on square-lattice with Moore neighbourhood. Square lattice is the easiest way to construct a structured population. Apart from it, many networks are said to have small-world properties, in other words, the network of any two of their members can be communicated with each other via a small number of linkages (steps). Thus, the Newman-Watts-Strogatz (NWS) algorithm generates a small-world network, which is executed in this study. This algorithm initially forms a d-dimensional lattice,in our case $d=1$.  Then, each vertex is drawn an edge with probability $\beta$.  The average path length between any two vertices in a NWS network is very small and the clustering coefficient is very high.
+In this study we tried to simulate the stag hunt game with same conditions like in sqaure lattice on NWS network.
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{SH_WS_step_0.pdf}
+    \caption{This is the NWS network at step $0$, with initial condition, where there is $30\%$ cooperator and $70\%$ defector.}
+    \label{fig:fig8}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{SH_WS_final_step.pdf}
+    \caption{This is the NWS network at step $381$,where the cooperators fixed the population.}
+    \label{fig:fig2}
+  \end{subfigure}
+  \caption{This figure shows the simulation of Stag Hunt game in Newman-Watts-Strogatz network, with payoff strcuture \eqref{eq:6}, and the network construction conditions are N(nodes)= $33$, k = neighbours per node in ring lattice = $6$, and probability $\beta = 0.4$. The initial conditions for the network is randomly placed $30\%$ cooperator in a defector world. So, at the initial step, there was $10$ cooperators and $23$ defectors, in the $381$ step, the cooperators fixed the population.Here, orange= defector and cyan= cooperator.}
+  \label{fig:side_by_side}
 \end{figure}
 
 
@@ -789,4 +810,3 @@ Appropriate computer code describing the model is available at
 
 
 \end{document}
-
