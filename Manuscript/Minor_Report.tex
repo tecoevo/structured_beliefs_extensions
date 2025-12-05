@@ -210,6 +210,7 @@ x^*&=\frac{1-0}{3-0-5 +1} \nonumber\\
 x^*&= -1 \nonumber
 \end{align}
 $x=-1$ is the internal equilibrium which does not fall into the boundary conditions, so it means that the entire system will converge into defection.
+\newline
 \textbf{Chicken Game}
 \newline
 In this game, two players( player $A$ and player $B$)are driving towards each other on a single pathway. There are two options for the players:
@@ -238,6 +239,7 @@ x^*&= \frac{2-4}{-3-4-0+2} \nonumber\\
 x^*&= \frac{2}{5} \nonumber
 \end{align}
 This implies that, over time, $2/5$ of the population will swerve and $3/5$ of the population will stay. It implies the condition of co-existence. Let's try to plot it.
+\newline
 \textbf{Stag Hunt Game}
 \newline
 The stag hunt game is a classical example of game theory for understanding social dilemma and the interplay between risk and trust.
@@ -701,44 +703,9 @@ then, the relative fitness of mutants for birth with respect to the wild types c
 \begin{equation}
 r = \frac{f_C}{f_D} = \frac{1 - w + w \cdot \pi_C}{1 - w + w \cdot \pi_D} \label{eq:61}
 \end{equation}
-Now, if we apply the $Bd$ update mechanism in a population size of $N$, where there are $n$ mutants (cooperators) and $N_n$ wild types (defectors). Then, the transition probability of mutant number being increased by one and the transition probability of mutant number being decreased by one can be calculated using the equation \eqref{eq:50} and \eqref{eq:51}, where r = relative fitness = $\frac{1 - w + w \cdot \pi_C}{1 - w + w \cdot \pi_D}$. Now, we can calculate the fixation probability using the equation \eqref{eq:52}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{SH_SP.pdf}
-    \caption{Spatial evolution of the stag hunt game with payoff structure \eqref{eq:8}, over four time steps. Where the orange color denotes the defectors and the cyan color the cooperators.
-    At time step $0$, the cooperators are $300\%$ and defectors are $70\%$. 
-    At time step $1000$, the cooperators are $34.3\%$ and defectors are $65.7\%$. 
-    At time step $2000$, cooperators are $37.1\%$ and defectors are $62.9\%$. 
-    At time step $3000$, the cooperators are $42.9\%$ and defectors are $57.1\%$.}
-    \label{fig:6}
-\end{figure}
-Now, we have simulated the stag-hunt game on square-lattice with Moore neighbourhood. Square lattice is the easiest way to construct a structured population. Apart from it, many networks are said to have small-world properties, in other words, the network of any two of their members can be communicated with each other via a small number of linkages (steps). Thus, the Newman-Watts-Strogatz (NWS) algorithm generates a small-world network, which is executed in this study. This algorithm initially forms a d-dimensional lattice,in our case $d=1$.  Then, each vertex is drawn an edge with probability $\beta$.  The average path length between any two vertices in a NWS network is very small and the clustering coefficient is very high.
+Now, if we apply the $Bd$ update mechanism in a population size of $N$, where there are $n$ mutants (cooperators) and $N_n$ wild types (defectors). Then, the transition probability of mutant number being increased by one and the transition probability of mutant number being decreased by one can be calculated using the equation \eqref{eq:50} and \eqref{eq:51}, where r = relative fitness = $\frac{1 - w + w \cdot \pi_C}{1 - w + w \cdot \pi_D}$. Now, we can calculate the fixation probability using the equation \eqref{eq:52}.\\
+Now, we have simulated the stag-hunt game on square-lattice with Moore neighbourhood. Square lattice is the easiest way to construct a structured population. Apart from it, many networks are said to have small-world properties, in other words, the network of any two of their members can be communicated with each other via a small number of linkages (steps). Thus, the Newman-Watts-Strogatz (NWS) algorithm generates a small-world network, which is executed in this study. This algorithm initially forms a d-dimensional lattice,in our case $d=1$.  Then, each vertex is drawn an edge with probability $\beta$.  The average path length between any two vertices in a NWS network is very small and the clustering coefficient is very high. In this simulation, we used population size of $33$, with selection intensity of $w=0.5$. While constructing the NWS small world network, probability $\beta = 0.4$ and the average neighbours per node is $6$.
 In this study we tried to simulate the stag hunt game with same conditions like in sqaure lattice on NWS network.
-\begin{figure}[ht]
-  \centering
-  \begin{subfigure}[b]{0.45\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{SH_WS_step_0.pdf}
-    \caption{This is the NWS network at step $0$, with initial condition, where there is $30\%$ cooperator and $70\%$ defector.}
-    \label{fig:fig8}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.45\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{SH_WS_final_step.pdf}
-    \caption{This is the NWS network at step $381$,where the cooperators fixed the population.}
-    \label{fig:fig2}
-  \end{subfigure}
-  \caption{This figure shows the simulation of Stag Hunt game in Newman-Watts-Strogatz network, with payoff strcuture \eqref{eq:8}, and the network construction conditions are N(nodes)= $33$, k = neighbours per node in ring lattice = $6$, and probability $\beta = 0.4$. The initial conditions for the network is randomly placed $30\%$ cooperator in a defector world. So, at the initial step, there was $10$ cooperators and $23$ defectors, in the $381$ step, the cooperators fixed the population.Here, orange= defector and cyan= cooperator.}
-  \label{fig:side_by_side}
-\end{figure}
-
-
-
-
-
-
-
 \section{Results}
 \subsection{Replicator Dynamics in Infinite Populations}
 In this section, first we analysed the replicator dynamics for three different two-player two-strategy games to determine the internal equilibrium and stability conditions.
@@ -796,8 +763,54 @@ This threshold behavior shows that the Stag Hunt game is bistable in finite popu
     \label{fig:6}
 \end{figure}
 \end{enumerate}
+\subsection{Evolutionary Dynamics in Structured Populations}
+The evolutionary dynamics of Stag Hunt game in structured population was investigated using,
+\begin{enumerate}
+\item A square lattice with Moore neighbourhood.
+\item A Newman–Watts–Strogatz (NWS), small world network.
+\end{enumerate}
+In both cases, the simulations began with a population consisting minority of cooperators with in a majority of defectors and the frequency of the cooperators were tracked over time.\\
+Let's starts with analysing the result of the square lattice with Moore neighbourhood.
+Simulation in a square lattice starts with randomly placed $30\%$ cooperators, and gradually increased in frequency due to spatial clustering. The percentage of cooperators rose dramatically in $3,000$ time steps from $30\%$ to $42.9\%$. The spatial analyses indicated that clustering cooperators provided mutual reinforcement against the intrusion of defectors. However, the increase in the number of cooperators was slow and this highlighted the effects of local structural limitation of square lattice.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{SH_SP.pdf}
+    \caption{Spatial evolution of the stag hunt game with payoff structure \eqref{eq:8}, over four time steps. Where the orange color denotes the defectors and the cyan color the cooperators.
+    At time step $0$, the cooperators are $300\%$ and defectors are $70\%$. 
+    At time step $1000$, the cooperators are $34.3\%$ and defectors are $65.7\%$. 
+    At time step $2000$, cooperators are $37.1\%$ and defectors are $62.9\%$. 
+    At time step $3000$, the cooperators are $42.9\%$ and defectors are $57.1\%$.}
+    \label{fig:7}
+\end{figure}
+Now, let's analyse the results for the NWS small world network. Simulations of the same game on an NWS network ($N=33$, average degree $k=6$, rewiring probability $b=0.4$) showed that population takeover took place quickly in the initial random distribution of 30 percent cooperators, and fixation was achieved in only 381 time steps. The addition of shortcut links and the large clustering coefficient of the NWS network was able to establish the distant connectivity of cooperative clusters, which led to quick dissemination and significantly reduced the time scale under which cooperation reached fixation.
+\begin{figure}[ht]
+  \centering
+      \includegraphics[width=0.8\textwidth]{SH_WS_demo.pdf}
+ \caption{This figure shows the simulation of Stag Hunt game in Newman-Watts-Strogatz network, with payoff strcuture \eqref{eq:8}, and the network construction conditions are N(nodes)= $33$, k = neighbours per node in ring lattice = $6$, and probability $\beta = 0.4$. The initial conditions for the network is randomly placed $30\%$ cooperator in a defector world. So, at the initial step, there was $10$ cooperators and $23$ defectors, in the $381$ step, the cooperators fixed the population.Here, orange= defector and cyan= cooperator.This is only one stochastic step.}
+  \label{fig:8}
+\end{figure}
+\newline
+This was just one stochastic run with just one initial condition, $30\%$ cooperators, then a comparative cumulative bar chart was plotted for $10,000$ stochastic runs for each different initial conditions with $1000$ time steps for NWS and Well mixed population network.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{SH_fixation_com.pdf}
+    \caption{Cooperation fixation rises sharply on the Newman–Watts–Strogatz network once initial cooperators exceed roughly $25\%$, with sky blue bars showing cooperators and vermillion bars showing defectors across 10,000 simulations per starting fraction.}
+    \label{fig:9}
+\end{figure}
+\begin{figure}[ht]
+  \centering
+      \includegraphics[width=0.8\textwidth]{SH_NWS_fixation_bar_chart_test.pdf}
+ \caption{}
+  \label{fig:9}
+\end{figure}
 
-\section{Discussion}
+
+
+
+
+
+
+
 
 
 
